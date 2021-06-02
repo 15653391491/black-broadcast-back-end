@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'big_screen.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'big_screen2',
+        'NAME': 'big_screen',
         'USER': 'root',
         'PASSWORD': 'mysql',
         'HOST': 'localhost',

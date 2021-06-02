@@ -34,6 +34,7 @@ def loginview(request):
     except Exception as e:
         errlog.info(repr(e))
         ret = eval(request.POST.get('json'))
+    print(ret)
     username = ret['username']
     password = ret['password']
     user = authenticate(username=username, password=password)
