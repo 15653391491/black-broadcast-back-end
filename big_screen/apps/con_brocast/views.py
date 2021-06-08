@@ -34,43 +34,47 @@ class BroadcastTextView(View):
         :param request:
         :return:
         """
-        # ------------- 接收 ------------------
-        ret = request.GET.dict()
-        limit = ret.get("limit")
-        page = ret.get("page")
-        select_info = ret.get("msg")
+        try:
+            # ------------- 接收 ------------------
+            ret = request.GET.dict()
+            limit = ret.get("limit")
+            page = ret.get("page")
+            select_info = ret.get("msg")
 
-        # ------------- 验证 ------------------
-        need_select = True
-        if select_info is None:
-            need_select = False
-        else:
-            select_info = eval(select_info)
-        # -------------- 处理 -----------------
-        # ******** 序列化器 **********
-        br = serBlackRecord()
-        ur = serUserRecord()
-        # ****** 查询数据 **********
-        if need_select:
-            result = br.select_info(select_info)
-        else:
-            result = br.get_info()
-        # ********* 分页 *************
-        paginator = Paginator(result, limit)
-        content = list()
-        for info in paginator.page(page):
-            mob_id = info.get("mobile__id")
-            time = info.get("time")
-            record_obj = ur.get_recent_record2(mob_id, time)
-            info["monitor"] = record_obj.get("monitor")
-            info["freq__num"] = 4
-            content.append(info)
-        # -------------- 返回 -----------------
+            # ------------- 验证 ------------------
+            need_select = True
+            if select_info is None:
+                need_select = False
+            else:
+                select_info = eval(select_info)
+            # -------------- 处理 -----------------
+            # ******** 序列化器 **********
+            br = serBlackRecord()
+            ur = serUserRecord()
+            # ****** 查询数据 **********
+            if need_select:
+                result = br.select_info(select_info)
+            else:
+                result = br.get_info()
+            # ********* 分页 *************
+            paginator = Paginator(result, limit)
+            content = list()
+            for info in paginator.page(page):
+                mob_id = info.get("mobile__id")
+                time = info.get("time")
+                record_obj = ur.get_recent_record2(mob_id, time)
+                info["monitor"] = record_obj.get("monitor")
+                info["freq__num"] = 4
+                content.append(info)
+            # -------------- 返回 -----------------
 
-        con = code.con
-        con["data"] = content
-        con["count"] = paginator.count
-        return JsonResponse(con)
+            con = code.con
+            con["data"] = content
+            con["count"] = paginator.count
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            errlog.warning(e)
 
     @classmethod
     def patch(cls, request):
