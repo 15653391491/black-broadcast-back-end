@@ -148,7 +148,8 @@ class SerTable:
                 if type(con["mobile"]) is not str:
                     con["mobile"] = con["mobile"].mobile
             # 判断音频文件是否存在
-            recordName = code.file_DIR + "/" + con["record"]
+            record = con["record"].split("/")[2]
+            recordName = code.file_DIR + "/" + record
             con["recordExist"] = os.path.exists(recordName)
             result.append(con)
         return result
