@@ -56,3 +56,5 @@ con_false = {
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 file_DIR = BASE_DIR + "/static/mp3"
+if __name__ == '__main__':
+    print(file_DIR)
