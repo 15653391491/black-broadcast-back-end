@@ -63,7 +63,7 @@ class serBlackRecord(SerTable):
         _query = self.table.filter(islegal=0).values("id", "time", "freq", "lnglat", "category__name", "mobile__name",
                                                      "record",
                                                      "address",
-                                                     "contact", "common", "mobile__id").order_by("-time")
+                                                     "contact", "common", "category__num", "mobile__id").order_by("-time")
         # ------------------------------------------------ 查询条件 -----------------------------------------------
         keys = select_dict.keys()
         if "s_time" in keys and "e_time" in keys:
