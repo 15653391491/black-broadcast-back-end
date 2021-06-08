@@ -1,3 +1,5 @@
+import os
+
 ISWORKING_RECORD = 2 * 60  # 心跳包记录时间间隔
 
 EXPIRATION_TIME = 2 * 60  # 心跳包过期时间
@@ -51,3 +53,6 @@ con_false = {
     "code": STATUSCODE_UNSUCCESS,
     "msg": "失败"
 }
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+file_DIR = BASE_DIR + "/static/mp3"

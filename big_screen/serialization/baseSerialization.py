@@ -2,6 +2,7 @@ import datetime
 import logging
 from django.db.models.manager import Manager
 from django.db.utils import IntegrityError
+import os
 
 from big_screen.utils import sys_setting as code
 from con_control.models import MobileInfo, MonitorInfo, District
@@ -146,6 +147,9 @@ class SerTable:
             if "mobile" in keys:
                 if type(con["mobile"]) is not str:
                     con["mobile"] = con["mobile"].mobile
+            # 判断音频文件是否存在
+            recordName = code.file_DIR + "/" + con["record"]
+            con["recordExist"] = os.path.exists(recordName)
             result.append(con)
         return result
 
