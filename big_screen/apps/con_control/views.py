@@ -57,6 +57,7 @@ class FromSelectView(View):
             content_mobile.append(con)
         # ********** 区域 *************
         content_district = dis.get_info_select()
+        content_district_bak = dis.get_info_select_bak()
         # ********* 台站 **************
         content_taizhan = dis.get_taizhan_select()
         # ********* 汇总 ***************
@@ -71,6 +72,7 @@ class FromSelectView(View):
         # content_freq_category.append({"name": "全部", "num": "0"})
         info = dict()
         info["district"] = content_district
+        info["district_copy"] = content_district_bak
         info["freq_category"] = content_freq_category
         info["mobile"] = content_mobile
         info["monitor"] = content_monitor

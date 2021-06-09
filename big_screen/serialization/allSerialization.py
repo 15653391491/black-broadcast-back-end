@@ -649,6 +649,23 @@ class serDistrict(SerTable):
             content.append(con)
         return content
 
+    def get_info_select_bak(self):
+        """
+        获取二级行政区列表(下拉框用)
+        :return:
+        """
+        sys_dis_id = self.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
+        sys_dis_name = self.table.get(adcode=code.SYS_DISTRICT, is_district=1).name
+        query = self.table.filter(superior=sys_dis_id, is_district=1).values()
+        content = list()
+        content.append({"label": sys_dis_name, "value": 0})
+        for info in list(query):
+            con = dict()
+            con["label"] = info.get("name")
+            con["value"] = info.get("id")
+            content.append(con)
+        return content
+
     def get_taizhan_select(self):
         """
         获取台站列表(下拉框用)
