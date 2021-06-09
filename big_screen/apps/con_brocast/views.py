@@ -140,7 +140,7 @@ class GetInfoView(View):
             # ******* 组织数据 ***********
             bc_base_content = [{"name": "全部", "num": "0"}]
             bc_base_content.extend(bc_content)
-            mob_base_content = [{"name": "全部", "num": "0"}]
+            mob_base_content = [{"label": "全部", "value": "0"}]
             mob_base_content.extend(mob_content)
             # -------------- 返回 ------------------
             info = dict()

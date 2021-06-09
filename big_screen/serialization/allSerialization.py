@@ -358,8 +358,8 @@ class serMobile(SerTable):
         content = list()
         for con in list(query):
             info = dict()
-            info["num"] = str(con.get("id"))
-            info["name"] = con.get("name")
+            info["value"] = str(con.get("id"))
+            info["label"] = con.get("name")
 
             content.append(info)
         content = list(map(self.formatter_foreign_content, content))
