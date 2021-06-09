@@ -205,6 +205,7 @@ class RegionRetrievalView(View):
         paginator = Paginator(city_result, limit)
         content = list()
         for con in paginator.page(page):
+            con["freq__num"] = 4
             content.append(con)
         # ---------------- 返回 -----------------
         con = code.con
