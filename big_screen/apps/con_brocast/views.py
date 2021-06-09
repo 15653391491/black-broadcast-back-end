@@ -125,31 +125,34 @@ class GetInfoView(View):
         :param request:
         :return:
         """
-        #  ------------ 接收 -------------------
-        # -------------- 验证 ------------------
-        # -------------- 处理 ------------------
-        # ******* 序列化器 **********
-        bc = serBlackCategory()
-        mob = serMobile()
-        wc = serWhiteCategory()
-        # ******* 查询数据 **********
-        bc_content = bc.get_info_select()
-        mob_content = mob.get_info_select()
-        wc_content = wc.get_info_select()
-        # ******* 组织数据 ***********
-        bc_base_content = [{"name": "全部", "num": "0"}]
-        bc_base_content.extend(bc_content)
-        mob_base_content = [{"name": "全部", "num": "0"}]
-        mob_base_content.extend(mob_content)
-        # -------------- 返回 ------------------
-        info = dict()
-        info["category"] = bc_base_content
-        info["mobile"] = mob_base_content
-        info["whcategory"] = wc_content
-        info["category-change"] = bc_content
-        con = code.con
-        con["data"] = info
-        return JsonResponse(con)
+        try:
+            #  ------------ 接收 -------------------
+            # -------------- 验证 ------------------
+            # -------------- 处理 ------------------
+            # ******* 序列化器 **********
+            bc = serBlackCategory()
+            mob = serMobile()
+            wc = serWhiteCategory()
+            # ******* 查询数据 **********
+            bc_content = bc.get_info_select()
+            mob_content = mob.get_info_select()
+            wc_content = wc.get_info_select()
+            # ******* 组织数据 ***********
+            bc_base_content = [{"name": "全部", "num": "0"}]
+            bc_base_content.extend(bc_content)
+            mob_base_content = [{"name": "全部", "num": "0"}]
+            mob_base_content.extend(mob_content)
+            # -------------- 返回 ------------------
+            info = dict()
+            info["category"] = bc_base_content
+            info["mobile"] = mob_base_content
+            info["whcategory"] = wc_content
+            info["category-change"] = bc_content
+            con = code.con
+            con["data"] = info
+            return JsonResponse(con)
+        except Exception:
+            traceback.print_exc()
 
 
 class RegionRetrievalView(View):
