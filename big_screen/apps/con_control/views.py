@@ -60,6 +60,7 @@ class FromSelectView(View):
         content_district_bak = dis.get_info_select_bak()
         # ********* 台站 **************
         content_taizhan = dis.get_taizhan_select()
+        content_taizhan_copy = dis.get_taizhan_select_copy()
         # ********* 汇总 ***************
         content_freq_category = list()
         content_freq_category_result = wc.get_info_select()
@@ -77,6 +78,7 @@ class FromSelectView(View):
         info["mobile"] = content_mobile
         info["monitor"] = content_monitor
         info["taizhan"] = content_taizhan
+        info["taizhan_copy"] = content_taizhan_copy
         # ---------------- 返回 ------------------
         con = code.con
         con["data"] = info
