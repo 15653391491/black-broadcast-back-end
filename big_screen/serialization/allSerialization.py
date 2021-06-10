@@ -690,7 +690,6 @@ class serDistrict(SerTable):
         sys_dis_name = self.table.get(adcode=code.SYS_DISTRICT, is_district=1).name
         query = self.table.filter(is_district=0).values()
         content = list()
-        content.append({"label": sys_dis_name, "value": 0})
         for info in list(query):
             con = dict()
             con["label"] = info.get("name")
