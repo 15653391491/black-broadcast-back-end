@@ -63,7 +63,8 @@ class serBlackRecord(SerTable):
         _query = self.table.filter(islegal=0).values("id", "time", "freq", "lnglat", "category__name", "mobile__name",
                                                      "record",
                                                      "address",
-                                                     "contact", "common", "category__num", "mobile__id").order_by("-time")
+                                                     "contact", "common", "category__num", "mobile__id").order_by(
+            "-time")
         # ------------------------------------------------ 查询条件 -----------------------------------------------
         keys = select_dict.keys()
         if "s_time" in keys and "e_time" in keys:
@@ -933,7 +934,7 @@ class serWhiteList(SerTable):
         # ****************
         sys_dis_id = self.dis.get(adcode=code.SYS_DISTRICT).id
         # -------------- 查询集 ------------------
-        query = self.table.all().values("name", "freq", "type","district")
+        query = self.table.all().values("name", "freq", "type", "district")
         # --------------- 结果 --------------------
         # ********** 普通频点 ************
         normal_content = list(query.filter(district=sys_dis_id))
@@ -1207,6 +1208,20 @@ class serWhiteCategory(SerTable):
             con = dict()
             con["name"] = info.get("name")
             con["num"] = str(info.get("id"))
+            content.append(con)
+        return content
+
+    def get_info_select_copy(self):
+        """
+        获取分类列表,(下拉菜单用)
+        :return:
+        """
+        query = self.table.all().values()
+        content = list()
+        for info in list(query):
+            con = dict()
+            con["label"] = info.get("name")
+            con["value"] = info.get("id")
             content.append(con)
         return content
 

@@ -41,6 +41,11 @@ class FromSelectView(View):
         content_mobile = list()
         content_monitor.append(all_info)
         content_mobile.append(all_info)
+        all_info_copy = {"label": "全部", "value": 0}
+        content_monitor_copy = list()
+        content_mobile_copy = list()
+        content_monitor_copy.append(all_info_copy)
+        content_mobile_copy.append(all_info_copy)
         # *********** 监测人员 ***************
         query_monitor = dis.mon.filter(is_delete=0).values()
         for info in list(query_monitor):
@@ -48,6 +53,12 @@ class FromSelectView(View):
             con["name"] = info.get("name")
             con["num"] = str(info.get("id"))
             content_monitor.append(con)
+        query_monitor_copy = dis.mon.filter(is_delete=0).values()
+        for info in list(query_monitor_copy):
+            con = dict()
+            con["label"] = info.get("name")
+            con["value"] = info.get("id")
+            content_monitor_copy.append(con)
         # *********** 手机 *******************
         query_mobile = dis.mob.filter(is_delete=0).values()
         for info in list(query_mobile):
@@ -55,6 +66,12 @@ class FromSelectView(View):
             con["name"] = info.get("name")
             con["num"] = str(info.get("id"))
             content_mobile.append(con)
+        query_mobile_copy = dis.mob.filter(is_delete=0).values()
+        for info in list(query_mobile_copy):
+            con = dict()
+            con["label"] = info.get("name")
+            con["value"] = info.get("id")
+            content_mobile_copy.append(con)
         # ********** 区域 *************
         content_district = dis.get_info_select()
         content_district_bak = dis.get_info_select_bak()
@@ -70,13 +87,23 @@ class FromSelectView(View):
                 continue
             else:
                 content_freq_category.append(fc_info)
-        # content_freq_category.append({"name": "全部", "num": "0"})
+        content_freq_category_copy = list()
+        content_freq_category_result_copy = wc.get_info_select_copy()
+        for fc_info in content_freq_category_result_copy:
+            num = fc_info.get("value")
+            if str(num) == 4:
+                continue
+            else:
+                content_freq_category_copy.append(fc_info)
         info = dict()
         info["district"] = content_district
         info["district_copy"] = content_district_bak
         info["freq_category"] = content_freq_category
+        info["freq_category_copy"] = content_freq_category_copy
         info["mobile"] = content_mobile
+        info["mobile_copy"] = content_mobile_copy
         info["monitor"] = content_monitor
+        info["monitor_copy"] = content_monitor_copy
         info["taizhan"] = content_taizhan
         info["taizhan_copy"] = content_taizhan_copy
         # ---------------- 返回 ------------------
