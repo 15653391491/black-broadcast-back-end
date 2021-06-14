@@ -1,6 +1,7 @@
 import datetime
 import logging
 from pymysql import IntegrityError
+from django.db.models import Q
 
 from con_brocast.models import BlackRecord, BlackCategory
 from con_control.models import MonitorInfo, MobileInfo, MobileNewLocation, MobileUseRecord, District
@@ -911,16 +912,8 @@ class serWhiteList(SerTable):
         :param select_dict:
         :return:
         """
-        district = select_dict.get("district")
-        freq = select_dict.get("freq")
-        freq_type = select_dict.get("type")
-        query = self.table.all().values().exclude(freq=f.UNKNOW_WHITELIST)
-        if str(district) != "0":
-            query = query.filter(district=district)
-        if str(freq_type) != "0":
-            query = query.filter(type=freq_type)
-        if freq is not "":
-            query = query.filter(freq=freq)
+        query = self.table.filter(**select_dict).values().exclude(
+            freq=f.UNKNOW_WHITELIST)
         content = list(map(self.formatter_foreign_content, list(query)))
         content = self.formatter_content(content)
         return content

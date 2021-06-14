@@ -334,36 +334,40 @@ class FreqCategoryView(View):
         :param request:
         :return:
         """
-        # --------------- 接收 --------------------
-        ret = request.GET.dict()
-        select_dict = ret.get("msg")
-        page = ret.get("page")
-        limit = ret.get("limit")
-        # --------------- 验证 --------------------
-        is_select = False
-        if select_dict is None:
-            pass
-        else:
-            select_dict = json.loads(select_dict)
-            is_select = True
-        # --------------- 处理 --------------------
-        # ******* 序列化器 *********
-        wh = serWhiteList()
-        # ******* 结果查询 ********
-        if is_select:
-            result = wh.select_info(select_dict)
-        else:
-            result = wh.get_info()
-        # ******* 分页 *********
-        paginator = Paginator(result, limit)
-        content = list()
-        for con in paginator.page(page):
-            content.append(con)
-        # --------------- 返回 --------------------
-        con = code.con
-        con["data"] = content
-        con["count"] = len(result)
-        return JsonResponse(con)
+        try:
+            # --------------- 接收 --------------------
+            ret = request.GET.dict()
+            select_dict = ret.get("msg")
+            page = ret.get("page")
+            limit = ret.get("limit")
+            # --------------- 验证 --------------------
+            is_select = False
+            if select_dict is None:
+                pass
+            else:
+                select_dict = json.loads(select_dict)
+                is_select = True
+            # --------------- 处理 --------------------
+            # ******* 序列化器 *********
+            wh = serWhiteList()
+            # ******* 结果查询 ********
+            if is_select:
+                result = wh.select_info(select_dict)
+            else:
+                result = wh.get_info()
+            # ******* 分页 *********
+            paginator = Paginator(result, limit)
+            content = list()
+            for con in paginator.page(page):
+                content.append(con)
+            # --------------- 返回 --------------------
+            con = code.con
+            con["data"] = content
+            con["count"] = len(result)
+            return JsonResponse(con)
+        except Exception:
+            traceback.print_exc()
+
 
     @classmethod
     def post(cls, request):
