@@ -474,13 +474,18 @@ class serUserRecord(SerTable):
         :param select_dict:
         :return:
         """
+        select_info = dict()
         keys = select_dict.keys()
         if "s_time" in keys and "e_time" in keys:
-            select_dict["time__gte"] = select_dict.get("s_time")
-            select_dict["time__lte"] = select_dict.get("e_time")
-        _query = self.table.filter(**select_dict).values("id", "mobile__name", "monitor__name", "time",
+            select_info["time__gte"] = select_dict.get("s_time")
+            select_info["time__lte"] = select_dict.get("e_time")
+        if "mobile" in keys:
+            select_info["mobile_id"] = select_dict.get("mobile")
+        if "monitor" in keys:
+            select_info["monitor_id"] = select_dict.get("monitor")
+        query = self.table.filter(**select_info).values("id", "mobile__name", "monitor__name", "time",
                                                          "version").order_by("-time")
-        content = self.formatter_content(list(_query))
+        content = self.formatter_content(list(query))
         content = list(map(self.formatter_foreign_content, content))
         return content
 
