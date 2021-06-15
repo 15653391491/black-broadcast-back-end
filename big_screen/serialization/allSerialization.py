@@ -60,6 +60,7 @@ class serBlackRecord(SerTable):
         return contant
 
     def select_info(self, select_dict):
+
         # ------------------------------------------------ 查询集 -------------------------------------------------
         _query = self.table.filter(islegal=0).values("id", "time", "freq", "lnglat", "category__name", "mobile__name",
                                                      "record",
@@ -435,7 +436,6 @@ class serUserRecord(SerTable):
         """
         SerTable.__init__(self)
         self.table = MobileUseRecord.objects
-        self._query = self.table.all().values()
 
     def get_info(self):
         _query = self.table.all().values("id", "mobile__name", "monitor__name", "time", "version").order_by("-time")
@@ -475,19 +475,11 @@ class serUserRecord(SerTable):
         :return:
         """
         keys = select_dict.keys()
-        _query = self._query.values("id", "mobile__name", "monitor__name", "time", "version").order_by("-time")
         if "s_time" in keys and "e_time" in keys:
-            s_time = datetime.datetime.strptime(select_dict["s_time"], code.DATA_FORMATTER)
-            e_time = datetime.datetime.strptime(select_dict["e_time"], code.DATA_FORMATTER)
-            _query = _query.filter(time__gte=s_time, time__lte=e_time)
-        if "mobile" in keys:
-            mobile = select_dict.get("mobile")
-            if mobile is not "0":
-                _query = _query.filter(mobile__id=mobile).order_by("-time")
-        if "monitor" in keys:
-            idcard = select_dict.get("monitor")
-            if idcard is not "0":
-                _query = _query.filter(monitor__id=idcard)
+            select_dict["time__gte"] = select_dict.get("s_time")
+            select_dict["time__lte"] = select_dict.get("e_time")
+        _query = self.table.filter(**select_dict).values("id", "mobile__name", "monitor__name", "time",
+                                                         "version").order_by("-time")
         content = self.formatter_content(list(_query))
         content = list(map(self.formatter_foreign_content, content))
         return content
