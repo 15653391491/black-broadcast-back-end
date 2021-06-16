@@ -484,7 +484,7 @@ class serUserRecord(SerTable):
         if "monitor" in keys:
             select_info["monitor_id"] = select_dict.get("monitor")
         query = self.table.filter(**select_info).values("id", "mobile__name", "monitor__name", "time",
-                                                         "version").order_by("-time")
+                                                        "version").order_by("-time")
         content = self.formatter_content(list(query))
         content = list(map(self.formatter_foreign_content, content))
         return content
@@ -766,17 +766,17 @@ class serMobileNewLocation(SerTable):
         :param select_dict:
         :return:
         """
-        # ------------- 查询集 ------------------
-        _query = self.table.all().values("lnglat").order_by("time")
+        select_info = dict()
         # ------------- 条件过滤 ----------------
         keys = select_dict.keys()
         if "s_time" in keys and "e_time" in keys:
-            s_time = datetime.datetime.strptime(select_dict.get("s_time"), code.DATA_FORMATTER)
-            e_time = datetime.datetime.strptime(select_dict.get("e_time"), code.DATA_FORMATTER)
-            _query = _query.filter(time__gte=s_time, time__lte=e_time)
+            # pass
+            select_info["time__gte"] = select_dict.get("s_time")
+            select_info["time__lte"] = select_dict.get("e_time")
         if "mobile" in keys:
             mobile = self.mob.get(mobile=select_dict.get("mobile")).id
-            _query = _query.filter(mobile__id=mobile)
+            select_info["mobile__id"] = mobile
+        _query = self.table.filter(**select_info).values("lnglat")
         # ------------ 结果处理 -------------------
         content = self.formatter_content(list(_query))
         content = list(map(lambda con: con.get("lnglat"), content))
