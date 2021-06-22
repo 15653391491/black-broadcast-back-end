@@ -1,13 +1,10 @@
-import time
 import json
 import copy
 import logging
 from django.http import JsonResponse
 from dwebsocket.decorators import accept_websocket
 from django_redis import get_redis_connection
-import traceback
 
-from big_screen.utils import tools as t
 from big_screen.utils import sys_setting as code
 from big_screen.redisOpration.AllOpration import isworkingOp, massmarkOp, broadcastOp
 from big_screen.serialization.allSerialization import serMobile
@@ -27,16 +24,13 @@ def websocketmassmark(request):
     :param request:
     :return:
     """
-    cyc = t.setting()
-    cycle = cyc.massmark_selectcycle
     # --------------- 返回 -----------------------
     if request.is_websocket():
-        while True:
-            content = select_broadcast_data()
-            w = copy.copy(request.websocket)
-            socket_obj.append(w)
-            request.websocket.send(json.dumps(content))
-            time.sleep(cycle)
+        content = select_broadcast_data()
+        w = copy.copy(request.websocket)
+        socket_obj.append(w)
+        request.websocket.send(json.dumps(content))
+        request.websocket.wait()
     else:
         content = select_broadcast_data()
         con = code.con
@@ -56,38 +50,31 @@ def websocketchart(request):
     if request.is_websocket():
         w = copy.copy(request.websocket)
         socket_obj.append(w)
-        while True:
-            # ------------------------------------ 组织数据 ---------------------------------
-            chart_con = get_redis_connection('chart')
-            counter = chart_con.get('counter').decode()
-            chart_year_month = chart_con.get('chart_year_month').decode()
-            category = chart_con.get('category').decode()
-            time_count = chart_con.get('time_count').decode()
-            data = {
-                'counter': json.loads(counter),
-                'chart_year_month': json.loads(chart_year_month),
-                'category': json.loads(category),
-                'time_count': json.loads(time_count),
-            }
-            # ---------------------------------------- 发送数据 ---------------------------------------
-            request.websocket.send(json.dumps(data))
-            # ---------------------------------------- 读取配置，socket睡眠 ---------------------------
-            s = t.setting()
-            cycle = s.chart_selectcycle
-            time.sleep(cycle * 60 * 60)
-    try:
+        # ------------------------------------ 组织数据 ---------------------------------
         chart_con = get_redis_connection('chart')
         counter = chart_con.get('counter').decode()
         chart_year_month = chart_con.get('chart_year_month').decode()
         category = chart_con.get('category').decode()
         time_count = chart_con.get('time_count').decode()
-    except Exception as e:
-        errlog.info(repr(e))
-        con = {
-            "code": code.STATUSCODE_UNSUCCESS,
-            "msg": "error"
+        data = {
+            'counter': json.loads(counter),
+            'chart_year_month': json.loads(chart_year_month),
+            'category': json.loads(category),
+            'time_count': json.loads(time_count),
         }
+        # ---------------------------------------- 发送数据 ---------------------------------------
+        request.websocket.send(json.dumps(data))
+        request.websocket.wait()
+        # ---------------------------------------- 读取配置，socket睡眠 ---------------------------
+        # s = t.setting()
+        # cycle = s.chart_selectcycle
+        # time.sleep(cycle * 60 * 60)
     else:
+        chart_con = get_redis_connection('chart')
+        counter = chart_con.get('counter').decode()
+        chart_year_month = chart_con.get('chart_year_month').decode()
+        category = chart_con.get('category').decode()
+        time_count = chart_con.get('time_count').decode()
         con = {
             'counter': json.loads(counter),
             'chart_year_month': json.loads(chart_year_month),
@@ -96,7 +83,7 @@ def websocketchart(request):
             "code": code.STATUSCODE_SUCCESS,
             "msg": "ok"
         }
-    return JsonResponse(con)
+        return JsonResponse(con)
 
 
 # √
@@ -107,19 +94,13 @@ def websocketisworkon(request):
     :param request:
     :return:
     """
-    try:
-        cyc = t.setting()
-        cycle = cyc.isworking_selectcycle
-        if request.is_websocket():
-            while True:
-                con = select_isworkon_data()
-                request.websocket.send(json.dumps(con))
-                time.sleep(cycle)
-        else:
-            con = select_isworkon_data()
-            return JsonResponse(con)
-    except Exception as e:
-        traceback.print_exc()
+    if request.is_websocket():
+        con = select_isworkon_data()
+        request.websocket.send(json.dumps(con))
+        request.websocket.wait()
+    else:
+        con = select_isworkon_data()
+        return JsonResponse(con)
 
 
 # ------------- 工具 -----------------------

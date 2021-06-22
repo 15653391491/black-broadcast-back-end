@@ -60,35 +60,35 @@ class serBlackRecord(SerTable):
         return contant
 
     def select_info(self, select_dict):
-
-        # ------------------------------------------------ 查询集 -------------------------------------------------
-        _query = self.table.filter(islegal=0).values("id", "time", "freq", "lnglat", "category__name", "mobile__name",
-                                                     "record",
-                                                     "address",
-                                                     "contact", "common", "category__num", "mobile__id").order_by(
-            "-time")
         # ------------------------------------------------ 查询条件 -----------------------------------------------
         keys = select_dict.keys()
+        select_info = dict()
         if "s_time" in keys and "e_time" in keys:
-            s_time = select_dict["s_time"]
-            e_time = select_dict["e_time"]
-            _query = _query.filter(time__gte=s_time, time__lte=e_time)
+            select_info["time__gte"] = select_dict.get("s_time")
+            select_info["time__lte"] = select_dict.get("e_time")
         if "category" in keys:
             category = select_dict["category"]
             if category is not "0":
-                _query = _query.filter(category__num=category)
+                select_info["category__num"] = select_dict.get("category")
         if "mobile" in keys:
             mobile = select_dict["mobile"]
             if mobile is not "0":
-                _query = _query.filter(mobile__id=mobile)
+                select_info["mobile__id"] = select_dict.get("mobile")
         if "freq" in keys:
             freq = select_dict["freq"]
             if freq is not "0" and freq is not "":
-                _query = _query.filter(freq=freq)
+                select_info["freq"] = select_dict.get("freq")
         if "district" in keys:
-            district = select_dict.get("district")
-            _query = _query.filter(district=int(district))
-        contant = self.formatter_content(list(_query))
+            select_info["district"] = select_dict.get("district")
+        select_info["islegal"] = 0
+        query = self.table.filter(**select_info).values("id", "time", "freq", "lnglat", "category__name",
+                                                        "mobile__name",
+                                                        "record",
+                                                        "address",
+                                                        "contact", "common", "category__num", "mobile__id",
+                                                        "islegal").order_by(
+            "-time")
+        contant = self.formatter_content(list(query))
         return contant
 
     def select_for_heatmap(self, select_dict):
@@ -121,12 +121,14 @@ class serBlackRecord(SerTable):
         :param select_dict:
         :return:
         """
-        _query = self.table.filter(islegal=0).order_by("-time")
+        # _query = self.table.filter(islegal=0).order_by("-time")
+        select_info = dict()
+        select_info["islegal"] = 0
         keys = select_dict.keys()
         if "s_time" in keys and "e_time" in keys:
-            s_time = select_dict["s_time"]
-            e_time = select_dict["e_time"]
-            _query = _query.filter(time__gte=s_time, time__lte=e_time)
+            select_info["time__gte"] = select_dict.get("s_time")
+            select_info["time__lte"] = select_dict.get("e_time")
+        _query = self.table.filter(**select_info).order_by("-time")
         return _query
 
     def update_info(self, update_dict):

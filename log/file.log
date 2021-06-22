@@ -37,3 +37,862 @@ TypeError: int() argument must be a string, a bytes-like object or a number, not
     print(ret)
 OSError: [Errno 5] Input/output error
 
+2021-06-16-19-07-07 mobile WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/views.py", line 571, in post
+    print(ret)
+OSError: [Errno 5] Input/output error
+
+2021-06-17-12-09-57 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-12-13-14 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-12-14-20 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-30-54 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-31-10 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-31-14 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-31-44 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-32-03 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-33-13 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-33-56 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-33-57 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-33-57 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-34-25 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-34-37 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-52-03 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-53-27 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-53-38 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-54-05 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-54-31 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-54-51 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-13-54-53 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-17-17-02-12 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-18-18-12-59 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/mobile/middlewares.py", line 16, in process_request
+    re_type = path[2]
+IndexError: list index out of range
+
+2021-06-21-09-27-43 Process INFO 查询数据库: 0.054703999999999864 Seconds
+2021-06-21-09-27-43 Process INFO 查询数据库: 0.06313400000000002 Seconds
+2021-06-21-09-27-43 Process INFO 分页处理: 0.23362700000000003 Seconds
+2021-06-21-09-27-43 Process INFO 分页处理: 0.2645489999999999 Seconds
+2021-06-21-09-27-55 Process INFO 查询数据库: 0.030616999999999894 Seconds
+2021-06-21-09-27-55 Process INFO 查询数据库: 0.05389199999999983 Seconds
+2021-06-21-09-27-56 Process INFO 分页处理: 0.3150149999999998 Seconds
+2021-06-21-09-27-56 Process INFO 分页处理: 0.2887780000000002 Seconds
+2021-06-21-09-28-23 Process INFO 查询数据库: 0.03801200000000016 Seconds
+2021-06-21-09-28-23 Process INFO 查询数据库: 0.05452799999999991 Seconds
+2021-06-21-09-28-23 Process INFO 分页处理: 0.3233229999999998 Seconds
+2021-06-21-09-28-23 Process INFO 分页处理: 0.314454 Seconds
+2021-06-21-09-33-47 Process INFO 查询数据库: 0.027000999999999997 Seconds
+2021-06-21-09-33-47 Process INFO 生成分页: 4.699999999999149e-05 Seconds
+2021-06-21-09-33-47 Process INFO 查询数据库: 0.025729000000000002 Seconds
+2021-06-21-09-33-47 Process INFO 生成分页: 4.200000000000037e-05 Seconds
+2021-06-21-09-33-48 Process INFO 分页处理: 0.159916 Seconds
+2021-06-21-09-33-48 Process INFO 分页处理: 0.149181 Seconds
+2021-06-21-09-35-19 Process INFO 查询数据库: 0.026528999999999997 Seconds
+2021-06-21-09-35-19 Process INFO 生成分页: 4.200000000000037e-05 Seconds
+2021-06-21-09-35-19 Process INFO 查询数据库: 0.027673000000000003 Seconds
+2021-06-21-09-35-19 Process INFO 生成分页: 3.999999999999837e-05 Seconds
+2021-06-21-09-35-19 Process INFO 分页处理: 0.159982 Seconds
+2021-06-21-09-35-19 Process INFO 分页处理: 0.154152 Seconds
+2021-06-21-11-52-01 Process INFO 查询数据库: 0.036665999999999976 Seconds
+2021-06-21-11-52-01 Process INFO 查询数据库: 0.03271199999999996 Seconds
+2021-06-21-11-52-01 Process INFO 生成分页: 0.00019799999999997597 Seconds
+2021-06-21-11-52-01 Process INFO 生成分页: 0.000136000000000025 Seconds
+2021-06-21-11-52-01 Process INFO 分页处理: 0.139094 Seconds
+2021-06-21-11-52-01 Process INFO 分页处理: 0.14942699999999998 Seconds
+2021-06-21-11-53-01 Process INFO 查询数据库: 0.026654999999999984 Seconds
+2021-06-21-11-53-01 Process INFO 生成分页: 3.2000000000032e-05 Seconds
+2021-06-21-11-53-01 Process INFO 查询数据库: 0.024866 Seconds
+2021-06-21-11-53-01 Process INFO 生成分页: 1.999999999996449e-05 Seconds
+2021-06-21-11-53-02 Process INFO 分页处理: 0.13555799999999996 Seconds
+2021-06-21-11-53-02 Process INFO 分页处理: 0.134465 Seconds
+2021-06-21-13-52-12 Process INFO 查询数据库: 0.026758000000000004 Seconds
+2021-06-21-13-52-12 Process INFO 生成分页: 4.099999999999937e-05 Seconds
+2021-06-21-13-52-12 Process INFO 查询数据库: 0.028266 Seconds
+2021-06-21-13-52-12 Process INFO 生成分页: 2.8000000000000247e-05 Seconds
+2021-06-21-13-52-12 Process INFO 分页处理: 0.128656 Seconds
+2021-06-21-13-52-12 Process INFO 分页处理: 0.12988 Seconds
+2021-06-21-14-26-16 Process INFO 查询数据库: 1.078834 Seconds
+2021-06-21-14-26-16 Process INFO 生成分页: 2.1000000000048757e-05 Seconds
+2021-06-21-14-26-24 Process INFO 查询数据库: 1.7300529999999998 Seconds
+2021-06-21-14-26-24 Process INFO 生成分页: 1.8999999999991246e-05 Seconds
+2021-06-21-14-26-48 Process INFO 分页处理: 3.1485040000000004 Seconds
+2021-06-21-14-26-56 Process INFO 分页处理: 3.2568920000000006 Seconds
+2021-06-21-14-29-38 Process INFO 查询数据库: 0.956925 Seconds
+2021-06-21-14-29-38 Process INFO 生成分页: 1.8000000000073513e-05 Seconds
+2021-06-21-14-29-51 Process INFO 查询数据库: 1.070023 Seconds
+2021-06-21-14-29-51 Process INFO 生成分页: 1.999999999990898e-05 Seconds
+2021-06-21-14-30-14 Process INFO 分页处理: 3.0805439999999997 Seconds
+2021-06-21-14-32-04 Process INFO 查询数据库: 0.029974 Seconds
+2021-06-21-14-32-04 Process INFO 生成分页: 4.099999999999937e-05 Seconds
+2021-06-21-14-32-04 Process INFO 查询数据库: 0.02593000000000001 Seconds
+2021-06-21-14-32-04 Process INFO 生成分页: 3.799999999999637e-05 Seconds
+2021-06-21-14-32-05 Process INFO 分页处理: 0.13652799999999998 Seconds
+2021-06-21-14-32-05 Process INFO 分页处理: 0.12370700000000001 Seconds
+2021-06-21-14-55-55 Process INFO 查询数据库: 0.015683000000000002 Seconds
+2021-06-21-14-55-55 Process INFO 生成分页: 1.8999999999991246e-05 Seconds
+2021-06-21-14-55-55 Process INFO 查询数据库: 0.025161000000000003 Seconds
+2021-06-21-14-55-55 Process INFO 生成分页: 3.700000000000925e-05 Seconds
+2021-06-21-14-55-55 Process INFO 分页处理: 0.09135899999999997 Seconds
+2021-06-21-14-55-55 Process INFO 分页处理: 0.103328 Seconds
+2021-06-21-15-28-12 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 62, in get
+    if broadVision == vision & selectForm == select_info & vision != None:
+TypeError: unsupported operand type(s) for &: 'NoneType' and 'NoneType'
+
+2021-06-21-15-28-12 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 62, in get
+    if broadVision == vision & selectForm == select_info & vision != None:
+TypeError: unsupported operand type(s) for &: 'NoneType' and 'NoneType'
+
+2021-06-21-15-31-32 Process INFO 未经过缓存: 0.195299 Seconds
+2021-06-21-15-31-32 Process INFO 未经过缓存: 0.200147 Seconds
+2021-06-21-15-31-51 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 63, in get
+    if broadVision == vision & selectForm == select_info & vision != None:
+TypeError: unsupported operand type(s) for &: 'bytes' and 'str'
+
+2021-06-21-15-33-49 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 62, in get
+    selectForm = oo.kv_get("selectForm").decode()
+AttributeError: 'str' object has no attribute 'decode'
+
+2021-06-21-15-33-49 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 62, in get
+    selectForm = oo.kv_get("selectForm").decode()
+AttributeError: 'str' object has no attribute 'decode'
+
+2021-06-21-15-34-46 Process INFO <class 'str'>
+2021-06-21-15-34-46 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 64, in get
+    if broadVision == vision & selectForm == select_info & vision != None:
+TypeError: unsupported operand type(s) for &: 'bytes' and 'str'
+
+2021-06-21-15-34-46 Process INFO <class 'str'>
+2021-06-21-15-34-46 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 64, in get
+    if broadVision == vision & selectForm == select_info & vision != None:
+TypeError: unsupported operand type(s) for &: 'bytes' and 'str'
+
+2021-06-21-15-36-14 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 63, in get
+    errlog.info("selectForm"+type(selectForm))
+TypeError: Can't convert 'type' object to str implicitly
+
+2021-06-21-15-36-14 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 63, in get
+    errlog.info("selectForm"+type(selectForm))
+TypeError: Can't convert 'type' object to str implicitly
+
+2021-06-21-15-37-58 Process INFO selectForm:
+2021-06-21-15-37-58 Process INFO <class 'str'>
+2021-06-21-15-37-58 Process INFO vision:
+2021-06-21-15-37-58 Process INFO <class 'bytes'>
+2021-06-21-15-37-58 Process INFO BroadVision:
+2021-06-21-15-37-58 Process INFO <class 'bytes'>
+2021-06-21-15-37-58 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 69, in get
+    if broadVision == vision & selectForm == select_info & vision != None:
+TypeError: unsupported operand type(s) for &: 'bytes' and 'str'
+
+2021-06-21-15-37-58 Process INFO selectForm:
+2021-06-21-15-37-58 Process INFO <class 'str'>
+2021-06-21-15-37-58 Process INFO vision:
+2021-06-21-15-37-58 Process INFO <class 'bytes'>
+2021-06-21-15-37-58 Process INFO BroadVision:
+2021-06-21-15-37-58 Process INFO <class 'bytes'>
+2021-06-21-15-37-58 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 69, in get
+    if broadVision == vision & selectForm == select_info & vision != None:
+TypeError: unsupported operand type(s) for &: 'bytes' and 'str'
+
+2021-06-21-15-39-43 Process INFO selectForm:
+2021-06-21-15-39-43 Process INFO <class 'str'>
+2021-06-21-15-39-43 Process INFO vision:
+2021-06-21-15-39-43 Process INFO <class 'str'>
+2021-06-21-15-39-43 Process INFO BroadVision:
+2021-06-21-15-39-43 Process INFO <class 'str'>
+2021-06-21-15-39-43 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 69, in get
+    if broadVision == vision & selectForm == select_info & vision != None:
+TypeError: unsupported operand type(s) for &: 'str' and 'str'
+
+2021-06-21-15-39-43 Process INFO selectForm:
+2021-06-21-15-39-43 Process INFO <class 'str'>
+2021-06-21-15-39-43 Process INFO vision:
+2021-06-21-15-39-43 Process INFO <class 'str'>
+2021-06-21-15-39-43 Process INFO BroadVision:
+2021-06-21-15-39-43 Process INFO <class 'str'>
+2021-06-21-15-39-43 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 69, in get
+    if broadVision == vision & selectForm == select_info & vision != None:
+TypeError: unsupported operand type(s) for &: 'str' and 'str'
+
+2021-06-21-15-42-14 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 59, in get
+    vision = oo.kvGet("vision").decode()
+AttributeError: 'NoneType' object has no attribute 'decode'
+
+2021-06-21-15-42-14 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 59, in get
+    vision = oo.kvGet("vision").decode()
+AttributeError: 'NoneType' object has no attribute 'decode'
+
+2021-06-21-15-43-04 Process INFO 未经过缓存: 0.189437 Seconds
+2021-06-21-15-43-04 Process INFO 未经过缓存: 0.189703 Seconds
+2021-06-21-15-44-33 Process INFO selectForm:
+2021-06-21-15-44-33 Process INFO <class 'str'>
+2021-06-21-15-44-33 Process INFO vision:
+2021-06-21-15-44-33 Process INFO <class 'str'>
+2021-06-21-15-44-33 Process INFO BroadVision:
+2021-06-21-15-44-33 Process INFO <class 'str'>
+2021-06-21-15-44-33 Process INFO selectForm:
+2021-06-21-15-44-33 Process INFO <class 'str'>
+2021-06-21-15-44-33 Process INFO vision:
+2021-06-21-15-44-33 Process INFO <class 'str'>
+2021-06-21-15-44-33 Process INFO BroadVision:
+2021-06-21-15-44-33 Process INFO <class 'str'>
+2021-06-21-15-44-34 Process INFO 分页器缓存: 0.156215 Seconds
+2021-06-21-15-44-34 Process INFO 分页器缓存: 0.16272 Seconds
+2021-06-21-15-45-15 Process INFO 分页器缓存: 0.124107 Seconds
+2021-06-21-15-45-23 Process INFO 分页器缓存: 0.09368500000000002 Seconds
+2021-06-21-15-45-31 Process INFO 分页器缓存: 0.046969999999999956 Seconds
+2021-06-21-15-45-34 Process INFO 分页器缓存: 1.4889780000000001 Seconds
+2021-06-21-15-45-37 Process INFO 分页器缓存: 0.9766220000000001 Seconds
+2021-06-21-15-45-38 Process INFO 分页器缓存: 1.5525900000000001 Seconds
+2021-06-21-15-45-51 Process INFO 分页器缓存: 0.782166 Seconds
+2021-06-21-15-45-54 Process INFO 分页器缓存: 1.5321519999999997 Seconds
+2021-06-21-15-45-56 Process INFO 分页器缓存: 0.09276799999999996 Seconds
+2021-06-21-15-45-58 Process INFO 分页器缓存: 0.14028000000000018 Seconds
+2021-06-21-15-46-12 Process INFO 分页器缓存: 0.043574 Seconds
+2021-06-21-15-46-13 Process INFO 分页器缓存: 0.04236500000000021 Seconds
+2021-06-21-15-46-14 Process INFO 分页器缓存: 0.04825300000000032 Seconds
+2021-06-21-15-46-15 Process INFO 分页器缓存: 0.08808400000000027 Seconds
+2021-06-21-15-49-20 Process INFO 未经过缓存: 0.10851299999999986 Seconds
+2021-06-21-15-53-10 Process INFO 分页器缓存: 0.06687500000000002 Seconds
+2021-06-21-15-53-11 Process INFO 分页器缓存: 0.143767 Seconds
+2021-06-21-15-53-11 Process INFO 分页器缓存: 0.10621399999999959 Seconds
+2021-06-21-16-00-30 Process INFO 分页器缓存: 0.162053 Seconds
+2021-06-21-16-00-31 Process INFO 分页器缓存: 0.170134 Seconds
+2021-06-21-16-01-37 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 118, in post
+    select_info = eval(ret.get("msg"))
+TypeError: eval() arg 1 must be a string, bytes or code object
+
+2021-06-21-16-02-16 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 118, in post
+    select_info = eval(ret.get("msg").decode())
+AttributeError: 'dict' object has no attribute 'decode'
+
+2021-06-21-16-06-34 Process INFO 分页器缓存: 0.10737999999999999 Seconds
+2021-06-21-16-08-40 Process INFO 分页器缓存: 0.12948099999999998 Seconds
+2021-06-21-16-08-44 Process INFO 分页器缓存: 0.097601 Seconds
+2021-06-21-16-08-45 Process INFO 分页器缓存: 0.09744 Seconds
+2021-06-21-16-08-46 Process INFO 分页器缓存: 0.09745999999999999 Seconds
+2021-06-21-16-08-48 Process INFO 分页器缓存: 0.09787000000000001 Seconds
+2021-06-21-16-08-48 Process INFO 分页器缓存: 0.08652199999999999 Seconds
+2021-06-21-16-08-49 Process INFO 分页器缓存: 0.04172799999999999 Seconds
+2021-06-21-16-08-54 Process INFO 分页器缓存: 1.364591 Seconds
+2021-06-21-16-08-56 Process INFO 分页器缓存: 0.09724200000000005 Seconds
+2021-06-21-16-08-57 Process INFO 分页器缓存: 0.09906700000000024 Seconds
+2021-06-21-16-08-59 Process INFO 分页器缓存: 0.08768399999999987 Seconds
+2021-06-21-16-08-59 Process INFO 分页器缓存: 0.08952900000000019 Seconds
+2021-06-21-16-09-00 Process INFO 分页器缓存: 0.096714 Seconds
+2021-06-21-16-09-01 Process INFO 分页器缓存: 0.09924800000000022 Seconds
+2021-06-21-16-09-03 Process INFO 分页器缓存: 0.085121 Seconds
+2021-06-21-16-09-04 Process INFO 分页器缓存: 0.04638000000000009 Seconds
+2021-06-21-16-09-07 Process INFO 分页器缓存: 1.348923 Seconds
+2021-06-21-16-09-10 Process INFO 分页器缓存: 1.503368 Seconds
+2021-06-21-16-09-13 Process INFO 分页器缓存: 1.5137429999999998 Seconds
+2021-06-21-16-09-13 Process INFO 分页器缓存: 0.08151399999999942 Seconds
+2021-06-21-16-09-15 Process INFO 分页器缓存: 0.13713399999999998 Seconds
+2021-06-21-16-09-17 Process INFO 分页器缓存: 0.08601300000000012 Seconds
+2021-06-21-16-10-40 Process INFO 分页器缓存: 0.17571 Seconds
+2021-06-21-16-10-40 Process INFO 分页器缓存: 0.15855399999999964 Seconds
+2021-06-21-16-11-09 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 127, in post
+    for info in paginator.page(page):
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 57, in page
+    number = self.validate_number(number)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 50, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: 本页结果未空
+
+2021-06-21-16-12-22 Process INFO 分页器缓存: 0.07474100000000039 Seconds
+2021-06-21-16-15-18 Process INFO 分页器缓存: 0.154847 Seconds
+2021-06-21-16-15-19 Process INFO 分页器缓存: 0.182237 Seconds
+2021-06-21-16-15-22 Process INFO 分页器缓存: 0.049532999999998495 Seconds
+2021-06-21-16-22-04 Process INFO 分页器缓存: 0.0833080000000006 Seconds
+2021-06-21-16-23-20 Process INFO 分页器缓存: 0.13750799999999863 Seconds
+2021-06-21-16-25-04 Process INFO 分页器缓存: 0.14297799999999938 Seconds
+2021-06-21-16-25-07 Process INFO 分页器缓存: 0.14867700000000017 Seconds
+2021-06-21-16-25-07 Process INFO 分页器缓存: 0.14181500000000113 Seconds
+2021-06-21-16-25-14 Process INFO 分页器缓存: 0.1006450000000001 Seconds
+2021-06-21-16-25-19 Process INFO 分页器缓存: 0.10296000000000127 Seconds
+2021-06-21-16-37-48 Process INFO 分页器缓存: 0.14060099999999998 Seconds
+2021-06-21-16-37-49 Process INFO 分页器缓存: 0.15858 Seconds
+2021-06-21-16-37-52 Process INFO 分页器缓存: 0.09509600000000162 Seconds
+2021-06-21-16-37-53 Process INFO 分页器缓存: 0.09898600000000002 Seconds
+2021-06-21-16-37-54 Process INFO 分页器缓存: 0.04563499999999987 Seconds
+2021-06-21-16-37-57 Process INFO 分页器缓存: 1.4065119999999993 Seconds
+2021-06-21-16-38-00 Process INFO 分页器缓存: 1.658828 Seconds
+2021-06-21-16-38-04 Process INFO 分页器缓存: 1.5415869999999998 Seconds
+2021-06-21-16-38-08 Process INFO 分页器缓存: 1.4831750000000028 Seconds
+2021-06-21-16-38-13 Process INFO 分页器缓存: 1.4984970000000004 Seconds
+2021-06-21-16-38-46 Process INFO 未经过缓存: 5.290654 Seconds
+2021-06-21-16-45-04 Process INFO 分页器缓存: 4.157069 Seconds
+2021-06-21-17-17-32 Process INFO 分页器缓存: 0.49680499999999994 Seconds
+2021-06-21-17-17-32 Process INFO 分页器缓存: 0.3944320000000019 Seconds
+2021-06-21-17-17-43 Process INFO 分页器缓存: 4.322490000000002 Seconds
+2021-06-21-17-19-45 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 54, in get
+    if vision != None & limit_ != None:
+TypeError: unsupported operand type(s) for &: 'NoneType' and 'NoneType'
+
+2021-06-21-17-21-30 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 54, in get
+    if vision != None & limit_ != None:
+TypeError: unsupported operand type(s) for &: 'NoneType' and 'NoneType'
+
+2021-06-21-17-21-31 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 54, in get
+    if vision != None & limit_ != None:
+TypeError: unsupported operand type(s) for &: 'NoneType' and 'NoneType'
+
+2021-06-21-17-25-09 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 54, in get
+    errlog.log(limit_)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/celery/utils/log.py", line 282, in log
+    return Logger.log(self, *args, **kwargs)
+TypeError: log() missing 1 required positional argument: 'msg'
+
+2021-06-21-17-27-49 Process INFO None
+2021-06-21-17-27-49 Process INFO b'24.627944'
+2021-06-21-17-27-49 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 56, in get
+    if vision != None & limit_ != None:
+TypeError: unsupported operand type(s) for &: 'NoneType' and 'NoneType'
+
+2021-06-21-17-38-53 Process INFO None
+2021-06-21-17-38-53 Process INFO b'24.627944'
+2021-06-21-17-38-53 Process INFO 未经过缓存: 0.12706 Seconds
+2021-06-21-17-39-18 Process INFO b'10'
+2021-06-21-17-39-18 Process INFO b'0.061363'
+2021-06-21-17-39-18 Process INFO True
+2021-06-21-17-39-18 Process WARNING Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_brocast/views.py", line 61, in get
+    if broadVision == vision & limit_ == limit:
+TypeError: unsupported operand type(s) for &: 'str' and 'str'
+
+2021-06-21-17-41-43 Process INFO 分页器缓存: 0.12471 Seconds
+2021-06-21-17-41-44 Process INFO 分页器缓存: 0.09587199999999999 Seconds
+2021-06-21-17-41-45 Process INFO 分页器缓存: 0.11098600000000003 Seconds
+2021-06-21-17-41-47 Process INFO 分页器缓存: 0.12193 Seconds
+2021-06-21-17-45-08 Process INFO 分页器缓存: 1.487828 Seconds
+2021-06-21-17-45-15 Process INFO 分页器缓存: 0.046891000000000016 Seconds
+2021-06-21-17-45-16 Process INFO 分页器缓存: 0.0858000000000001 Seconds
+2021-06-21-17-45-17 Process INFO 分页器缓存: 0.09093400000000007 Seconds
+2021-06-21-17-45-18 Process INFO 分页器缓存: 0.09992800000000002 Seconds
+2021-06-21-17-45-21 Process INFO 分页器缓存: 1.467419 Seconds
+2021-06-21-17-45-26 Process INFO 分页器缓存: 0.12709600000000032 Seconds
+2021-06-21-17-45-28 Process INFO 分页器缓存: 0.09322499999999989 Seconds
+2021-06-21-17-59-43 Process INFO 分页器缓存: 0.09608000000000017 Seconds
+2021-06-21-17-59-44 Process INFO 分页器缓存: 0.10105900000000001 Seconds
+2021-06-21-18-00-01 Process INFO 分页器缓存: 0.09725400000000006 Seconds
+2021-06-21-18-00-01 Process INFO 分页器缓存: 0.10154299999999994 Seconds
+2021-06-21-18-00-02 Process INFO 分页器缓存: 0.09242099999999986 Seconds
+2021-06-21-18-01-07 Process INFO 分页器缓存: 0.172276 Seconds
+2021-06-21-18-01-08 Process INFO 分页器缓存: 0.1522429999999999 Seconds
+2021-06-21-18-01-11 Process INFO 分页器缓存: 0.11042400000000008 Seconds
+2021-06-21-18-01-12 Process INFO 分页器缓存: 0.10199099999999994 Seconds
+2021-06-21-18-01-26 Process INFO 分页器缓存: 1.592537 Seconds
+2021-06-21-18-01-28 Process INFO 分页器缓存: 0.08679599999999965 Seconds
+2021-06-21-18-01-39 Process INFO 分页器缓存: 0.133378 Seconds
+2021-06-21-18-01-43 Process INFO 分页器缓存: 0.13328800000000007 Seconds
+2021-06-21-18-01-43 Process INFO 分页器缓存: 0.15878299999999967 Seconds
+2021-06-21-18-06-41 Process INFO 分页器缓存: 0.1325179999999999 Seconds
+2021-06-21-18-06-44 Process INFO 分页器缓存: 0.14595199999999997 Seconds
+2021-06-21-18-06-44 Process INFO 分页器缓存: 0.16285799999999995 Seconds
+2021-06-22-10-28-50 Process INFO 分页器缓存: 0.15726400000000001 Seconds
+2021-06-22-10-28-51 Process INFO 分页器缓存: 0.15872999999999993 Seconds
+2021-06-22-10-30-17 Process INFO 分页器缓存: 0.15700200000000003 Seconds
+2021-06-22-10-30-17 Process INFO 分页器缓存: 0.155887 Seconds
+2021-06-22-10-30-48 Process INFO 分页器缓存: 0.11887199999999998 Seconds
+2021-06-22-10-30-48 Process INFO 分页器缓存: 0.13081300000000007 Seconds
+2021-06-22-10-39-34 Process INFO 分页器缓存: 0.12830300000000006 Seconds
+2021-06-22-10-39-34 Process INFO 分页器缓存: 0.14857999999999993 Seconds
+2021-06-22-10-39-38 Process INFO 分页器缓存: 0.088059 Seconds
+2021-06-22-10-39-39 Process INFO 分页器缓存: 0.09589100000000017 Seconds
+2021-06-22-10-39-39 Process INFO 分页器缓存: 0.048891999999999936 Seconds
+2021-06-22-10-39-42 Process INFO 分页器缓存: 1.3865169999999998 Seconds
+2021-06-22-10-39-44 Process INFO 分页器缓存: 1.5103799999999998 Seconds
+2021-06-22-10-40-00 Process INFO 分页器缓存: 1.4529040000000002 Seconds
+2021-06-22-10-40-02 Process INFO 分页器缓存: 0.760157 Seconds
+2021-06-22-10-40-05 Process INFO 分页器缓存: 1.8446400000000005 Seconds
+2021-06-22-10-40-07 Process INFO 分页器缓存: 0.09710700000000028 Seconds
+2021-06-22-10-40-09 Process INFO 分页器缓存: 0.04505999999999988 Seconds
+2021-06-22-10-40-11 Process INFO 分页器缓存: 1.422199 Seconds
+2021-06-22-10-40-14 Process INFO 分页器缓存: 1.4577370000000003 Seconds
+2021-06-22-10-40-19 Process INFO 分页器缓存: 1.5875969999999997 Seconds
+2021-06-22-10-46-19 Process INFO 未经过缓存: 0.124345 Seconds
+2021-06-22-10-46-20 Process INFO 未经过缓存: 0.132229 Seconds
+2021-06-22-10-46-23 Process INFO 未经过缓存: 0.108929 Seconds
+2021-06-22-10-46-24 Process INFO 未经过缓存: 0.10793900000000001 Seconds
+2021-06-22-10-46-25 Process INFO 未经过缓存: 0.05763600000000002 Seconds
+2021-06-22-10-46-27 Process INFO 未经过缓存: 1.43576 Seconds
+2021-06-22-10-46-30 Process INFO 未经过缓存: 1.536271 Seconds
+2021-06-22-10-46-37 Process INFO 未经过缓存: 0.7802280000000001 Seconds
+2021-06-22-10-46-39 Process INFO 未经过缓存: 0.7703039999999994 Seconds
+2021-06-22-10-46-42 Process INFO 未经过缓存: 2.0287940000000004 Seconds
+2021-06-22-10-47-26 Process INFO 未经过缓存: 0.15043600000000001 Seconds
+2021-06-22-10-47-27 Process INFO 未经过缓存: 0.14112599999999997 Seconds
+2021-06-22-10-47-28 Process INFO 未经过缓存: 0.16756100000000002 Seconds
+2021-06-22-10-57-07 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_control/views.py", line 491, in get
+    content =  paginator.page(page).object_list
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 57, in page
+    number = self.validate_number(number)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 50, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: 本页结果未空
+
+2021-06-22-11-00-57 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_control/views.py", line 491, in get
+    # --------------- 返回 --------------------
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 57, in page
+    number = self.validate_number(number)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 50, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: 本页结果未空
+
+2021-06-22-11-02-19 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_control/views.py", line 489, in get
+    errlog.log(result)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/celery/utils/log.py", line 282, in log
+    return Logger.log(self, *args, **kwargs)
+TypeError: log() missing 1 required positional argument: 'msg'
+
+2021-06-22-11-02-31 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_control/views.py", line 489, in get
+    errlog.log(result)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/celery/utils/log.py", line 282, in log
+    return Logger.log(self, *args, **kwargs)
+TypeError: log() missing 1 required positional argument: 'msg'
+
+2021-06-22-11-03-12 Process INFO [{'idcard': '13885217777', 'time': '2020-08-05 11:31:51', 'name': '遵义局', 'id': 29, 'is_delete': 0, 'district_num': 184, 'district': '遵义'}, {'idcard': '13985624127', 'time': '2020-08-05 11:33:02', 'name': '遵义六九一台', 'id': 30, 'is_delete': 0, 'district_num': 185, 'district': '遵义六九一台'}, {'idcard': '13985732047', 'time': '2020-08-05 11:33:26', 'name': '安顺文广局', 'id': 31, 'is_delete': 0, 'district_num': 186, 'district': '安顺'}, {'idcard': '13339638067', 'time': '2020-08-05 11:34:30', 'name': '安顺859台', 'id': 32, 'is_delete': 0, 'district_num': 187, 'district': '安顺八五九台'}, {'idcard': '13985352122', 'time': '2020-08-05 11:35:03', 'name': '毕节市文广局', 'id': 33, 'is_delete': 0, 'district_num': 188, 'district': '毕节'}, {'idcard': '13984748975', 'time': '2020-08-05 11:35:21', 'name': '毕节827台', 'id': 34, 'is_delete': 0, 'district_num': 189, 'district': '毕节八二七台'}, {'idcard': '18985868911', 'time': '2020-08-05 11:35:44', 'name': '铜仁文广局', 'id': 35, 'is_delete': 0, 'district_num': 190, 'district': '铜仁'}, {'idcard': '13985348631', 'time': '2020-08-05 11:36:10', 'name': '铜仁861台', 'id': 36, 'is_delete': 0, 'district_num': 191, 'district': '铜仁八六一台'}, {'idcard': '18985766866', 'time': '2020-08-05 11:36:37', 'name': '黔南文旅局', 'id': 37, 'is_delete': 0, 'district_num': 192, 'district': '黔南'}, {'idcard': '13985086388', 'time': '2020-08-05 11:37:39', 'name': '黔南854台', 'id': 38, 'is_delete': 0, 'district_num': 193, 'district': '黔南八五四台'}, {'idcard': '18608596688', 'time': '2020-08-05 11:38:07', 'name': '黔西南文旅局', 'id': 39, 'is_delete': 0, 'district_num': 194, 'district': '黔西南'}, {'idcard': '13885994888', 'time': '2020-08-05 11:38:22', 'name': '黔西南718台', 'id': 40, 'is_delete': 0, 'district_num': 195, 'district': '黔西南七一八台'}, {'idcard': '18685706900', 'time': '2020-08-05 11:38:46', 'name': '黔东南文旅局', 'id': 41, 'is_delete': 0, 'district_num': 196, 'district': '黔东南'}, {'idcard': '15085680268', 'time': '2020-08-05 11:39:01', 'name': '黔东南706台', 'id': 42, 'is_delete': 0, 'district_num': 197, 'district': '黔东南七零六台'}, {'idcard': '13985388549', 'time': '2020-08-05 11:39:46', 'name': '六盘水文旅局', 'id': 43, 'is_delete': 0, 'district_num': 198, 'district': '六盘水'}, {'idcard': '13595818000', 'time': '2020-08-05 11:40:43', 'name': '六盘水896台', 'id': 44, 'is_delete': 0, 'district_num': 199, 'district': '六盘水八九六台'}, {'idcard': '18786672517', 'time': '2020-08-05 11:41:05', 'name': '贵阳文旅局', 'id': 45, 'is_delete': 0, 'district_num': 200, 'district': '贵阳'}, {'idcard': '13511943067', 'time': '2020-08-05 12:58:57', 'name': '监测中心', 'id': 46, 'is_delete': 0, 'district_num': 465, 'district': '贵州省监测中心'}]
+2021-06-22-11-03-12 Process INFO 10
+2021-06-22-11-03-12 Process INFO 1
+2021-06-22-11-03-15 Process INFO []
+2021-06-22-11-03-15 Process INFO 10
+2021-06-22-11-03-15 Process INFO 2
+2021-06-22-11-03-15 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_control/views.py", line 493, in get
+    content = paginator.page(page).object_list
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 57, in page
+    number = self.validate_number(number)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 50, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: 本页结果未空
+
+2021-06-22-11-04-30 Process INFO 18
+2021-06-22-11-04-30 Process INFO 10
+2021-06-22-11-04-30 Process INFO 1
+2021-06-22-11-04-34 Process INFO 0
+2021-06-22-11-04-34 Process INFO 10
+2021-06-22-11-04-34 Process INFO 2
+2021-06-22-11-04-34 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_control/views.py", line 493, in get
+    content = paginator.page(page).object_list
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 57, in page
+    number = self.validate_number(number)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 50, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: 本页结果未空
+
+2021-06-22-11-05-38 Process INFO result lenth:
+2021-06-22-11-05-38 Process INFO 18
+2021-06-22-11-05-38 Process INFO limit:
+2021-06-22-11-05-38 Process INFO 10
+2021-06-22-11-05-38 Process INFO page:
+2021-06-22-11-05-38 Process INFO 1
+2021-06-22-11-05-41 Process INFO result lenth:
+2021-06-22-11-05-41 Process INFO 0
+2021-06-22-11-05-41 Process INFO limit:
+2021-06-22-11-05-41 Process INFO 10
+2021-06-22-11-05-41 Process INFO page:
+2021-06-22-11-05-41 Process INFO 2
+2021-06-22-11-05-41 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_control/views.py", line 496, in get
+    content = paginator.page(page).object_list
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 57, in page
+    number = self.validate_number(number)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 50, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: 本页结果未空
+
+2021-06-22-11-07-08 Process INFO result lenth:
+2021-06-22-11-07-08 Process INFO 18
+2021-06-22-11-07-08 Process INFO limit:
+2021-06-22-11-07-08 Process INFO 10
+2021-06-22-11-07-08 Process INFO page:
+2021-06-22-11-07-08 Process INFO 1
+2021-06-22-11-07-10 Process INFO result lenth:
+2021-06-22-11-07-10 Process INFO 18
+2021-06-22-11-07-10 Process INFO limit:
+2021-06-22-11-07-10 Process INFO 10
+2021-06-22-11-07-10 Process INFO page:
+2021-06-22-11-07-10 Process INFO 2
+2021-06-22-11-07-11 Process INFO result lenth:
+2021-06-22-11-07-11 Process INFO 18
+2021-06-22-11-07-11 Process INFO limit:
+2021-06-22-11-07-11 Process INFO 10
+2021-06-22-11-07-11 Process INFO page:
+2021-06-22-11-07-11 Process INFO 1
+2021-06-22-11-07-12 Process INFO result lenth:
+2021-06-22-11-07-12 Process INFO 18
+2021-06-22-11-07-12 Process INFO limit:
+2021-06-22-11-07-12 Process INFO 10
+2021-06-22-11-07-12 Process INFO page:
+2021-06-22-11-07-12 Process INFO 2
+2021-06-22-11-07-14 Process INFO result lenth:
+2021-06-22-11-07-14 Process INFO 18
+2021-06-22-11-07-14 Process INFO limit:
+2021-06-22-11-07-14 Process INFO 10
+2021-06-22-11-07-14 Process INFO page:
+2021-06-22-11-07-14 Process INFO 1
+2021-06-22-11-07-34 Process INFO result lenth:
+2021-06-22-11-07-34 Process INFO 18
+2021-06-22-11-07-34 Process INFO limit:
+2021-06-22-11-07-34 Process INFO 10
+2021-06-22-11-07-34 Process INFO page:
+2021-06-22-11-07-34 Process INFO 2
+2021-06-22-11-07-35 Process INFO result lenth:
+2021-06-22-11-07-35 Process INFO 18
+2021-06-22-11-07-35 Process INFO limit:
+2021-06-22-11-07-35 Process INFO 10
+2021-06-22-11-07-35 Process INFO page:
+2021-06-22-11-07-35 Process INFO 1
+2021-06-22-11-07-36 Process INFO result lenth:
+2021-06-22-11-07-36 Process INFO 18
+2021-06-22-11-07-36 Process INFO limit:
+2021-06-22-11-07-36 Process INFO 10
+2021-06-22-11-07-36 Process INFO page:
+2021-06-22-11-07-36 Process INFO 2
+2021-06-22-11-07-36 Process INFO result lenth:
+2021-06-22-11-07-36 Process INFO 18
+2021-06-22-11-07-36 Process INFO limit:
+2021-06-22-11-07-36 Process INFO 10
+2021-06-22-11-07-36 Process INFO page:
+2021-06-22-11-07-36 Process INFO 1
+2021-06-22-11-07-43 Process INFO result lenth:
+2021-06-22-11-07-43 Process INFO 2
+2021-06-22-11-07-43 Process INFO limit:
+2021-06-22-11-07-43 Process INFO 10
+2021-06-22-11-07-43 Process INFO page:
+2021-06-22-11-07-43 Process INFO 1
+2021-06-22-11-07-47 Process INFO result lenth:
+2021-06-22-11-07-47 Process INFO 2
+2021-06-22-11-07-47 Process INFO limit:
+2021-06-22-11-07-47 Process INFO 10
+2021-06-22-11-07-47 Process INFO page:
+2021-06-22-11-07-47 Process INFO 1
+2021-06-22-11-07-53 Process INFO result lenth:
+2021-06-22-11-07-53 Process INFO 2
+2021-06-22-11-07-53 Process INFO limit:
+2021-06-22-11-07-53 Process INFO 10
+2021-06-22-11-07-53 Process INFO page:
+2021-06-22-11-07-53 Process INFO 1
+2021-06-22-11-08-53 Process INFO result lenth:
+2021-06-22-11-08-53 Process INFO 18
+2021-06-22-11-08-53 Process INFO limit:
+2021-06-22-11-08-53 Process INFO 1
+2021-06-22-11-08-53 Process INFO page:
+2021-06-22-11-08-53 Process INFO 1
+2021-06-22-11-08-57 Process INFO result lenth:
+2021-06-22-11-08-57 Process INFO 18
+2021-06-22-11-08-57 Process INFO limit:
+2021-06-22-11-08-57 Process INFO 1
+2021-06-22-11-08-57 Process INFO page:
+2021-06-22-11-08-57 Process INFO 2
+2021-06-22-11-08-58 Process INFO result lenth:
+2021-06-22-11-08-58 Process INFO 18
+2021-06-22-11-08-58 Process INFO limit:
+2021-06-22-11-08-58 Process INFO 1
+2021-06-22-11-08-58 Process INFO page:
+2021-06-22-11-08-58 Process INFO 3
+2021-06-22-11-09-00 Process INFO result lenth:
+2021-06-22-11-09-00 Process INFO 2
+2021-06-22-11-09-00 Process INFO limit:
+2021-06-22-11-09-00 Process INFO 1
+2021-06-22-11-09-00 Process INFO page:
+2021-06-22-11-09-00 Process INFO 3
+2021-06-22-11-09-00 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_control/views.py", line 496, in get
+    # √
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 57, in page
+    number = self.validate_number(number)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 50, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: 本页结果未空
+
+2021-06-22-11-09-08 Process INFO result lenth:
+2021-06-22-11-09-08 Process INFO 18
+2021-06-22-11-09-08 Process INFO limit:
+2021-06-22-11-09-08 Process INFO 1
+2021-06-22-11-09-08 Process INFO page:
+2021-06-22-11-09-08 Process INFO 1
+2021-06-22-11-09-10 Process INFO result lenth:
+2021-06-22-11-09-10 Process INFO 2
+2021-06-22-11-09-10 Process INFO limit:
+2021-06-22-11-09-10 Process INFO 1
+2021-06-22-11-09-10 Process INFO page:
+2021-06-22-11-09-10 Process INFO 1
+2021-06-22-11-09-11 Process INFO result lenth:
+2021-06-22-11-09-11 Process INFO 18
+2021-06-22-11-09-11 Process INFO limit:
+2021-06-22-11-09-11 Process INFO 1
+2021-06-22-11-09-11 Process INFO page:
+2021-06-22-11-09-11 Process INFO 2
+2021-06-22-11-09-12 Process INFO result lenth:
+2021-06-22-11-09-12 Process INFO 18
+2021-06-22-11-09-12 Process INFO limit:
+2021-06-22-11-09-12 Process INFO 1
+2021-06-22-11-09-12 Process INFO page:
+2021-06-22-11-09-12 Process INFO 1
+2021-06-22-11-12-38 Process INFO result lenth:
+2021-06-22-11-12-38 Process INFO 18
+2021-06-22-11-12-38 Process INFO limit:
+2021-06-22-11-12-38 Process INFO 10
+2021-06-22-11-12-38 Process INFO page:
+2021-06-22-11-12-38 Process INFO 1
+2021-06-22-11-12-40 Process INFO result lenth:
+2021-06-22-11-12-40 Process INFO 2
+2021-06-22-11-12-40 Process INFO limit:
+2021-06-22-11-12-40 Process INFO 10
+2021-06-22-11-12-40 Process INFO page:
+2021-06-22-11-12-40 Process INFO 1
+2021-06-22-11-12-43 Process INFO result lenth:
+2021-06-22-11-12-43 Process INFO 2
+2021-06-22-11-12-43 Process INFO limit:
+2021-06-22-11-12-43 Process INFO 1
+2021-06-22-11-12-43 Process INFO page:
+2021-06-22-11-12-43 Process INFO 1
+2021-06-22-11-12-45 Process INFO result lenth:
+2021-06-22-11-12-45 Process INFO 2
+2021-06-22-11-12-45 Process INFO limit:
+2021-06-22-11-12-45 Process INFO 1
+2021-06-22-11-12-45 Process INFO page:
+2021-06-22-11-12-45 Process INFO 2
+2021-06-22-11-12-45 Process INFO result lenth:
+2021-06-22-11-12-45 Process INFO 2
+2021-06-22-11-12-45 Process INFO limit:
+2021-06-22-11-12-45 Process INFO 1
+2021-06-22-11-12-45 Process INFO page:
+2021-06-22-11-12-45 Process INFO 1
+2021-06-22-11-12-46 Process INFO result lenth:
+2021-06-22-11-12-46 Process INFO 2
+2021-06-22-11-12-46 Process INFO limit:
+2021-06-22-11-12-46 Process INFO 1
+2021-06-22-11-12-46 Process INFO page:
+2021-06-22-11-12-46 Process INFO 2
+2021-06-22-11-12-47 Process INFO result lenth:
+2021-06-22-11-12-47 Process INFO 2
+2021-06-22-11-12-47 Process INFO limit:
+2021-06-22-11-12-47 Process INFO 1
+2021-06-22-11-12-47 Process INFO page:
+2021-06-22-11-12-47 Process INFO 1
+2021-06-22-11-12-49 Process INFO result lenth:
+2021-06-22-11-12-49 Process INFO 18
+2021-06-22-11-12-49 Process INFO limit:
+2021-06-22-11-12-49 Process INFO 1
+2021-06-22-11-12-49 Process INFO page:
+2021-06-22-11-12-49 Process INFO 1
+2021-06-22-11-12-53 Process INFO result lenth:
+2021-06-22-11-12-53 Process INFO 2
+2021-06-22-11-12-53 Process INFO limit:
+2021-06-22-11-12-53 Process INFO 10
+2021-06-22-11-12-53 Process INFO page:
+2021-06-22-11-12-53 Process INFO 1
+2021-06-22-11-12-56 Process INFO result lenth:
+2021-06-22-11-12-56 Process INFO 18
+2021-06-22-11-12-56 Process INFO limit:
+2021-06-22-11-12-56 Process INFO 10
+2021-06-22-11-12-56 Process INFO page:
+2021-06-22-11-12-56 Process INFO 1
+2021-06-22-11-12-57 Process INFO result lenth:
+2021-06-22-11-12-57 Process INFO 2
+2021-06-22-11-12-57 Process INFO limit:
+2021-06-22-11-12-57 Process INFO 10
+2021-06-22-11-12-57 Process INFO page:
+2021-06-22-11-12-57 Process INFO 2
+2021-06-22-11-12-57 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_control/views.py", line 496, in get
+    # √
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 57, in page
+    number = self.validate_number(number)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 50, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: 本页结果未空
+
+2021-06-22-11-14-20 Process INFO result lenth:
+2021-06-22-11-14-20 Process INFO 18
+2021-06-22-11-14-20 Process INFO limit:
+2021-06-22-11-14-20 Process INFO 10
+2021-06-22-11-14-20 Process INFO page:
+2021-06-22-11-14-20 Process INFO 1
+2021-06-22-11-14-24 Process INFO result lenth:
+2021-06-22-11-14-24 Process INFO 18
+2021-06-22-11-14-24 Process INFO limit:
+2021-06-22-11-14-24 Process INFO 10
+2021-06-22-11-14-24 Process INFO page:
+2021-06-22-11-14-24 Process INFO 2
+2021-06-22-11-14-25 Process INFO result lenth:
+2021-06-22-11-14-25 Process INFO 18
+2021-06-22-11-14-25 Process INFO limit:
+2021-06-22-11-14-25 Process INFO 10
+2021-06-22-11-14-25 Process INFO page:
+2021-06-22-11-14-25 Process INFO 1
+2021-06-22-11-14-28 Process INFO result lenth:
+2021-06-22-11-14-28 Process INFO 2
+2021-06-22-11-14-28 Process INFO limit:
+2021-06-22-11-14-28 Process INFO 10
+2021-06-22-11-14-28 Process INFO page:
+2021-06-22-11-14-28 Process INFO 1
+2021-06-22-11-14-34 Process INFO result lenth:
+2021-06-22-11-14-34 Process INFO 18
+2021-06-22-11-14-34 Process INFO limit:
+2021-06-22-11-14-34 Process INFO 10
+2021-06-22-11-14-34 Process INFO page:
+2021-06-22-11-14-34 Process INFO 1
+2021-06-22-11-14-36 Process INFO result lenth:
+2021-06-22-11-14-36 Process INFO 2
+2021-06-22-11-14-36 Process INFO limit:
+2021-06-22-11-14-36 Process INFO 10
+2021-06-22-11-14-36 Process INFO page:
+2021-06-22-11-14-36 Process INFO 2
+2021-06-22-11-14-36 Process INFO Traceback (most recent call last):
+  File "/home/y123/work_space/black-broadcast-back-end/big_screen/apps/con_control/views.py", line 496, in get
+    # √
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 57, in page
+    number = self.validate_number(number)
+  File "/home/y123/.virtualenvs/meiduo/lib/python3.5/site-packages/django/core/paginator.py", line 50, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: 本页结果未空
+
+2021-06-22-11-25-32 Process INFO None
+2021-06-22-11-41-44 Process INFO 未经过缓存: 0.201142 Seconds
+2021-06-22-11-41-44 Process INFO 未经过缓存: 0.19027100000000002 Seconds
+2021-06-22-11-41-48 Process INFO 未经过缓存: 0.126369 Seconds
+2021-06-22-11-41-49 Process INFO 未经过缓存: 0.10459200000000007 Seconds
+2021-06-22-11-41-51 Process INFO 未经过缓存: 0.06217600000000001 Seconds
+2021-06-22-11-41-54 Process INFO 未经过缓存: 1.473295 Seconds
+2021-06-22-11-41-56 Process INFO 未经过缓存: 1.4883539999999997 Seconds
+2021-06-22-11-41-59 Process INFO 未经过缓存: 1.437401 Seconds
+2021-06-22-11-42-00 Process INFO 未经过缓存: 0.7950650000000001 Seconds
+2021-06-22-11-42-07 Process INFO 未经过缓存: 3.2833640000000006 Seconds
+2021-06-22-11-42-14 Process INFO 未经过缓存: 2.5446100000000005 Seconds
+2021-06-22-11-42-18 Process INFO 未经过缓存: 2.3246979999999997 Seconds
+2021-06-22-11-42-23 Process INFO 未经过缓存: 2.8148139999999984 Seconds
+2021-06-22-11-42-24 Process INFO 未经过缓存: 0.136612999999997 Seconds
+2021-06-22-11-42-28 Process INFO 未经过缓存: 2.5295760000000023 Seconds
+2021-06-22-13-34-33 Process INFO 未经过缓存: 0.17574099999999998 Seconds
+2021-06-22-13-34-33 Process INFO 未经过缓存: 0.18860099999999846 Seconds
+2021-06-22-13-42-24 Process INFO 未经过缓存: 0.10837200000000002 Seconds
+2021-06-22-13-45-18 Process INFO 未经过缓存: 0.18044000000000004 Seconds
+2021-06-22-13-45-19 Process INFO 未经过缓存: 0.1891159999999985 Seconds
+2021-06-22-13-49-35 Process INFO 未经过缓存: 0.11923200000000023 Seconds
+2021-06-22-13-53-48 Process INFO 未经过缓存: 0.14102800000000015 Seconds
+2021-06-22-15-51-47 Process INFO 未经过缓存: 0.18243899999999957 Seconds
+2021-06-22-15-51-48 Process INFO 未经过缓存: 0.18339899999999965 Seconds
+2021-06-22-15-52-03 Process INFO 未经过缓存: 0.17379100000000136 Seconds
+2021-06-22-15-52-03 Process INFO 未经过缓存: 0.17845699999999987 Seconds
+2021-06-22-15-52-08 Process INFO 未经过缓存: 0.12382000000000204 Seconds
+2021-06-22-15-52-08 Process INFO 未经过缓存: 0.11063100000000015 Seconds
+2021-06-22-15-52-24 Process INFO 未经过缓存: 0.05691399999999991 Seconds

@@ -179,3 +179,26 @@ class MobListOp(BaseOpration):
     def update_mob_list(self):
         mob_list = self.mob.get_mobile_list()
         self.kv_set("mob-list", mob_list)
+
+
+class ObjectOp(BaseOpration):
+    def __init__(self):
+        BaseOpration.__init__(self)
+        self.con = get_redis_connection("object")
+        self.mob = serMobile()
+
+    def get_mob_list(self):
+        """
+        获取合法手机id列表
+        :return:
+        """
+        result = self.kv_get("mob-list")
+        if result == "no this key":
+            mob_list = self.mob.get_mobile_list()
+            result = mob_list
+            self.kv_set("mob-list", mob_list)
+        return result
+
+    def update_mob_list(self):
+        mob_list = self.mob.get_mobile_list()
+        self.kv_set("mob-list", mob_list)

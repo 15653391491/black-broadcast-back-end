@@ -1,18 +1,20 @@
 import json
 import logging
 import os
-import re
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.views import View
 from django_redis import get_redis_connection
 import datetime
 import traceback
+from time import clock
+import pickle
 
 from big_screen.serialization.allSerialization import serMobile, serBlackRecord, \
     serBlackCategory, serWhiteCategory, serUserRecord
 from big_screen.utils import tools as t, sys_setting as code
 from big_screen.utils import re_format
+from big_screen.redisOpration.AllOpration import ObjectOp
 
 errlog = logging.getLogger('Process')
 Brlog = logging.getLogger('Broadcasting')
@@ -23,7 +25,7 @@ base_dir = os.path.dirname(os.path.dirname(os.path.dirname(
 
 
 class BroadcastTextView(View):
-    # √
+
     @classmethod
     def get(cls, request):
         """
@@ -34,47 +36,64 @@ class BroadcastTextView(View):
         :param request:
         :return:
         """
-        try:
-            # ------------- 接收 ------------------
-            ret = request.GET.dict()
-            limit = ret.get("limit")
-            page = ret.get("page")
-            select_info = ret.get("msg")
+        start = clock()
+        # ------------- 接收 ------------------
+        ret = request.GET.dict()
+        limit = ret.get("limit")
+        page = ret.get("page")
+        # ------------- 验证 ------------------
+        # ******** 序列化器 **********
+        br = serBlackRecord()
+        ur = serUserRecord()
+        # ********** 是否需要检索 ************
+        # -------------- 处理 -----------------
+        result = br.get_info()
+        # ********* 分页 *************
+        paginator = Paginator(result, limit)
+        # 缓存
+        content = paginator.page(page).object_list
+        for info in content:
+            mob_id = info.get("mobile__id")
+            time = info.get("time")
+            record_obj = ur.get_recent_record2(mob_id, time)
+            info["monitor"] = record_obj.get("monitor")
+            info["freq__num"] = 4
+        # -------------- 返回 -----------------
+        con = code.con
+        con["data"] = content
+        con["count"] = paginator.count
+        end = clock()
+        errlog.info('未经过缓存: %s Seconds' % (end - start))
+        return JsonResponse(con)
 
-            # ------------- 验证 ------------------
-            need_select = True
-            if select_info is None:
-                need_select = False
-            else:
-                select_info = eval(select_info)
-            # -------------- 处理 -----------------
-            # ******** 序列化器 **********
-            br = serBlackRecord()
-            ur = serUserRecord()
-            # ****** 查询数据 **********
-            if need_select:
-                result = br.select_info(select_info)
-            else:
-                result = br.get_info()
-            # ********* 分页 *************
-            paginator = Paginator(result, limit)
-            content = list()
-            for info in paginator.page(page):
-                mob_id = info.get("mobile__id")
-                time = info.get("time")
-                record_obj = ur.get_recent_record2(mob_id, time)
-                info["monitor"] = record_obj.get("monitor")
-                info["freq__num"] = 4
-                content.append(info)
-            # -------------- 返回 -----------------
-
-            con = code.con
-            con["data"] = content
-            con["count"] = paginator.count
-            return JsonResponse(con)
-        except Exception:
-            e = traceback.format_exc()
-            errlog.warning(e)
+    @classmethod
+    def post(cls, request):
+        # ------------- 接收 ------------------
+        ret = eval(request.body.decode())
+        limit = ret.get("limit")
+        page = ret.get("page")
+        select_info = ret.get("msg")
+        # ------------- 验证 ------------------
+        # -------------- 处理 -----------------
+        oo = ObjectOp()
+        # ******** 序列化器 **********
+        br = serBlackRecord()
+        ur = serUserRecord()
+        result = br.select_info(select_info)
+        paginator = Paginator(result, limit)
+        content = list()
+        for info in paginator.page(page):
+            mob_id = info.get("mobile__id")
+            time = info.get("time")
+            record_obj = ur.get_recent_record2(mob_id, time)
+            info["monitor"] = record_obj.get("monitor")
+            info["freq__num"] = 4
+            content.append(info)
+        # -------------- 返回 -----------------
+        con = code.con
+        con["data"] = content
+        con["count"] = paginator.count
+        return JsonResponse(con)
 
     @classmethod
     def patch(cls, request):
@@ -304,3 +323,12 @@ class HeatMapView(View):
             "ret": content
         }
         return JsonResponse(con)
+
+
+def selectBroadcastData(request):
+    """
+    检索黑广播
+    :param request:
+    :return:
+    """
+    pass

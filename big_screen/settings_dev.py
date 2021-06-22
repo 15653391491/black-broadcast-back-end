@@ -100,6 +100,7 @@ DATABASES = {
         'NAME': 'big_screen',
         'USER': 'root',
         'PASSWORD': 'mysql',
+        # 'HOST': '124.70.44.128',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -195,6 +196,13 @@ CACHES = {
     "mob-list": {  # 首页图表数据
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://127.0.0.1:6379/4",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    "object": {  # 首页图表数据
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/7",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -359,3 +367,5 @@ CELERY_WORKER_CONCURRENCY = 5
 CELERY_WORKER_MAX_TASKS_PER_CHILD = 200
 
 LOGIN_URL = 'login.html'
+
+WEBSOCKET_FACTORY_CLASS = 'dwebsocket.backends.uwsgi.factory.uWsgiWebSocketFactory'

@@ -44,6 +44,9 @@ class BaseOpration:
     def kv_set(self, k, v):
         self.con.set(k, json.dumps(v))
 
+    def kvSet(self, k, v):
+        self.con.set(k, v)
+
     def list_push(self, k, v):
         self.con.lpush(k, json.dumps(v))
 
@@ -55,6 +58,9 @@ class BaseOpration:
         else:
             return None
         return json.loads(content.decode())
+
+    def kvGet(self, k):
+        return self.con.get(k)
 
     def list_get(self, k):
         """

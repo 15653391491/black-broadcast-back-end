@@ -122,45 +122,39 @@ class ControlTextView(View):
         :param request:
         :return:
         """
-        try:
-            # ------------ 接收 -------------
-            ret = request.GET.dict()
-            select_dict = ret.get("0")
-            page = ret.get("page")
-            limit = ret.get("limit")
-            if page is None:
-                page = 1
-                limit = 10
-            is_select = False
-            # ------------ 验证 -------------
-            if select_dict is None:
-                pass
-            else:
-                select_dict = json.loads(select_dict)
-                is_select = True
-            # ------------ 处理 -------------
-            # ******** 序列化器 ********
-            mob = serMobile()
-            mobl = MobListOp()
-            mobl.update_mob_list()
-            # ******** 查询结果 **********
-            if is_select:
-                result = mob.select_info(select_dict)
-            else:
-                result = mob.get_info()
-            # ********* 分页 **********
-            paginator = Paginator(result, limit)
-            content = list()
-            for con in paginator.page(page):
-                content.append(con)
-            # ------------ 返回 -------------
-            con = code.con
-            con["data"] = content
-            con["count"] = len(result)
-            return JsonResponse(con)
-        except Exception:
-            e = traceback.format_exc()
-            errlog.warning(e)
+        # ------------ 接收 -------------
+        ret = request.GET.dict()
+        select_dict = ret.get("0")
+        page = ret.get("page")
+        limit = ret.get("limit")
+        if page is None:
+            page = 1
+            limit = 10
+        is_select = False
+        # ------------ 验证 -------------
+        if select_dict is None:
+            pass
+        else:
+            select_dict = json.loads(select_dict)
+            is_select = True
+        # ------------ 处理 -------------
+        # ******** 序列化器 ********
+        mob = serMobile()
+        mobl = MobListOp()
+        mobl.update_mob_list()
+        # ******** 查询结果 **********
+        if is_select:
+            result = mob.select_info(select_dict)
+        else:
+            result = mob.get_info()
+        # ********* 分页 **********
+        paginator = Paginator(result, limit)
+        content = paginator.page(page).object_list
+        # ------------ 返回 -------------
+        con = code.con
+        con["data"] = content
+        con["count"] = len(result)
+        return JsonResponse(con)
 
     # √
     @classmethod
@@ -334,40 +328,34 @@ class FreqCategoryView(View):
         :param request:
         :return:
         """
-        try:
-            # --------------- 接收 --------------------
-            ret = request.GET.dict()
-            select_dict = ret.get("msg")
-            page = ret.get("page")
-            limit = ret.get("limit")
-            # --------------- 验证 --------------------
-            is_select = False
-            if select_dict is None:
-                pass
-            else:
-                select_dict = json.loads(select_dict)
-                is_select = True
-            # --------------- 处理 --------------------
-            # ******* 序列化器 *********
-            wh = serWhiteList()
-            # ******* 结果查询 ********
-            if is_select:
-                result = wh.select_info(select_dict)
-            else:
-                result = wh.get_info()
-            # ******* 分页 *********
-            paginator = Paginator(result, limit)
-            content = list()
-            for con in paginator.page(page):
-                content.append(con)
-            # --------------- 返回 --------------------
-            con = code.con
-            con["data"] = content
-            con["count"] = len(result)
-            return JsonResponse(con)
-        except Exception:
-            traceback.print_exc()
-
+        # --------------- 接收 --------------------
+        ret = request.GET.dict()
+        select_dict = ret.get("msg")
+        page = ret.get("page")
+        limit = ret.get("limit")
+        # --------------- 验证 --------------------
+        is_select = False
+        if select_dict is None:
+            pass
+        else:
+            select_dict = json.loads(select_dict)
+            is_select = True
+        # --------------- 处理 --------------------
+        # ******* 序列化器 *********
+        wh = serWhiteList()
+        # ******* 结果查询 ********
+        if is_select:
+            result = wh.select_info(select_dict)
+        else:
+            result = wh.get_info()
+        # ******* 分页 *********
+        paginator = Paginator(result, limit)
+        content = paginator.page(page).object_list
+        # --------------- 返回 --------------------
+        con = code.con
+        con["data"] = content
+        con["count"] = len(result)
+        return JsonResponse(con)
 
     @classmethod
     def post(cls, request):
@@ -376,38 +364,31 @@ class FreqCategoryView(View):
         :param request:
         :return:
         """
-        try:
-            # --------------- 接收 --------------------
-            ret = request.body.decode()
-            if ret == "":
-                pass
-            else:
-                ret = eval(ret)
-            district = ret.get("district")
-            freq = ret.get("freq")
-            time = ret.get("time")
-            freq_type = ret.get("type")
-            name = ret.get("name")
-            # --------------- 验证 --------------------
-            # --------------- 处理 --------------------
-            # ******* 序列化器 *********
-            wh = serWhiteList()
-            # ****** 组织数据 *********
-            insert_dict = dict()
-            insert_dict["district"] = district
-            insert_dict["type"] = freq_type
-            insert_dict["time"] = time
-            insert_dict["freq"] = freq
-            insert_dict["name"] = name
-            # ****** 操作数据 *********
-            result = wh.insert_info(insert_dict)
-            # --------------- 返回 --------------------
-            con = code.con
-            con["data"] = result
-            return JsonResponse(con)
-        except Exception:
-            e = traceback.format_exc()
-            errlog.info(e)
+        # --------------- 接收 --------------------
+        ret = request.body.decode()
+        ret = eval(ret)
+        district = ret.get("district")
+        freq = ret.get("freq")
+        time = ret.get("time")
+        freq_type = ret.get("type")
+        name = ret.get("name")
+        # --------------- 验证 --------------------
+        # --------------- 处理 --------------------
+        # ******* 序列化器 *********
+        wh = serWhiteList()
+        # ****** 组织数据 *********
+        insert_dict = dict()
+        insert_dict["district"] = district
+        insert_dict["type"] = freq_type
+        insert_dict["time"] = time
+        insert_dict["freq"] = freq
+        insert_dict["name"] = name
+        # ****** 操作数据 *********
+        result = wh.insert_info(insert_dict)
+        # --------------- 返回 --------------------
+        con = code.con
+        con["data"] = result
+        return JsonResponse(con)
 
     @classmethod
     def patch(cls, request):
@@ -502,9 +483,7 @@ class MonitorView(View):
             result = mon.get_info()
         # ****** 分页 *******
         paginator = Paginator(result, limit)
-        content = list()
-        for con in paginator.page(page):
-            content.append(con)
+        content = paginator.page(page).object_list
         # --------------- 返回 --------------------
         con = code.con
         con["data"] = content
@@ -634,9 +613,7 @@ class UseRecord(View):
             result = ur.get_info()
         # ********* 分页************
         paginator = Paginator(result, limit)
-        content = list()
-        for con in paginator.page(page):
-            content.append(con)
+        content = paginator.page(page).object_list
         # -------------- 返回 ------------------
         con = code.con
         con["data"] = content
