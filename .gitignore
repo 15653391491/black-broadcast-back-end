@@ -1,5 +1,9 @@
 # Object file
 *.o
-
+*.log
+*.pyc
+shell/
+.pid
+.sock
 # Ada Library Information
 *.ali
