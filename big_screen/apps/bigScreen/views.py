@@ -47,43 +47,28 @@ def websocketchart(request):
     :param request:
     :return:
     """
+    # ------------------------------------ 组织数据 ---------------------------------
+    chart_con = get_redis_connection('chart')
+    counter = chart_con.get('counter').decode()
+    chart_year_month = chart_con.get('chart_year_month').decode()
+    category = chart_con.get('category').decode()
+    time_count = chart_con.get('time_count').decode()
+    mobileSummary = chart_con.get("mobileSummary").decode()
+    regionSummary = chart_con.get("regionSummary").decode()
+    data = {
+        'counter': json.loads(counter),
+        'chart_year_month': json.loads(chart_year_month),
+        'category': json.loads(category),
+        'time_count': json.loads(time_count),
+        "mobileSummary": json.loads(mobileSummary),
+        "regionSummary": json.loads(regionSummary)
+    }
     if request.is_websocket():
-        w = copy.copy(request.websocket)
-        socket_obj.append(w)
-        # ------------------------------------ 组织数据 ---------------------------------
-        chart_con = get_redis_connection('chart')
-        counter = chart_con.get('counter').decode()
-        chart_year_month = chart_con.get('chart_year_month').decode()
-        category = chart_con.get('category').decode()
-        time_count = chart_con.get('time_count').decode()
-        data = {
-            'counter': json.loads(counter),
-            'chart_year_month': json.loads(chart_year_month),
-            'category': json.loads(category),
-            'time_count': json.loads(time_count),
-        }
         # ---------------------------------------- 发送数据 ---------------------------------------
         request.websocket.send(json.dumps(data))
         request.websocket.wait()
-        # ---------------------------------------- 读取配置，socket睡眠 ---------------------------
-        # s = t.setting()
-        # cycle = s.chart_selectcycle
-        # time.sleep(cycle * 60 * 60)
     else:
-        chart_con = get_redis_connection('chart')
-        counter = chart_con.get('counter').decode()
-        chart_year_month = chart_con.get('chart_year_month').decode()
-        category = chart_con.get('category').decode()
-        time_count = chart_con.get('time_count').decode()
-        con = {
-            'counter': json.loads(counter),
-            'chart_year_month': json.loads(chart_year_month),
-            'category': json.loads(category),
-            'time_count': json.loads(time_count),
-            "code": code.STATUSCODE_SUCCESS,
-            "msg": "ok"
-        }
-        return JsonResponse(con)
+        return JsonResponse(data)
 
 
 # √

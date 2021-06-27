@@ -3,6 +3,7 @@ import logging
 from django.db.models.manager import Manager
 from django.db.utils import IntegrityError
 import os
+from django.db.models import Count
 
 from big_screen.utils import sys_setting as code
 from con_control.models import MobileInfo, MonitorInfo, District
@@ -177,3 +178,21 @@ class SerTable:
                 content["district_num"] = f.UNKNOW_DISTRICT
                 content["district"] = self.dis.get(adcode=f.UNKNOW_DISTRICT).name
         return content
+
+    #  ------------ 统计 ------------------
+    def summaryByColumn(self, columnName):
+        """
+        按照字段名进行统计
+        :param columnName:
+        :return:
+        """
+        return self.table.values(columnName).annotate(count=Count(columnName))
+
+    # ---------- 工具 -------------------
+    def queryToList(self, querySet):
+        """
+        查询集转化为列表
+        :param querySet:
+        :return:
+        """
+        return [dict(obj) for obj in querySet]

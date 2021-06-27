@@ -10,6 +10,7 @@ from big_screen.celery import app
 from con_brocast.Serialization import serBlackRecord
 from big_screen.redisOpration.AllOpration import chartOp, broadcastOp, massmarkOp
 from con_control.Serialization import serMobile
+from big_screen.serialization.allSerialization import serUserRecord,serBlackRecord
 
 
 @app.task
@@ -87,6 +88,13 @@ def set_bigscreen_chart():
     time_count = {
         'time_list': time_list
     }
+    # ------------------------ 五、打卡排名 ------------------------------
+    ur = serUserRecord()
+    urqueryset = ur.summaryByColumn("mobile__name")
+    chartUserRecord = ur.queryToList(urqueryset.order_by("-count"))
+    # ------------------------ 六、黑广播发现排名 ------------------------------
+    br = serBlackRecord()
+    brSummary = br.summaryByRegion()
     # ------------------------- 设置redis ----------------------------
     # ************* 计数器 ***************
     chart_con.kv_set("counter", con_counter)
@@ -96,6 +104,11 @@ def set_bigscreen_chart():
     chart_con.kv_set("category", category)
     # **************** 时间统计 *******************
     chart_con.kv_set("time_count", time_count)
+    # *************** 打卡记录统计 *****************
+    chart_con.kv_set("mobileSummary", chartUserRecord)
+    # *************** 黑广播发现地区统计 *****************
+    chart_con.kv_set("regionSummary", brSummary)
+
 
 
 @app.task
@@ -141,5 +154,3 @@ def set_black_broadcasting():
     bro_con.del_key("heatmap_n")
     for con in heatmap_content:
         bro_con.list_push("heatmap_n", con)
-
-

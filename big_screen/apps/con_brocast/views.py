@@ -75,7 +75,6 @@ class BroadcastTextView(View):
         select_info = ret.get("msg")
         # ------------- 验证 ------------------
         # -------------- 处理 -----------------
-        oo = ObjectOp()
         # ******** 序列化器 **********
         br = serBlackRecord()
         ur = serUserRecord()
@@ -182,6 +181,7 @@ class RegionRetrievalView(View):
         :param request:
         :return:
         """
+
         # ---------------- 接收 -----------------
         ret = request.GET.dict()
         page = ret.get("page")

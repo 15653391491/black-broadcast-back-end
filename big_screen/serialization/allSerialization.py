@@ -1,7 +1,7 @@
 import datetime
 import logging
 from pymysql import IntegrityError
-from django.db.models import Q
+from django.db.models import Count
 
 from con_brocast.models import BlackRecord, BlackCategory
 from con_control.models import MonitorInfo, MobileInfo, MobileNewLocation, MobileUseRecord, District
@@ -63,8 +63,9 @@ class serBlackRecord(SerTable):
         # ------------------------------------------------ 查询条件 -----------------------------------------------
         keys = select_dict.keys()
         select_info = dict()
-        if "s_time" in keys and "e_time" in keys:
+        if "s_time" in keys:
             select_info["time__gte"] = select_dict.get("s_time")
+        if "e_time" in keys:
             select_info["time__lte"] = select_dict.get("e_time")
         if "category" in keys:
             category = select_dict["category"]
@@ -273,6 +274,12 @@ class serBlackRecord(SerTable):
                 "value": bro_info.filter(category_id=category.get("id")).count()
             })
         return info
+
+    def summaryByRegion(self):
+        summaryResurt = self.table.filter(islegal=0).values("district").annotate(count=Count("district")).order_by("-count")
+        for info in summaryResurt:
+            info["district"] = self.dis.get(id=info.get("district")).name
+        return self.queryToList(summaryResurt)
 
 
 class serMobile(SerTable):
@@ -490,6 +497,13 @@ class serUserRecord(SerTable):
         content = self.formatter_content(list(query))
         content = list(map(self.formatter_foreign_content, content))
         return content
+
+    def countNum(self):
+        """
+        统计不同手机的打卡次数
+        :return:
+        """
+        return self.table.values("mobile__name").annotate(count=Count("mobile__name"))
 
     def formatter_foreign_content(self, content):
         """
@@ -746,6 +760,9 @@ class serDistrict(SerTable):
             "name": dis_obj.name
         }
         return info_list
+
+    def getLevel(self, district):
+        return self.table.get(id=district).superior
 
 
 class serMobileNewLocation(SerTable):

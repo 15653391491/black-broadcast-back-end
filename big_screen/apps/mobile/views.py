@@ -475,78 +475,58 @@ class broadView(View):
         :param request:
         :return:
         """
+        # ------------------ 接收 -----------------
+        ret = request.body.decode()
+        ret = eval(ret)
+        mobile = str(ret.get("phoneid"))
+        info_list = ret.get("data")
+        # ------------------ 验证 -----------------
+        # ******** 序列化器 ************
+        br = serBlackRecord()
+        # ********* 验证手机id **************
         try:
-            # ------------------ 接收 -----------------
-            ret = request.body.decode()
-            if ret is "":
-                ret = {
-                    "phoneid": "",
-                    "data": []
-                }
+            br.mob.get(mobile=mobile)
+        except br.mob.model.DoesNotExist:
+            return JsonResponse(code.con_false)
+        # ------------------- 处理 ----------------
+        # *************** 数据处理 *****************
+        result = list(map(broadInfoTurn, info_list))
+        # *************** 保存数据库 **************
+        save_to_mysql.delay(result)
+        # *************** push到redis队列 *********
+        # ********* 白名单过滤 ************
+        content = list()
+        for con in result:
+            islegal = con.get("islegal")
+            if str(islegal) == "0":
+                content.append(con)
             else:
-                ret = eval(ret)
-            relog.info("post-bro " + str(ret))
-            mobile = str(ret.get("phoneid"))
-            info_list = ret.get("data")
-            # ******* 记录黑广播内容 ***********
-            brlog.info(str(info_list))
-            # ------------------ 验证 -----------------
-            # ******** 序列化器 ************
-            br = serBlackRecord()
-            # ********* 验证手机id **************
-            mobile_result = re.fullmatch(f.PHONEID_FORMATTER_RE, mobile)
-            if mobile_result is None:
-                mobile = f.UNKNOW_MOBILE
-            try:
-                br.mob.get(mobile=mobile)
-            except br.mob.model.DoesNotExist:
-                return JsonResponse(code.con_false)
-            # # ************ 验证内容 *******************
-            if type(info_list) is not list:
-                info_list = list()
-            # ------------------- 处理 ----------------
-            # *************** 数据处理 *****************
-            result = list(map(broadInfoTurn, info_list))
-            # *************** 保存数据库 **************
-            save_to_mysql.delay(result)
-            # *************** push到redis队列 *********
-            # ********* 白名单过滤 ************
-            content = list()
-            for con in result:
-                islegal = con.get("islegal")
-                if str(islegal) == "0":
-                    content.append(con)
-                else:
-                    continue
-            # ********* redis操作类 *********
-            bro = broadcastOp()
-            mass = massmarkOp()
-            # ********* 海量点 ***********
-            mass_content = list(map(mass.formmater_data, content))  # 3号仓库
-            for con in mass_content:
-                k, v = con
-                if k == "x,x":
-                    continue
-                else:
-                    mass.list_push(k, v)
-            # ********* 轮播表 ***********
-            scroll_content = list(map(bro.formatter_scroll_info, content))
-            for con in scroll_content:
-                bro.list_push("scroll_n", con)
-            # ********* 热力图 ***********
-            heatmap_content = list(map(bro.formatter_heatmap_info, content))
-            for con in heatmap_content:
-                if con["lng"] == "x":
-                    continue
-                else:
-                    bro.list_push("heatmap_n", con)
-            # ------------------- 返回 -----------------
-            con = code.con
-            return JsonResponse(con)
-        except Exception:
-            e = traceback.format_exc()
-            errlog.warning(e)
-
+                continue
+        # ********* redis操作类 *********
+        bro = broadcastOp()
+        mass = massmarkOp()
+        # ********* 海量点 ***********
+        mass_content = list(map(mass.formmater_data, content))  # 3号仓库
+        for con in mass_content:
+            k, v = con
+            if k == "x,x":
+                continue
+            else:
+                mass.list_push(k, v)
+        # ********* 轮播表 ***********
+        scroll_content = list(map(bro.formatter_scroll_info, content))
+        for con in scroll_content:
+            bro.list_push("scroll_n", con)
+        # ********* 热力图 ***********
+        heatmap_content = list(map(bro.formatter_heatmap_info, content))
+        for con in heatmap_content:
+            if con["lng"] == "x":
+                continue
+            else:
+                bro.list_push("heatmap_n", con)
+        # ------------------- 返回 -----------------
+        con = code.con
+        return JsonResponse(con)
 
 # 心跳包
 class heartbeatView(View):
