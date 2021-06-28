@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/big_screen/apps/con_control/views.py" line="368" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/big_screen/serialization/allSerialization.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="246">
-              <caret line="704" column="55" lean-forward="true" selection-start-line="704" selection-start-column="55" selection-end-line="704" selection-end-column="55" />
+              <caret line="704" column="55" selection-start-line="704" selection-start-column="55" selection-end-line="704" selection-end-column="55" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <element signature="e#1545#2125#0" />
@@ -365,7 +363,7 @@
       <workItem from="1624809729896" duration="1068000" />
       <workItem from="1624839593336" duration="692000" />
       <workItem from="1624840288172" duration="24000" />
-      <workItem from="1624840313899" duration="3053000" />
+      <workItem from="1624840313899" duration="3402000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1622624217899</created>
@@ -546,7 +544,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81743000" />
+    <option name="totallyTimeSpent" value="82092000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -871,7 +869,7 @@
     <entry file="file://$PROJECT_DIR$/big_screen/serialization/allSerialization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
-          <caret line="704" column="55" lean-forward="true" selection-start-line="704" selection-start-column="55" selection-end-line="704" selection-end-column="55" />
+          <caret line="704" column="55" selection-start-line="704" selection-start-column="55" selection-end-line="704" selection-end-column="55" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
             <element signature="e#1545#2125#0" />
