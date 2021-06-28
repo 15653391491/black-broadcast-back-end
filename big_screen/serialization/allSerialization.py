@@ -743,7 +743,7 @@ class serDistrict(SerTable):
         获取二级行政区名单
         :return:
         """
-        sys_dis_id = self.table.get(adcode=code.SYS_DISTRICT).id
+        sys_dis_id = self.table.get(adcode=code.SYS_DISTRICT,is_district=1).id
         content = self.table.filter(superior=sys_dis_id).values("id", "name")
         return list(content)
 

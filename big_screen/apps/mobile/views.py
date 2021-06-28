@@ -364,30 +364,32 @@ class districtView(View):
         :param request:
         :return:
         """
-        # ------------------ 接收 -----------------
-        ret = request.GET.dict()
-        mobile = ret.get("phoneid")
-        relog.info("getdistrict " + str(ret))
-        # ------------------ 验证 -----------------
-        # ********* 序列化器 ***********
-        dis = serDistrict()
-        # ******************************
-        if mobile is None:
-            return JsonResponse(code.con_false)
         try:
-            dis.mob.get(mobile=mobile)
-        except dis.mob.model.DoesNotExist:
-            return JsonResponse(code.con_false)
-        # ------------------- 处理 ----------------
-        # ********* 行政区名单 ************
-        content = dis.get_city_list()
-        # ********* 结果 ***************
-        con = code.con
-        con["data"] = content
-        con["count"] = len(content)
-        # ------------------- 返回 -----------------
-        return JsonResponse(con)
-
+            # ------------------ 接收 -----------------
+            ret = request.GET.dict()
+            mobile = ret.get("phoneid")
+            relog.info("getdistrict " + str(ret))
+            # ------------------ 验证 -----------------
+            # ********* 序列化器 ***********
+            dis = serDistrict()
+            # ******************************
+            if mobile is None:
+                return JsonResponse(code.con_false)
+            try:
+                dis.mob.get(mobile=mobile)
+            except dis.mob.model.DoesNotExist:
+                return JsonResponse(code.con_false)
+            # ------------------- 处理 ----------------
+            # ********* 行政区名单 ************
+            content = dis.get_city_list()
+            # ********* 结果 ***************
+            con = code.con
+            con["data"] = content
+            con["count"] = len(content)
+            # ------------------- 返回 -----------------
+            return JsonResponse(con)
+        except Exception:
+            traceback.print_exc()
     @classmethod
     def post(cls, request):
         """
