@@ -68,6 +68,7 @@ class start_sys:
             insert_dict["time"] = self.time
             insert_dict["district"] = dis_id
             self.mob.insert_info(**insert_dict)
+
     def init_district(self):
         """
         增加未知区域，增加省市县三级行政区(本地)
@@ -77,6 +78,22 @@ class start_sys:
         self.dis.table.all().delete()
         # ------------ 加入未知区域 -------------
         self.md.unknow_district()
+        # ------------ 加入一级行政区 ------------
+        self.md.province_district()
+        # ------------ 加入二级行政区 ------------
+        self.md.city_district(code.SYS_DISTRICT)
+        try:
+            # ------------ 加入三级行政区 ------------
+            self.md.dis_district(code.SYS_DISTRICT)
+        except Exception:
+            pass
+        # ---------------- 加入台站 ---------------------
+        self.md.tg_district(code.SYS_DISTRICT)
+
+    def addDistrict(self):
+        """
+        :return:
+        """
         # ------------ 加入一级行政区 ------------
         self.md.province_district()
         # ------------ 加入二级行政区 ------------
