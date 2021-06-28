@@ -745,7 +745,7 @@ class serDistrict(SerTable):
         :return:
         """
         sys_dis_id = self.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
-        content = self.table.filter(superior=sys_dis_id).values("id", "name")
+        content = self.table.filter(superior=sys_dis_id,is_district=1 ).values("id", "name")
         return list(content)
 
     def get_district_by_mobile(self, mobile):

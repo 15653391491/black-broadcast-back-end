@@ -84,7 +84,6 @@ class versionView(View):
             err = traceback.format_exc()
             moblog.warning(err)
 
-
 # 人员
 class monitorView(View):
     @classmethod
