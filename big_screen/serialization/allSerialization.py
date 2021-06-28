@@ -276,7 +276,8 @@ class serBlackRecord(SerTable):
         return info
 
     def summaryByRegion(self):
-        summaryResurt = self.table.filter(islegal=0).values("district").annotate(count=Count("district")).order_by("-count")
+        summaryResurt = self.table.filter(islegal=0).values("district").annotate(count=Count("district")).order_by(
+            "-count")
         for info in summaryResurt:
             info["district"] = self.dis.get(id=info.get("district")).name
         return self.queryToList(summaryResurt)
@@ -743,7 +744,8 @@ class serDistrict(SerTable):
         获取二级行政区名单
         :return:
         """
-        sys_dis_id = self.table.get(adcode=code.SYS_DISTRICT,is_district=1).id
+        print(code.SYS_DISTRICT)
+        sys_dis_id = self.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
         content = self.table.filter(superior=sys_dis_id).values("id", "name")
         return list(content)
 
@@ -854,7 +856,7 @@ class serWhiteList(SerTable):
         if not islegal:
             return {"code": code.STATUSCODE_UNSUCCESS, "msg": "该频点不合法"}
         # ********** 普通频点 *******************
-        sys_district = self.dis.get(adcode=code.SYS_DISTRICT,is_district=1).id
+        sys_district = self.dis.get(adcode=code.SYS_DISTRICT, is_district=1).id
         if str(freq_type) == "1":
             insert_dict["district"] = sys_district
             curr_freq_query = self.table.filter(freq=freq).count()
