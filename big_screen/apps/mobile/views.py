@@ -126,7 +126,8 @@ class monitorView(View):
             con["count"] = len(mon_list)
             return JsonResponse(con)
         except Exception:
-            traceback.print_exc()
+            e = traceback.format_exc()
+            errlog.warning(e)
 
 
 # 打卡
@@ -570,7 +571,6 @@ class heartbeatView(View):
                 }
             else:
                 ret = eval(ret)
-            print(ret)
             relog.info("post-heartbeat " + str(ret))
             # *********** 取数据 ***********
             mobile = ret.get("phoneid")
@@ -636,7 +636,6 @@ class RecordingView(View):
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(
                 os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
             ogg_dir = base_dir + '/static/mp3'
-            print(ogg_dir)
             # -------------- 接收 ------------------
             re = request.FILES.dict()
             # ------------- 验证 -------------------
