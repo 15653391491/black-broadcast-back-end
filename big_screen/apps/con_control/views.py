@@ -364,31 +364,34 @@ class FreqCategoryView(View):
         :param request:
         :return:
         """
-        # --------------- 接收 --------------------
-        ret = request.body.decode()
-        ret = eval(ret)
-        district = ret.get("district")
-        freq = ret.get("freq")
-        time = ret.get("time")
-        freq_type = ret.get("type")
-        name = ret.get("name")
-        # --------------- 验证 --------------------
-        # --------------- 处理 --------------------
-        # ******* 序列化器 *********
-        wh = serWhiteList()
-        # ****** 组织数据 *********
-        insert_dict = dict()
-        insert_dict["district"] = district
-        insert_dict["type"] = freq_type
-        insert_dict["time"] = time
-        insert_dict["freq"] = freq
-        insert_dict["name"] = name
-        # ****** 操作数据 *********
-        result = wh.insert_info(insert_dict)
-        # --------------- 返回 --------------------
-        con = code.con
-        con["data"] = result
-        return JsonResponse(con)
+        try:
+            # --------------- 接收 --------------------
+            ret = request.body.decode()
+            ret = eval(ret)
+            district = ret.get("district")
+            freq = ret.get("freq")
+            time = ret.get("time")
+            freq_type = ret.get("type")
+            name = ret.get("name")
+            # --------------- 验证 --------------------
+            # --------------- 处理 --------------------
+            # ******* 序列化器 *********
+            wh = serWhiteList()
+            # ****** 组织数据 *********
+            insert_dict = dict()
+            insert_dict["district"] = district
+            insert_dict["type"] = freq_type
+            insert_dict["time"] = time
+            insert_dict["freq"] = freq
+            insert_dict["name"] = name
+            # ****** 操作数据 *********
+            result = wh.insert_info(insert_dict)
+            # --------------- 返回 --------------------
+            con = code.con
+            con["data"] = result
+            return JsonResponse(con)
+        except Exception:
+            traceback.print_exc()
 
     @classmethod
     def patch(cls, request):

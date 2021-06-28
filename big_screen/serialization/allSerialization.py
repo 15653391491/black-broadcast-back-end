@@ -854,7 +854,7 @@ class serWhiteList(SerTable):
         if not islegal:
             return {"code": code.STATUSCODE_UNSUCCESS, "msg": "该频点不合法"}
         # ********** 普通频点 *******************
-        sys_district = self.dis.get(adcode=code.SYS_DISTRICT).id
+        sys_district = self.dis.get(adcode=code.SYS_DISTRICT,is_district=1).id
         if str(freq_type) == "1":
             insert_dict["district"] = sys_district
             curr_freq_query = self.table.filter(freq=freq).count()
