@@ -309,7 +309,7 @@ class serMobile(SerTable):
 
         district = kwargs.get("district")
         if district is "0":
-            kwargs["district"] = self.dis.get(adcode=code.SYS_DISTRICT).id
+            kwargs["district"] = self.dis.get(adcode=code.SYS_DISTRICT,is_district=1).id
         try:
             obj = self.table.get(mobile=kwargs.get("mobile"))
         except MobileInfo.DoesNotExist:
@@ -342,7 +342,7 @@ class serMobile(SerTable):
             if mob_obj.mobile != f.UNKNOW_MOBILE:
                 district = update_dict.get("district")
                 if district == "0":
-                    update_dict["district"] = self.dis.get(adcode=code.SYS_DISTRICT).id
+                    update_dict["district"] = self.dis.get(adcode=code.SYS_DISTRICT,is_district=1).id
                 try:
                     self.table.filter(id=update_dict.get("id")).update(**update_dict)
                 except Exception:
@@ -943,7 +943,7 @@ class serWhiteList(SerTable):
         :return:
         """
         # ****************
-        sys_dis_id = self.dis.get(adcode=code.SYS_DISTRICT).id
+        sys_dis_id = self.dis.get(adcode=code.SYS_DISTRICT,is_district=1).id
         # -------------- 查询集 ------------------
         query = self.table.all().values("name", "freq", "type", "district")
         # --------------- 结果 --------------------
@@ -969,7 +969,7 @@ class serWhiteList(SerTable):
         """
         # ------------- 区域id ----------------------
         # ********** 系统区域id ********************
-        sys_dis_id = self.dis.get(adcode=code.SYS_DISTRICT).id
+        sys_dis_id = self.dis.get(adcode=code.SYS_DISTRICT, is_district=1).id
         # ********** 手机所在台站id *****************
         tg_dis_id = self.mob.get(mobile=mobile).district
         # ********** 手机所在区域id *****************

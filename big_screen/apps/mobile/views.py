@@ -134,61 +134,64 @@ class userecordView(View):
 
     @classmethod
     def post(cls, request):
-        # --------------- 接收 -------------------
-        ret = request.body.decode()
-        if ret is "":
-            ret = {
-                "time": "",
-                "location": "",
-                "phoneid": "",
-                "idcard": "",
-                "version": "1.0.0"
-            }
-        else:
-            ret = eval(ret)
-        relog.info("userecord " + str(ret))
-        time = ret.get("time")
-        mobile = ret.get("phoneid")
-        idcard = ret.get("idcard")
-        version = ret.get("version")
-        # ---------------- 验证 ----------------------
-        time_result = re.fullmatch(f.DATE_FORMATTER_RE_PHONE, time)
-        mobile_result = re.fullmatch(f.PHONEID_FORMATTER_RE, mobile)
-        # idcard_result = re.fullmatch(f.IDCARD_FORMATTER_RE, idcard)
-        # ---------------- 处理 ----------------------
-        # ********* 格式转化器 *********
-        tf = time_formatter()
-        # ********** 序列化器 *************
-        ur = serUserRecord()
-        # ********* 错误格式处理 **********
-        if time_result is None:
-            time = tf.now_time_str
-        else:
-            time = tf.get_time_str(time)
-        if mobile_result is None:
-            mobile = f.UNKNOW_MOBILE
-        # if idcard_result is None:
-        #     idcard = f.UNKNOW_IDCARD
-        # ------------ 格式转化 --------------------
         try:
-            mob_obj = ur.mob.get(mobile=mobile)
-        except ur.mob.model.DoesNotExist:
-            mob_obj = ur.mob.get(mobile=f.UNKNOW_MOBILE)
-        try:
-            mon_obj = ur.mon.get(idcard=str(idcard))
-        except ur.mon.model.DoesNotExist:
-            mon_obj = ur.mon.get(idcard=f.UNKNOW_IDCARD)
-        # ************ 组织数据插入数据库 **************
-        insert_dict = dict()
-        insert_dict["time"] = time
-        insert_dict["mobile"] = mob_obj
-        insert_dict["monitor"] = mon_obj
-        insert_dict["version"] = version
-        ur.insert_info(**insert_dict)
-        # ---------------- 返回 ----------------------
-        con = code.con
-        return JsonResponse(con)
-
+            # --------------- 接收 -------------------
+            ret = request.body.decode()
+            if ret is "":
+                ret = {
+                    "time": "",
+                    "location": "",
+                    "phoneid": "",
+                    "idcard": "",
+                    "version": "1.0.0"
+                }
+            else:
+                ret = eval(ret)
+            relog.info("userecord " + str(ret))
+            time = ret.get("time")
+            mobile = ret.get("phoneid")
+            idcard = ret.get("idcard")
+            version = ret.get("version")
+            # ---------------- 验证 ----------------------
+            time_result = re.fullmatch(f.DATE_FORMATTER_RE_PHONE, time)
+            mobile_result = re.fullmatch(f.PHONEID_FORMATTER_RE, mobile)
+            # idcard_result = re.fullmatch(f.IDCARD_FORMATTER_RE, idcard)
+            # ---------------- 处理 ----------------------
+            # ********* 格式转化器 *********
+            tf = time_formatter()
+            # ********** 序列化器 *************
+            ur = serUserRecord()
+            # ********* 错误格式处理 **********
+            if time_result is None:
+                time = tf.now_time_str
+            else:
+                time = tf.get_time_str(time)
+            if mobile_result is None:
+                mobile = f.UNKNOW_MOBILE
+            # if idcard_result is None:
+            #     idcard = f.UNKNOW_IDCARD
+            # ------------ 格式转化 --------------------
+            try:
+                mob_obj = ur.mob.get(mobile=mobile)
+            except ur.mob.model.DoesNotExist:
+                mob_obj = ur.mob.get(mobile=f.UNKNOW_MOBILE)
+            try:
+                mon_obj = ur.mon.get(idcard=str(idcard))
+            except ur.mon.model.DoesNotExist:
+                mon_obj = ur.mon.get(idcard=f.UNKNOW_IDCARD)
+            # ************ 组织数据插入数据库 **************
+            insert_dict = dict()
+            insert_dict["time"] = time
+            insert_dict["mobile"] = mob_obj
+            insert_dict["monitor"] = mon_obj
+            insert_dict["version"] = version
+            ur.insert_info(**insert_dict)
+            # ---------------- 返回 ----------------------
+            con = code.con
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            errlog.warning(e)
 
 # 白名单
 class whitelistView(View):
@@ -389,7 +392,9 @@ class districtView(View):
             # ------------------- 返回 -----------------
             return JsonResponse(con)
         except Exception:
-            traceback.print_exc()
+            e = traceback.format_exc()
+            errlog.warning(e)
+
     @classmethod
     def post(cls, request):
         """
@@ -397,44 +402,48 @@ class districtView(View):
         :param request:
         :return:
         """
-        # ------------------ 接收 -----------------
-        ret = request.body.decode()
+        try:
+            # ------------------ 接收 -----------------
+            ret = request.body.decode()
 
-        if ret is "":
-            ret = {
-                "phoneid": "",
-                "district": ""
-            }
-        else:
-            ret = eval(ret)
-        relog.info("getdiswhitelist " + str(ret))
-        mobile = ret.get("phoneid")
-        district = ret.get("district")
-        # ------------------ 验证 -----------------
-        # ********* 序列化器 *************
-        wh = serWhiteList()
-        # ********************************
-        # dis_result = re.fullmatch(f.INT_FORMATTER_RE, str(district))
-        # mobile_result = re.fullmatch(f.PHONEID_FORMATTER_RE, mobile)
-        # if dis_result is None:
-        #     return JsonResponse(code.con_false)
-        # if mobile_result is None:
-        #     return JsonResponse(code.con_false)
-        # try:
-        #     wh.mob.get(mobile=mobile)
-        # except wh.mob.model.DoesNotExist:
-        #     return JsonResponse(code.con_false)
-        # ------------------- 处理 ----------------
-        # ------- redis操作类 ---------
-        whdis = whdisOp()
-        # ------ 记录地区 ------------
-        whdis.kv_set(mobile, district)
-        content = wh.get_info_by_district(district)
-        con = code.con
-        con["data"] = content
-        con["count"] = len(content)
-        # ------------------- 返回 -----------------
-        return JsonResponse(con)
+            if ret is "":
+                ret = {
+                    "phoneid": "",
+                    "district": ""
+                }
+            else:
+                ret = eval(ret)
+            relog.info("getdiswhitelist " + str(ret))
+            mobile = ret.get("phoneid")
+            district = ret.get("district")
+            # ------------------ 验证 -----------------
+            # ********* 序列化器 *************
+            wh = serWhiteList()
+            # ********************************
+            # dis_result = re.fullmatch(f.INT_FORMATTER_RE, str(district))
+            # mobile_result = re.fullmatch(f.PHONEID_FORMATTER_RE, mobile)
+            # if dis_result is None:
+            #     return JsonResponse(code.con_false)
+            # if mobile_result is None:
+            #     return JsonResponse(code.con_false)
+            # try:
+            #     wh.mob.get(mobile=mobile)
+            # except wh.mob.model.DoesNotExist:
+            #     return JsonResponse(code.con_false)
+            # ------------------- 处理 ----------------
+            # ------- redis操作类 ---------
+            whdis = whdisOp()
+            # ------ 记录地区 ------------
+            whdis.kv_set(mobile, district)
+            content = wh.get_info_by_district(district)
+            con = code.con
+            con["data"] = content
+            con["count"] = len(content)
+            # ------------------- 返回 -----------------
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            errlog.warning(e)
 
 
 class districtInfoView(View):
@@ -445,30 +454,33 @@ class districtInfoView(View):
         :param request:
         :return:
         """
-        # ----------- 接收 ---------------
-        ret = request.GET.dict()
-        relog.info("get-mobile-dis " + str(ret))
-        mobile = ret.get("phoneid")
-        # ----------- 验证 ---------------
-        # ----------- 处理 ---------------
-        # ********* 序列化器 *********
-        dis = serDistrict()
-        # 先判断redis 中是否有区域id信息
-        whdis = whdisOp()
-        dis_id = whdis.kv_get(mobile)
-        if dis_id is None:
-            # ********* 查找信息 *********
-            result = dis.get_district_by_mobile(mobile)
-        else:
-            result = {
-                "district": dis_id,
-                "name": ""
-            }
-        # ----------- 返回 ---------------
-        con = code.con
-        con["data"] = result
-        return JsonResponse(con)
-
+        try:
+            # ----------- 接收 ---------------
+            ret = request.GET.dict()
+            relog.info("get-mobile-dis " + str(ret))
+            mobile = ret.get("phoneid")
+            # ----------- 验证 ---------------
+            # ----------- 处理 ---------------
+            # ********* 序列化器 *********
+            dis = serDistrict()
+            # 先判断redis 中是否有区域id信息
+            whdis = whdisOp()
+            dis_id = whdis.kv_get(mobile)
+            if dis_id is None:
+                # ********* 查找信息 *********
+                result = dis.get_district_by_mobile(mobile)
+            else:
+                result = {
+                    "district": dis_id,
+                    "name": ""
+                }
+            # ----------- 返回 ---------------
+            con = code.con
+            con["data"] = result
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            errlog.warning(e)
 
 # 上传黑广播
 class broadView(View):
@@ -480,58 +492,63 @@ class broadView(View):
         :param request:
         :return:
         """
-        # ------------------ 接收 -----------------
-        ret = request.body.decode()
-        ret = eval(ret)
-        mobile = str(ret.get("phoneid"))
-        info_list = ret.get("data")
-        # ------------------ 验证 -----------------
-        # ******** 序列化器 ************
-        br = serBlackRecord()
-        # ********* 验证手机id **************
         try:
-            br.mob.get(mobile=mobile)
-        except br.mob.model.DoesNotExist:
-            return JsonResponse(code.con_false)
-        # ------------------- 处理 ----------------
-        # *************** 数据处理 *****************
-        result = list(map(broadInfoTurn, info_list))
-        # *************** 保存数据库 **************
-        save_to_mysql.delay(result)
-        # *************** push到redis队列 *********
-        # ********* 白名单过滤 ************
-        content = list()
-        for con in result:
-            islegal = con.get("islegal")
-            if str(islegal) == "0":
-                content.append(con)
-            else:
-                continue
-        # ********* redis操作类 *********
-        bro = broadcastOp()
-        mass = massmarkOp()
-        # ********* 海量点 ***********
-        mass_content = list(map(mass.formmater_data, content))  # 3号仓库
-        for con in mass_content:
-            k, v = con
-            if k == "x,x":
-                continue
-            else:
-                mass.list_push(k, v)
-        # ********* 轮播表 ***********
-        scroll_content = list(map(bro.formatter_scroll_info, content))
-        for con in scroll_content:
-            bro.list_push("scroll_n", con)
-        # ********* 热力图 ***********
-        heatmap_content = list(map(bro.formatter_heatmap_info, content))
-        for con in heatmap_content:
-            if con["lng"] == "x":
-                continue
-            else:
-                bro.list_push("heatmap_n", con)
-        # ------------------- 返回 -----------------
-        con = code.con
-        return JsonResponse(con)
+            # ------------------ 接收 -----------------
+            ret = request.body.decode()
+            ret = eval(ret)
+            mobile = str(ret.get("phoneid"))
+            info_list = ret.get("data")
+            # ------------------ 验证 -----------------
+            # ******** 序列化器 ************
+            br = serBlackRecord()
+            # ********* 验证手机id **************
+            try:
+                br.mob.get(mobile=mobile)
+            except br.mob.model.DoesNotExist:
+                return JsonResponse(code.con_false)
+            # ------------------- 处理 ----------------
+            # *************** 数据处理 *****************
+            result = list(map(broadInfoTurn, info_list))
+            # *************** 保存数据库 **************
+            save_to_mysql.delay(result)
+            # *************** push到redis队列 *********
+            # ********* 白名单过滤 ************
+            content = list()
+            for con in result:
+                islegal = con.get("islegal")
+                if str(islegal) == "0":
+                    content.append(con)
+                else:
+                    continue
+            # ********* redis操作类 *********
+            bro = broadcastOp()
+            mass = massmarkOp()
+            # ********* 海量点 ***********
+            mass_content = list(map(mass.formmater_data, content))  # 3号仓库
+            for con in mass_content:
+                k, v = con
+                if k == "x,x":
+                    continue
+                else:
+                    mass.list_push(k, v)
+            # ********* 轮播表 ***********
+            scroll_content = list(map(bro.formatter_scroll_info, content))
+            for con in scroll_content:
+                bro.list_push("scroll_n", con)
+            # ********* 热力图 ***********
+            heatmap_content = list(map(bro.formatter_heatmap_info, content))
+            for con in heatmap_content:
+                if con["lng"] == "x":
+                    continue
+                else:
+                    bro.list_push("heatmap_n", con)
+            # ------------------- 返回 -----------------
+            con = code.con
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            errlog.warning(e)
+
 
 # 心跳包
 class heartbeatView(View):
@@ -660,52 +677,55 @@ class RedioTestView(View):
         :param request:
         :return:
         """
-        # ----------- 接收 -------------
-        ret = request.body.decode()
-        if ret == "":
-            ret = {
-                "time": "",
-                "location": "",
-                "phoneid": "",
-                "idcard": ""
-            }
-        else:
-            ret = eval(ret)
-        relog.info("post-rediotest " + str(ret))
-        time = ret.get("time")
-        lnglat = ret.get("location")
-        mobile = ret.get("phoneid")
-        monitor = ret.get("idcard")
-        # --------------- 验证 ----------------
-        # --------------- 处理 ----------------
-        # ******** 格式化器 ***********
-        tf = time_formatter()
-        lf = lnglat_formatter()
-        # ******* 序列化器 ************
-        rt = serRedioTest()
-        # ******* 数据处理 *************
-        time = tf.get_time_str(time)
-        lnglat = lf.get_lnglat(lnglat)
         try:
-            mobile = rt.mob.get(mobile=mobile).id
-        except rt.mob.model.DoesNotExist:
-            mobile = rt.mob.get(mobile=f.UNKNOW_MOBILE).id
-        try:
-            monitor = rt.mon.get(idcard=monitor).id
-        except rt.mon.model.DoesNotExist:
-            monitor = rt.mon.get(idcard=f.UNKNOW_IDCARD).id
-        # ******* 组织数据 **********
-        insert_dict = dict()
-        insert_dict["time"] = time
-        insert_dict["lnglat"] = lnglat
-        insert_dict["mobile"] = mobile
-        insert_dict["monitor"] = monitor
-        result = rt.insert_info(**insert_dict)
-        # --------------- 返回 ----------------
-        con = code.con
-        con["data"] = result
-        return JsonResponse(con)
-
+            # ----------- 接收 -------------
+            ret = request.body.decode()
+            if ret == "":
+                ret = {
+                    "time": "",
+                    "location": "",
+                    "phoneid": "",
+                    "idcard": ""
+                }
+            else:
+                ret = eval(ret)
+            relog.info("post-rediotest " + str(ret))
+            time = ret.get("time")
+            lnglat = ret.get("location")
+            mobile = ret.get("phoneid")
+            monitor = ret.get("idcard")
+            # --------------- 验证 ----------------
+            # --------------- 处理 ----------------
+            # ******** 格式化器 ***********
+            tf = time_formatter()
+            lf = lnglat_formatter()
+            # ******* 序列化器 ************
+            rt = serRedioTest()
+            # ******* 数据处理 *************
+            time = tf.get_time_str(time)
+            lnglat = lf.get_lnglat(lnglat)
+            try:
+                mobile = rt.mob.get(mobile=mobile).id
+            except rt.mob.model.DoesNotExist:
+                mobile = rt.mob.get(mobile=f.UNKNOW_MOBILE).id
+            try:
+                monitor = rt.mon.get(idcard=monitor).id
+            except rt.mon.model.DoesNotExist:
+                monitor = rt.mon.get(idcard=f.UNKNOW_IDCARD).id
+            # ******* 组织数据 **********
+            insert_dict = dict()
+            insert_dict["time"] = time
+            insert_dict["lnglat"] = lnglat
+            insert_dict["mobile"] = mobile
+            insert_dict["monitor"] = monitor
+            result = rt.insert_info(**insert_dict)
+            # --------------- 返回 ----------------
+            con = code.con
+            con["data"] = result
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            errlog.warning(e)
 
 class ApkVersionView(View):
     @classmethod
@@ -748,65 +768,68 @@ def broadInfoTurn(info):
     :param info:
     :return:
     """
-    # ********** 序列化器 **********
-    bc = serBlackCategory()
-    wh = serWhiteList()
-    wc = serWhiteCategory()
-    # ********** redis操作 ***********
-    whdis = whdisOp()
-    # ********** 格式化器 **********
-    lf = lnglat_formatter()
-    ff = freq_formatter()
-    tf = time_formatter()
-    # ********** 组织数据 **********
-    con = dict()
-    info["category"] = str(int(info["category"]) + 1)
     try:
-        con["category"] = bc.table.get(id=info.get("category"))
-    except bc.table.model.DoesNotExist:
-        con["category"] = bc.table.get(id=f.UNKNOW_BLACKCATEGORY)
-    try:
-        con["mobile"] = bc.mob.get(mobile=info.get("phoneid"))
-    except bc.mob.model.DoesNotExist:
-        con["mobile"] = bc.mob.get(mobile=f.UNKNOW_MOBILE)
-    con["lnglat"] = lf.get_lnglat(info.get("location"))
-    con["freq"] = ff.mobile_to_django(info.get("freq"))
-    con["time"] = tf.get_time_str(info.get("time"))
-    con["record"] = info.get("record") + ".ogg"
-    con["acquisitionmode"] = info.get("acquisitionmode")
-    con["confidencelevel"] = info.get("confidencelevel")
-    # ******** 备注与联系方式 ***********
-    con["common"] = info.get("common")
-    con["contact"] = info.get("contact")
-    if con["common"] == None:
-        con["common"] = ""
-    if con["contact"] == None:
-        con["contact"] = ""
-    # ********** 获取地理相关信息 ***********
-    if con.get("lnglat") == "x,x":
-        con["address"] = ""
-        con["adcode"] = f.UNKNOW_ADCODE
-    else:
-        address_info = t.getaddress(con.get("lnglat"))
-        con["address"] = address_info["formatted_address"]
-        con["adcode"] = address_info["adcode"]
-    # ********** 白名单过滤 ***************
-    freq = con.get("freq")
-    mobile = con.get("mobile").mobile
-    dis_id = whdis.kv_get(mobile)
-    # tg_dis = con.get("mobile").district
-    # dis_id = wh.dis.get(id=tg_dis).superior
-    wh_list = wh.get_info_by_district(dis_id)
-    con["islegal"] = 0
-    for wh_info in wh_list:
-        if str(freq) == str(wh_info.get("freq")):
-            wh_type = wh_info.get("type")
-            try:
-                con["islegal"] = wc.table.get(id=wh_type).islegal
-            except wc.table.model.DoesNotExist:
-                con["islegal"] = 0
-    return con
-
+        # ********** 序列化器 **********
+        bc = serBlackCategory()
+        wh = serWhiteList()
+        wc = serWhiteCategory()
+        # ********** redis操作 ***********
+        whdis = whdisOp()
+        # ********** 格式化器 **********
+        lf = lnglat_formatter()
+        ff = freq_formatter()
+        tf = time_formatter()
+        # ********** 组织数据 **********
+        con = dict()
+        info["category"] = str(int(info["category"]) + 1)
+        try:
+            con["category"] = bc.table.get(id=info.get("category"))
+        except bc.table.model.DoesNotExist:
+            con["category"] = bc.table.get(id=f.UNKNOW_BLACKCATEGORY)
+        try:
+            con["mobile"] = bc.mob.get(mobile=info.get("phoneid"))
+        except bc.mob.model.DoesNotExist:
+            con["mobile"] = bc.mob.get(mobile=f.UNKNOW_MOBILE)
+        con["lnglat"] = lf.get_lnglat(info.get("location"))
+        con["freq"] = ff.mobile_to_django(info.get("freq"))
+        con["time"] = tf.get_time_str(info.get("time"))
+        con["record"] = info.get("record") + ".ogg"
+        con["acquisitionmode"] = info.get("acquisitionmode")
+        con["confidencelevel"] = info.get("confidencelevel")
+        # ******** 备注与联系方式 ***********
+        con["common"] = info.get("common")
+        con["contact"] = info.get("contact")
+        if con["common"] == None:
+            con["common"] = ""
+        if con["contact"] == None:
+            con["contact"] = ""
+        # ********** 获取地理相关信息 ***********
+        if con.get("lnglat") == "x,x":
+            con["address"] = ""
+            con["adcode"] = f.UNKNOW_ADCODE
+        else:
+            address_info = t.getaddress(con.get("lnglat"))
+            con["address"] = address_info["formatted_address"]
+            con["adcode"] = address_info["adcode"]
+        # ********** 白名单过滤 ***************
+        freq = con.get("freq")
+        mobile = con.get("mobile").mobile
+        dis_id = whdis.kv_get(mobile)
+        # tg_dis = con.get("mobile").district
+        # dis_id = wh.dis.get(id=tg_dis).superior
+        wh_list = wh.get_info_by_district(dis_id)
+        con["islegal"] = 0
+        for wh_info in wh_list:
+            if str(freq) == str(wh_info.get("freq")):
+                wh_type = wh_info.get("type")
+                try:
+                    con["islegal"] = wc.table.get(id=wh_type).islegal
+                except wc.table.model.DoesNotExist:
+                    con["islegal"] = 0
+        return con
+    except Exception:
+        e = traceback.format_exc()
+        errlog.warning(e)
 
 class ViewTool:
     def __init__(self):
