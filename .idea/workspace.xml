@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/big_screen/apps/con_control/views.py" line="367" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/conf/47.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/47.conf" afterDir="false" />
-    </list>
+    <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +68,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conf/47.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
+            <state relative-caret-position="675">
               <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
             </state>
           </provider>
@@ -311,7 +309,7 @@
       <workItem from="1624809729896" duration="1068000" />
       <workItem from="1624839593336" duration="692000" />
       <workItem from="1624840288172" duration="24000" />
-      <workItem from="1624840313899" duration="591000" />
+      <workItem from="1624840313899" duration="910000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1622624217899</created>
@@ -467,11 +465,25 @@
       <option name="project" value="LOCAL" />
       <updated>1624840844953</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="使用记录检索">
+      <created>1624840951019</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1624840951019</updated>
+    </task>
+    <task id="LOCAL-00024" summary="使用记录检索">
+      <created>1624840975103</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1624840975103</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79281000" />
+    <option name="totallyTimeSpent" value="79600000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -812,7 +824,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/47.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
+        <state relative-caret-position="675">
           <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
         </state>
       </provider>
