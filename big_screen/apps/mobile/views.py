@@ -94,36 +94,39 @@ class monitorView(View):
         :param request:
         :return:
         """
-        # ------------------ 接收 -------------------
-        ret = request.GET.dict()
-        mobile = ret.get("phoneid")
-        relog.info("getmonitor " + str(ret))
-        # ----------------- 验证 --------------------
-        if mobile is None:
-            mobile = f.UNKNOW_MOBILE
-        mobile_result = re.fullmatch(f.PHONEID_FORMATTER_RE, mobile)
-        if mobile_result is None:
-            mobile = f.UNKNOW_MOBILE
-        # ---------------- 处理 ---------------------
-        # ******* 序列化器 ************
-        mob = serMobile()
-        mon = serMonitor()
-        # ******** 查询设备所属区域 ***********
-        # 设备是否存在
         try:
-            mob_obj = mob.table.get(mobile=mobile)
-        except mob.table.model.DoesNotExist:
-            mob_obj = mob.table.get(mobile=f.UNKNOW_MOBILE)
-        # 设备是否删除
-        if mob_obj.is_delete is 1:
-            mobile = f.UNKNOW_MOBILE
-        # ************** 查询该区域下的监测人员名单 ******************
-        mon_list = mon.get_by_mobile(mobile)
-        # ---------------- 返回 ----------------------
-        con = code.con
-        con["data"] = mon_list
-        con["count"] = len(mon_list)
-        return JsonResponse(con)
+            # ------------------ 接收 -------------------
+            ret = request.GET.dict()
+            mobile = ret.get("phoneid")
+            relog.info("getmonitor " + str(ret))
+            # ----------------- 验证 --------------------
+            if mobile is None:
+                mobile = f.UNKNOW_MOBILE
+            mobile_result = re.fullmatch(f.PHONEID_FORMATTER_RE, mobile)
+            if mobile_result is None:
+                mobile = f.UNKNOW_MOBILE
+            # ---------------- 处理 ---------------------
+            # ******* 序列化器 ************
+            mob = serMobile()
+            mon = serMonitor()
+            # ******** 查询设备所属区域 ***********
+            # 设备是否存在
+            try:
+                mob_obj = mob.table.get(mobile=mobile)
+            except mob.table.model.DoesNotExist:
+                mob_obj = mob.table.get(mobile=f.UNKNOW_MOBILE)
+            # 设备是否删除
+            if mob_obj.is_delete is 1:
+                mobile = f.UNKNOW_MOBILE
+            # ************** 查询该区域下的监测人员名单 ******************
+            mon_list = mon.get_by_mobile(mobile)
+            # ---------------- 返回 ----------------------
+            con = code.con
+            con["data"] = mon_list
+            con["count"] = len(mon_list)
+            return JsonResponse(con)
+        except Exception:
+            traceback.print_exc()
 
 
 # 打卡
