@@ -128,7 +128,6 @@ class monitorView(View):
             e = traceback.format_exc()
             errlog.warning(e)
 
-
 # 打卡
 class userecordView(View):
 
@@ -357,7 +356,6 @@ class whitelistView(View):
             err = traceback.format_exc()
             moblog.warning(err)
 
-
 # 地区#
 class districtView(View):
     @classmethod
@@ -445,7 +443,6 @@ class districtView(View):
             e = traceback.format_exc()
             errlog.warning(e)
 
-
 class districtInfoView(View):
     @classmethod
     def get(cls, request):
@@ -509,6 +506,7 @@ class broadView(View):
             # ------------------- 处理 ----------------
             # *************** 数据处理 *****************
             result = list(map(broadInfoTurn, info_list))
+            errlog.info(result)
             # *************** 保存数据库 **************
             save_to_mysql.delay(result)
             # *************** push到redis队列 *********

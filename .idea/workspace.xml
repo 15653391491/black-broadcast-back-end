@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/big_screen/apps/mobile/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/mobile/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,36 +39,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/settings_dev.py">
+        <entry file="file://$PROJECT_DIR$/big_screen/apps/con_brocast/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="68" column="50" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
+            <state relative-caret-position="314">
+              <caret line="213" column="43" selection-start-line="213" selection-start-column="43" selection-end-line="213" selection-end-column="43" />
               <folding>
-                <element signature="e#314#323#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/serialization/allSerialization.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="858" column="60" selection-start-line="858" selection-start-column="36" selection-end-line="858" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <element signature="e#1545#2125#0" />
-                <element signature="e#2175#3799#0" />
-                <element signature="e#3856#4774#0" />
-                <element signature="e#4823#5331#0" />
-                <element signature="e#5381#6148#0" />
-                <element signature="e#6186#6526#0" />
-                <element signature="e#6613#7018#0" />
-                <element signature="e#7057#7525#0" />
-                <element signature="e#7563#8043#0" />
-                <element signature="e#8082#8501#0" />
-                <element signature="e#8545#8712#0" />
-                <element signature="e#8819#9675#0" />
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#4468#5774#0" />
               </folding>
             </state>
           </provider>
@@ -76,38 +54,30 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="136" column="9" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
+            <state relative-caret-position="246">
+              <caret line="508" column="31" selection-start-line="508" selection-start-column="31" selection-end-line="508" selection-end-column="31" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#1068#3170#0" />
+                <element signature="e#3206#4753#0" />
+                <element signature="e#4793#7188#0" />
+                <element signature="e#7227#13334#0" />
+                <element signature="e#13373#16359#0" />
+                <element signature="e#16396#17477#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/urls.py">
+        <entry file="file://$PROJECT_DIR$/big_screen/apps/con_brocast/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../black-broadcast-front-end-vue/124.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-675">
-              <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/nginx.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+            <state relative-caret-position="-43">
+              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+              <folding>
+                <element signature="e#1226#2105#0" />
+                <element signature="e#2136#2792#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -186,6 +156,13 @@
               <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
               <item name="big_screen" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="big_screen" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="con_brocast" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
@@ -359,7 +336,7 @@
       <workItem from="1624840288172" duration="24000" />
       <workItem from="1624840313899" duration="3402000" />
       <workItem from="1624846877216" duration="1411000" />
-      <workItem from="1624850294835" duration="7056000" />
+      <workItem from="1624850294835" duration="9133000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1622624217899</created>
@@ -557,11 +534,25 @@
       <option name="project" value="LOCAL" />
       <updated>1624852304365</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="push">
+      <created>1624861008633</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1624861008633</updated>
+    </task>
+    <task id="LOCAL-00030" summary="push">
+      <created>1624861689043</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1624861689043</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90559000" />
+    <option name="totallyTimeSpent" value="92636000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -574,8 +565,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-1" width="1368" height="770" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3909091" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3909091" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -589,7 +581,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007576" side_tool="true" weight="0.7265501" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" visible="true" weight="0.7265501" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" weight="0.7265501" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.5023847" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.6152623" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -725,32 +717,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/con_brocast/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding>
-            <element signature="e#1226#2105#0" />
-            <element signature="e#2136#2792#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/utils/tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-124">
           <caret line="315" column="4" selection-start-line="315" selection-start-column="4" selection-end-line="315" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/con_brocast/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="213" column="43" selection-start-line="213" selection-start-column="43" selection-end-line="213" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#4468#5774#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -854,42 +824,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/settings_dev.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="68" column="50" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
-          <folding>
-            <element signature="e#314#323#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/serialization/allSerialization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="858" column="60" selection-start-line="858" selection-start-column="36" selection-end-line="858" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#1545#2125#0" />
-            <element signature="e#2175#3799#0" />
-            <element signature="e#3856#4774#0" />
-            <element signature="e#4823#5331#0" />
-            <element signature="e#5381#6148#0" />
-            <element signature="e#6186#6526#0" />
-            <element signature="e#6613#7018#0" />
-            <element signature="e#7057#7525#0" />
-            <element signature="e#7563#8043#0" />
-            <element signature="e#8082#8501#0" />
-            <element signature="e#8545#8712#0" />
-            <element signature="e#8819#9675#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -902,17 +840,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/nginx.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
+        <state relative-caret-position="87">
           <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/serialization/allSerialization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="747" column="70" selection-start-line="747" selection-start-column="70" selection-end-line="747" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#1545#2125#0" />
+            <element signature="e#2175#3799#0" />
+            <element signature="e#3856#4774#0" />
+            <element signature="e#4823#5331#0" />
+            <element signature="e#5381#6148#0" />
+            <element signature="e#6186#6526#0" />
+            <element signature="e#7057#7525#0" />
+            <element signature="e#7563#8043#0" />
+            <element signature="e#8082#8501#0" />
+            <element signature="e#8545#8712#0" />
+            <element signature="e#8819#9675#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/settings_dev.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="68" column="50" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
+          <folding>
+            <element signature="e#314#323#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/apps/con_brocast/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-43">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding>
+            <element signature="e#1226#2105#0" />
+            <element signature="e#2136#2792#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/apps/con_brocast/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="213" column="43" selection-start-line="213" selection-start-column="43" selection-end-line="213" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#4468#5774#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="136" column="9" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
+        <state relative-caret-position="246">
+          <caret line="508" column="31" selection-start-line="508" selection-start-column="31" selection-end-line="508" selection-end-column="31" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#1068#3170#0" />
+            <element signature="e#3206#4753#0" />
+            <element signature="e#4793#7188#0" />
+            <element signature="e#7227#13334#0" />
+            <element signature="e#13373#16359#0" />
+            <element signature="e#16396#17477#0" />
           </folding>
         </state>
       </provider>
