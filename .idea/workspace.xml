@@ -4,22 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/big_screen/apps/con_control/views.py" line="367" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/apps/con_brocast/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/con_brocast/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/apps/con_control/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/con_control/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/redisOpration/BaseOpration.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/redisOpration/BaseOpration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/serialization/allSerialization.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/serialization/allSerialization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/settings_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/settings_dev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/file.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/file.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logBak/bak.log" beforeDir="false" afterPath="$PROJECT_DIR$/logBak/bak.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logBak/request.log" beforeDir="false" afterPath="$PROJECT_DIR$/logBak/request.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uwsgi-47.ini" beforeDir="false" afterPath="$PROJECT_DIR$/uwsgi-47.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uwsgi.ini" beforeDir="false" afterPath="$PROJECT_DIR$/uwsgi.ini" afterDir="false" />
-    </list>
+    <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/big_screen/apps/con_control/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="345" column="31" selection-start-line="345" selection-start-column="31" selection-end-line="345" selection-end-column="31" />
+            <state relative-caret-position="337">
+              <caret line="393" column="28" lean-forward="true" selection-start-line="393" selection-start-column="28" selection-end-line="393" selection-end-column="28" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#663#4254#0" />
@@ -118,44 +103,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="big_screen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="big_screen" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="big_screen" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="con_control" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="big_screen" type="462c0819:PsiDirectoryNode" />
-              <item name="redisOpration" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
@@ -287,7 +235,7 @@
       <workItem from="1624009550477" duration="198000" />
       <workItem from="1624237762564" duration="4717000" />
       <workItem from="1624255326404" duration="17660000" />
-      <workItem from="1624348533913" duration="599000" />
+      <workItem from="1624348533913" duration="1109000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1622624217899</created>
@@ -415,11 +363,25 @@
       <option name="project" value="LOCAL" />
       <updated>1623841615265</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="使用记录检索">
+      <created>1624349533096</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1624349533096</updated>
+    </task>
+    <task id="LOCAL-00020" summary="使用记录检索">
+      <created>1624349608545</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1624349608545</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53175000" />
+    <option name="totallyTimeSpent" value="53685000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -665,8 +627,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/apps/con_control/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="345" column="31" selection-start-line="345" selection-start-column="31" selection-end-line="345" selection-end-column="31" />
+        <state relative-caret-position="337">
+          <caret line="393" column="28" lean-forward="true" selection-start-line="393" selection-start-column="28" selection-end-line="393" selection-end-column="28" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#663#4254#0" />
