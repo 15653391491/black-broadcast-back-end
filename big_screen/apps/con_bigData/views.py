@@ -1,12 +1,16 @@
 # Create your views here.
 from django.views import View
 from django.http import JsonResponse
+import traceback
+import logging
 
 from big_screen.utils import sys_setting as code
 from big_screen.utils import tools as t
 from big_screen.redisOpration.AllOpration import broadcastOp
 from .tasks import get_chart_data, get_category_data, get_heatmap_data
-from big_screen.serialization.allSerialization import serBlackRecord,serBlackCategory
+from big_screen.serialization.allSerialization import serBlackRecord, serBlackCategory
+
+errlog = logging.getLogger("Process")
 
 
 class ChartInfoView(View):
@@ -17,22 +21,26 @@ class ChartInfoView(View):
         :param request:
         :return:
         """
-        # --------- 接收 -----------
-        # --------- 验证 -----------
-        # --------- 处理 -----------
-        # ********* 系统开始时间 **********
-        s = t.setting()
-        start_day = s.start_time
-        # ********* 图表数据 *************
-        br_con = broadcastOp()
-        chart_data = br_con.kv_get("chart_data")
-        # --------- 返回 -----------
-        info = dict()
-        info["start_day"] = start_day
-        info["chart_data"] = chart_data
-        con = code.con
-        con["data"] = info
-        return JsonResponse(con)
+        try:
+            # --------- 接收 -----------
+            # --------- 验证 -----------
+            # --------- 处理 -----------
+            # ********* 系统开始时间 **********
+            s = t.setting()
+            start_day = s.start_time
+            # ********* 图表数据 *************
+            br_con = broadcastOp()
+            chart_data = br_con.kv_get("chart_data")
+            # --------- 返回 -----------
+            info = dict()
+            info["start_day"] = start_day
+            info["chart_data"] = chart_data
+            con = code.con
+            con["data"] = info
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            errlog.warning(e)
 
     @classmethod
     def post(cls, request):
