@@ -106,6 +106,14 @@ class start_sys:
         # ---------------- 加入台站 ---------------------
         self.md.tg_district(code.SYS_DISTRICT)
 
+    def addTaizhan(self):
+        """
+
+        :return:
+        """
+        # ---------------- 加入台站 ---------------------
+        self.md.tg_district(code.SYS_DISTRICT)
+
     def init_whcategory(self):
         """
         初始化白名单种类

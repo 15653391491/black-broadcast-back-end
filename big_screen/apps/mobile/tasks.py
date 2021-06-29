@@ -11,6 +11,7 @@ from big_screen.utils import sys_setting as code
 # from con_control.Serialization import serMobileNewLocation
 from big_screen.serialization.allSerialization import serBlackRecord, serDistrict, serMobileNewLocation
 from big_screen.utils import tools as t
+from .views import broadInfoTurn
 
 errlog = logging.getLogger("Process")
 Brlog = logging.getLogger("Broadcasting")
@@ -235,3 +236,13 @@ def pop_scroll_tool(key):
             bro.list_pop(key)  # pop队列
         else:
             continue
+
+
+def selectIndexBlackBroadInfo():
+    """
+    定时查询大屏中的黑广播信息
+    :return:
+    """
+    bro = broadcastOp()
+    mass = massmarkOp()
+    br = serBlackRecord()

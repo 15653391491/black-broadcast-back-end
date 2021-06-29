@@ -506,9 +506,19 @@ class broadView(View):
             # ------------------- 处理 ----------------
             # *************** 数据处理 *****************
             result = list(map(broadInfoTurn, info_list))
-            errlog.info(result)
             # *************** 保存数据库 **************
-            save_to_mysql.delay(result)
+            # save_to_mysql.delay(result)
+            bro = serBlackRecord()
+            dis = serDistrict()
+            for con in result:
+                adcode = con.pop("adcode")
+                try:
+                    con["district"] = dis.table.get(adcode=adcode, is_district=1).id
+                except dis.table.model.DoesNotExist:
+                    con["district"] = dis.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
+                except Exception:
+                    con["district"] = dis.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
+                bro.insert_info(**con)
             # *************** push到redis队列 *********
             # ********* 白名单过滤 ************
             content = list()

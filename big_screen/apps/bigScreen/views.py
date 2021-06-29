@@ -4,6 +4,7 @@ import logging
 from django.http import JsonResponse
 from dwebsocket.decorators import accept_websocket
 from django_redis import get_redis_connection
+import traceback
 
 from big_screen.utils import sys_setting as code
 from big_screen.redisOpration.AllOpration import isworkingOp, massmarkOp, broadcastOp
@@ -24,18 +25,20 @@ def websocketmassmark(request):
     :param request:
     :return:
     """
-    # --------------- 返回 -----------------------
-    if request.is_websocket():
+    try:
         content = select_broadcast_data()
-        w = copy.copy(request.websocket)
-        socket_obj.append(w)
-        request.websocket.send(json.dumps(content))
-        request.websocket.wait()
-    else:
-        content = select_broadcast_data()
-        con = code.con
-        con["data"] = content
-        return JsonResponse(con)
+        # --------------- 返回 -----------------------
+        if request.is_websocket():
+            while True:
+                request.websocket.send(json.dumps(content))
+                request.websocket.wait()
+        else:
+            con = code.con
+            con["data"] = content
+            return JsonResponse(con)
+    except Exception:
+        e = traceback.format_exc()
+        errlog.warning(e)
 
 
 # √
@@ -47,28 +50,33 @@ def websocketchart(request):
     :param request:
     :return:
     """
-    # ------------------------------------ 组织数据 ---------------------------------
-    chart_con = get_redis_connection('chart')
-    counter = chart_con.get('counter').decode()
-    chart_year_month = chart_con.get('chart_year_month').decode()
-    category = chart_con.get('category').decode()
-    time_count = chart_con.get('time_count').decode()
-    mobileSummary = chart_con.get("mobileSummary").decode()
-    regionSummary = chart_con.get("regionSummary").decode()
-    data = {
-        'counter': json.loads(counter),
-        'chart_year_month': json.loads(chart_year_month),
-        'category': json.loads(category),
-        'time_count': json.loads(time_count),
-        "mobileSummary": json.loads(mobileSummary),
-        "regionSummary": json.loads(regionSummary)
-    }
-    if request.is_websocket():
-        # ---------------------------------------- 发送数据 ---------------------------------------
-        request.websocket.send(json.dumps(data))
-        request.websocket.wait()
-    else:
-        return JsonResponse(data)
+    try:
+        # ------------------------------------ 组织数据 ---------------------------------
+        chart_con = get_redis_connection('chart')
+        counter = chart_con.get('counter').decode()
+        chart_year_month = chart_con.get('chart_year_month').decode()
+        category = chart_con.get('category').decode()
+        time_count = chart_con.get('time_count').decode()
+        mobileSummary = chart_con.get("mobileSummary").decode()
+        regionSummary = chart_con.get("regionSummary").decode()
+        data = {
+            'counter': json.loads(counter),
+            'chart_year_month': json.loads(chart_year_month),
+            'category': json.loads(category),
+            'time_count': json.loads(time_count),
+            "mobileSummary": json.loads(mobileSummary),
+            "regionSummary": json.loads(regionSummary)
+        }
+        if request.is_websocket():
+            while True:
+                # ---------------------------------------- 发送数据 ---------------------------------------
+                request.websocket.send(json.dumps(data))
+                request.websocket.wait()
+        else:
+            return JsonResponse(data)
+    except Exception:
+        e = traceback.format_exc()
+        errlog.warning(e)
 
 
 # √
@@ -79,13 +87,17 @@ def websocketisworkon(request):
     :param request:
     :return:
     """
-    if request.is_websocket():
+    try:
         con = select_isworkon_data()
-        request.websocket.send(json.dumps(con))
-        request.websocket.wait()
-    else:
-        con = select_isworkon_data()
-        return JsonResponse(con)
+        if request.is_websocket():
+            while True:
+                request.websocket.send(json.dumps(con))
+                request.websocket.wait()
+        else:
+            return JsonResponse(con)
+    except Exception:
+        e = traceback.format_exc()
+        errlog.warning(e)
 
 
 # ------------- 工具 -----------------------
