@@ -533,23 +533,20 @@ class broadView(View):
             mass = massmarkOp()
             # ********* 海量点 ***********
             mass_content = list(map(mass.formmater_data, content))  # 3号仓库
+            errlog.info(mass_content)
             for con in mass_content:
                 k, v = con
-                if k == "x,x":
-                    continue
-                else:
-                    mass.list_push(k, v)
+                mass.list_push(k, v)
             # ********* 轮播表 ***********
             scroll_content = list(map(bro.formatter_scroll_info, content))
+            errlog.info(scroll_content)
             for con in scroll_content:
                 bro.list_push("scroll_n", con)
             # ********* 热力图 ***********
             heatmap_content = list(map(bro.formatter_heatmap_info, content))
+            errlog.info(heatmap_content)
             for con in heatmap_content:
-                if con["lng"] == "x":
-                    continue
-                else:
-                    bro.list_push("heatmap_n", con)
+                bro.list_push("heatmap_n", con)
             # ------------------- 返回 -----------------
             con = code.con
             return JsonResponse(con)

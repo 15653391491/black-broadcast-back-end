@@ -1,18 +1,19 @@
 import datetime
 import logging
-from pymysql import IntegrityError
-from django.db.models import Count
 
-from con_brocast.models import BlackRecord, BlackCategory
-from con_control.models import MonitorInfo, MobileInfo, MobileNewLocation, MobileUseRecord, District
-from whiteList.models import WhiteList, WhiteListCategory
-from big_screen.utils import sys_setting as code, tools as t
-from .baseSerialization import SerTable
-from mobile.models import MobileVersion, RedioTest
+from django.db.models import Count
+from pymysql import IntegrityError
+
 from big_screen.utils import re_format as f
+from big_screen.utils import sys_setting as code, tools as t
 from big_screen.utils import turn_format as tf
 from big_screen.utils.turn_format import freq_formatter
+from con_brocast.models import BlackRecord, BlackCategory
+from con_control.models import MonitorInfo, MobileInfo, MobileNewLocation, MobileUseRecord, District
+from mobile.models import MobileVersion, RedioTest
 from version.models import MobileToPlatformInfo, PlatformInfo
+from whiteList.models import WhiteList, WhiteListCategory
+from .baseSerialization import SerTable
 
 errlog = logging.getLogger("Process")
 
@@ -282,6 +283,86 @@ class serBlackRecord(SerTable):
             info["district"] = self.dis.get(id=info.get("district")).name
         return self.queryToList(summaryResurt)
 
+    #  -------------- 组织数据 -------------------
+    def organizeScroll(self, query):
+        """
+        轮播表数据
+        :param query:
+        :return:
+        """
+        query = query.values("time", "freq", "category__name", "address")
+        ret = map(self.formatterScroll, query)
+        return [info for info in ret]
+
+    def organizeMassMark(self, query):
+        """
+        海量点数据
+        :param query:
+        :return:
+        """
+        query = query.values("time", "freq", "category__name", "address", "lnglat")
+        ret = map(self.formatterMassMark, query)
+        return [info for info in ret]
+
+    def organizeHeatMap(self, query):
+        """
+        热力图数据
+        :param query:
+        :return:
+        """
+        query = query.values("time", "lnglat")
+        ret = map(self.formatterHeatMap, query)
+        return [info for info in ret]
+
+    # ------------- 格式转化 -------------------
+    def formatterScroll(self, info):
+        """
+        轮播表格式
+        :param info:
+        :return:
+        """
+        time = info.get("time")
+        time = time.strftime(code.DATA_FORMATTER)
+        freq = info.get("freq")
+        category = info.get("category__name")
+        address = info.get("address")
+        return [time, freq, category, address]
+
+    def formatterMassMark(self, info):
+        """
+        格式化海量点
+        :param info:
+        :return:
+        """
+        time = info.get("time")
+        time = time.strftime(code.DATA_FORMATTER)
+        freq = info.get("freq")
+        category = info.get("category__name")
+        address = info.get("address")
+        lnglat = info.get("lnglat")
+        return (lnglat, {
+            'freq': freq,
+            'category': category,
+            'time': time,
+            'address': address})
+
+    def formatterHeatMap(self, info):
+        """
+        格式化海量点
+        :param info:
+        :return:
+        """
+        time = info.get("time")
+        time = time.strftime(code.DATA_FORMATTER)
+        lnglat = info.get("lnglat").split(",")
+        lng = lnglat[0]
+        lat = lnglat[1]
+        return {
+            'lng': lng,
+            'count': 1,
+            'time': time,
+            'lat': lat}
+
 
 class serMobile(SerTable):
     def __init__(self):
@@ -309,7 +390,7 @@ class serMobile(SerTable):
 
         district = kwargs.get("district")
         if district is "0":
-            kwargs["district"] = self.dis.get(adcode=code.SYS_DISTRICT,is_district=1).id
+            kwargs["district"] = self.dis.get(adcode=code.SYS_DISTRICT, is_district=1).id
         try:
             obj = self.table.get(mobile=kwargs.get("mobile"))
         except MobileInfo.DoesNotExist:
@@ -342,7 +423,7 @@ class serMobile(SerTable):
             if mob_obj.mobile != f.UNKNOW_MOBILE:
                 district = update_dict.get("district")
                 if district == "0":
-                    update_dict["district"] = self.dis.get(adcode=code.SYS_DISTRICT,is_district=1).id
+                    update_dict["district"] = self.dis.get(adcode=code.SYS_DISTRICT, is_district=1).id
                 try:
                     self.table.filter(id=update_dict.get("id")).update(**update_dict)
                 except Exception:
@@ -745,7 +826,7 @@ class serDistrict(SerTable):
         :return:
         """
         sys_dis_id = self.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
-        content = self.table.filter(superior=sys_dis_id,is_district=1 ).values("id", "name")
+        content = self.table.filter(superior=sys_dis_id, is_district=1).values("id", "name")
         return list(content)
 
     def get_district_by_mobile(self, mobile):
@@ -942,7 +1023,7 @@ class serWhiteList(SerTable):
         :return:
         """
         # ****************
-        sys_dis_id = self.dis.get(adcode=code.SYS_DISTRICT,is_district=1).id
+        sys_dis_id = self.dis.get(adcode=code.SYS_DISTRICT, is_district=1).id
         # -------------- 查询集 ------------------
         query = self.table.all().values("name", "freq", "type", "district")
         # --------------- 结果 --------------------

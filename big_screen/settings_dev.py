@@ -351,8 +351,8 @@ CELERYBEAT_SCHEDULE = {  # 定时器策略
         "schedule": schedules.timedelta(hours=24),
         "args": (),
     },
-    u'清理过期黑广播数据': {
-        "task": "mobile.tasks.expire_broadcast",
+    u'更新黑广播相关数据': {
+        "task": "mobile.tasks.selectIndexBlackBroadInfo",
         "schedule": schedules.timedelta(minutes=1),
         "args": (),
     },

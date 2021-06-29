@@ -19,6 +19,20 @@ class SerTable:
         self.dis = District.objects
         self.mon = MonitorInfo.objects
 
+    def select(self, *args, **kwargs):
+        """
+        查询数据库
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        select_dict = kwargs.get("select_dict")
+        return self.table.filter(**select_dict)
+
+    def values(self, *args, **kwargs):
+        query = kwargs.get("query")
+        return query.values(*args)
+
     def get_id_list(self):
         """
         返回id列表

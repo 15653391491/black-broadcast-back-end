@@ -47,9 +47,33 @@ class isworkingOp(BaseOpration):
 
 class massmarkOp(BaseOpration):
     def __init__(self):
+        """
+        3号仓库
+        """
         BaseOpration.__init__(self)
         self.con = get_redis_connection("massmark")
 
+    def resetMassMarkData(self, content):
+        """
+        重置海量点数据
+        :param content:
+        :return:
+        """
+        self.flush_db()
+        for con in content:
+            self.pushMassMarkData(con)
+
+    # ----------------- 数据插入 -----------------
+    def pushMassMarkData(self, info):
+        """
+        插入海量点数据
+        :param info:
+        :return:
+        """
+        k, v = info
+        self.list_push(k, v)
+
+    # --------------- 旧方法 ---------------------
     def formatter_data_from_ser(self, info):
         """
         用序列化器查询出的数据进行组织
@@ -102,9 +126,53 @@ class massmarkOp(BaseOpration):
 
 class broadcastOp(BaseOpration):
     def __init__(self):
+        """
+        4号仓库
+        """
         BaseOpration.__init__(self)
         self.con = get_redis_connection("broadcast")
+        self.scrollKey = "scroll_n"
+        self.heatmapKey = "heatmap_n"
 
+    # -------------- 重置 ----------------
+    def resetScrollData(self, content):
+        """
+        重置轮播表数据
+        :param content:
+        :return:
+        """
+        self.del_key(self.scrollKey)
+        for con in content:
+            self.pushScrollData(con)
+
+    def resetHeatMapData(self, content):
+        """
+        重置热力图数据
+        :param content:
+        :return:
+        """
+        self.del_key(self.heatmapKey)
+        for con in content:
+            self.pushHeatMapData(con)
+
+    # -------------- 数据插入 ---------------
+    def pushScrollData(self, info):
+        """
+        插入轮播表数据
+        :param info:
+        :return:
+        """
+        self.list_push(self.scrollKey, info)
+
+    def pushHeatMapData(self, info):
+        """
+        插入热力图数据
+        :param info:
+        :return:
+        """
+        self.list_push(self.heatmapKey, info)
+
+    #  ------------- 旧方法 -----------------
     def formatter_scroll_info(self, info):
         """
         格式化轮播表数据

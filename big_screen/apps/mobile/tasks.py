@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 # encoding: utf-8
 from __future__ import absolute_import
+
 import datetime
-import json
 import logging
 
 from big_screen.celery import app
 from big_screen.redisOpration.AllOpration import isworkingOp, massmarkOp, broadcastOp
-from big_screen.utils import sys_setting as code
 # from con_control.Serialization import serMobileNewLocation
 from big_screen.serialization.allSerialization import serBlackRecord, serDistrict, serMobileNewLocation
+from big_screen.utils import sys_setting as code
 from big_screen.utils import tools as t
-from .views import broadInfoTurn
 
 errlog = logging.getLogger("Process")
 Brlog = logging.getLogger("Broadcasting")
@@ -68,17 +67,50 @@ def expire_broadcast():
     ３．轮播表
     :return:
     """
+    pass
     # --------------- 创建redis操作对象 -----------
+    # mass = massmarkOp()
+    # # --------------- 获取数据 --------------------
+    # # ************* 海量点 **************
+    # mass_keys = mass.get_keys()
+    # for key in mass_keys:
+    #     pop_massmark_tool(key)
+    # # ************* 热力图 **************
+    # pop_heatmap_tool("heatmap_n")
+    # # ************* 轮播表 **************
+    # pop_scroll_tool("scroll_n")
+
+
+@app.task
+def selectIndexBlackBroadInfo():
+    """
+    定时查询大屏中的黑广播信息
+    :return:
+    """
+    # ------------ redis ---------------
+    bro = broadcastOp()
     mass = massmarkOp()
-    # --------------- 获取数据 --------------------
-    # ************* 海量点 **************
-    mass_keys = mass.get_keys()
-    for key in mass_keys:
-        pop_massmark_tool(key)
-    # ************* 热力图 **************
-    pop_heatmap_tool("heatmap_n")
-    # ************* 轮播表 **************
-    pop_scroll_tool("scroll_n")
+    # ------------ mysql ---------------
+    br = serBlackRecord()
+    # ------------ 时间范围 ---------------
+    s = t.setting()  # 配置文件
+    timeRange = s.get_timeRange()  # 时间范围 分钟
+    end = datetime.datetime.now()  # 结束时间
+    start = end - datetime.timedelta(minutes=timeRange)  # 开始时间
+    # ----------- 查询 ----------------
+    select_dict = {
+        "time__gte": start,
+        "time__lte": end,
+        "islegal": 0
+    }
+    q = br.select(select_dict=select_dict)  # 查询集
+    scrollData = br.organizeScroll(q)  # 轮播表数据
+    massmarkData = br.organizeMassMark(q)  # 海量点数据
+    heatmapData = br.organizeHeatMap(q)  # 热力图数据
+    # ------------ 重置缓存 ---------------
+    bro.resetScrollData(scrollData)
+    bro.resetHeatMapData(heatmapData)
+    mass.resetMassMarkData(massmarkData)
 
 
 def pop_list(con, key):
@@ -238,11 +270,10 @@ def pop_scroll_tool(key):
             continue
 
 
-def selectIndexBlackBroadInfo():
-    """
-    定时查询大屏中的黑广播信息
-    :return:
-    """
-    bro = broadcastOp()
-    mass = massmarkOp()
-    br = serBlackRecord()
+def makeScrollData(info):
+    time = info.get("time")
+    time = time.strftime(code.DATA_FORMATTER)
+    freq = info.get("freq")
+    category = info.get("category__name")
+    address = info.get("address")
+    return [time, freq, category, address]
