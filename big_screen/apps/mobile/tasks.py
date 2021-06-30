@@ -111,6 +111,7 @@ def selectIndexBlackBroadInfo():
     bro.resetScrollData(scrollData)
     bro.resetHeatMapData(heatmapData)
     mass.resetMassMarkData(massmarkData)
+    return scrollData
 
 
 def pop_list(con, key):

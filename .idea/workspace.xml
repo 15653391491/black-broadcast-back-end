@@ -6,15 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen.pid" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen.pid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/big_screen/apps/mobile/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/mobile/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/apps/mobile/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/mobile/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/serialization/allSerialization.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/serialization/allSerialization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/serialization/baseSerialization.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/serialization/baseSerialization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/settings_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/settings_dev.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/big_screen/utils/time.ini" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/utils/time.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celerybeat.pid" beforeDir="false" afterPath="$PROJECT_DIR$/celerybeat.pid" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,11 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="96" column="22" lean-forward="true" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+            <state relative-caret-position="439">
+              <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
               <folding>
                 <element signature="e#40#78#0" expanded="true" />
               </folding>
@@ -102,20 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/big_screen/utils/tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="792" column="8" selection-start-line="792" selection-start-column="8" selection-end-line="792" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/utils/time.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            <state relative-caret-position="88">
+              <caret line="778" column="34" selection-start-line="778" selection-start-column="34" selection-end-line="778" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -154,7 +138,6 @@
         <option value="$PROJECT_DIR$/conf/47.conf" />
         <option value="$PROJECT_DIR$/big_screen/utils/sys_setting.py" />
         <option value="$PROJECT_DIR$/big_screen/apps/con_control/views.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console.sql" />
         <option value="$PROJECT_DIR$/big_screen/utils/start_sys.py" />
         <option value="$PROJECT_DIR$/conf/nginx.conf" />
         <option value="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" />
@@ -164,8 +147,10 @@
         <option value="$PROJECT_DIR$/big_screen/serialization/allSerialization.py" />
         <option value="$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py" />
         <option value="$PROJECT_DIR$/big_screen/settings_dev.py" />
-        <option value="$PROJECT_DIR$/big_screen/apps/mobile/tasks.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console.sql" />
         <option value="$PROJECT_DIR$/big_screen/utils/time.ini" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_1.sql" />
+        <option value="$PROJECT_DIR$/big_screen/apps/mobile/tasks.py" />
       </list>
     </option>
   </component>
@@ -192,6 +177,19 @@
               <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
               <item name="big_screen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="big_screen" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="big_screen" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
@@ -360,7 +358,9 @@
       <workItem from="1624930392008" duration="259000" />
       <workItem from="1624931697935" duration="2070000" />
       <workItem from="1624935598295" duration="15574000" />
-      <workItem from="1624961308879" duration="521000" />
+      <workItem from="1624961308879" duration="1021000" />
+      <workItem from="1625015455747" duration="3000" />
+      <workItem from="1625016933658" duration="1098000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1622624217899</created>
@@ -586,11 +586,18 @@
       <option name="project" value="LOCAL" />
       <updated>1624947703370</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="push">
+      <created>1624962078902</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1624962078903</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116362000" />
+    <option name="totallyTimeSpent" value="117963000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -603,8 +610,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-1" width="1368" height="713" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22803031" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23560606" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -619,8 +627,8 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007576" side_tool="true" weight="0.7265501" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" weight="0.7255245" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.37237763" />
-      <window_info anchor="bottom" id="Database Console" order="13" weight="0.6152623" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.94755244" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.6136364" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -762,9 +770,6 @@
           <caret line="87" column="50" selection-start-line="87" selection-start-column="50" selection-end-line="87" selection-end-column="50" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/apps/con_control/views.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -951,27 +956,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/utils/tools.py">
+    <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="792" column="8" selection-start-line="792" selection-start-column="8" selection-end-line="792" selection-end-column="8" />
+        <state relative-caret-position="439">
+          <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
+          <folding>
+            <element signature="e#40#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/utils/time.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        <state relative-caret-position="189">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
+    <entry file="file://$PROJECT_DIR$/big_screen/utils/tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="96" column="22" lean-forward="true" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
-          <folding>
-            <element signature="e#40#78#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="88">
+          <caret line="778" column="34" selection-start-line="778" selection-start-column="34" selection-end-line="778" selection-end-column="34" />
         </state>
       </provider>
     </entry>
