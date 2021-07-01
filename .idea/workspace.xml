@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/big_screen.pid" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen.pid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/big_screen/apps/mobile/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/mobile/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/utils/time.ini" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/utils/time.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/big_screen/apps/mobile/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/mobile/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/big_screen/serialization/baseSerialization.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/serialization/baseSerialization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/big_screen/settings_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/settings_dev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celerybeat-schedule.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celerybeat.pid" beforeDir="false" afterPath="$PROJECT_DIR$/celerybeat.pid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gunicorn_start.sh" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,56 +37,40 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="big_screen@124.70.44.128" type="feb32156:DbDataSourceImpl" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="big_screen@124.70.44.128" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="big_screen@124.70.44.128" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="big_screen: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="ExecutionTargetDialog">
+    <checked>
+      <node key="b8d7d159-41a7-42ee-ab1e-f8a81f20c228" />
+    </checked>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
-              <folding>
-                <element signature="e#40#78#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/redisOpration/BaseOpration.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3078">
-              <caret line="115" column="26" selection-start-line="115" selection-start-column="26" selection-end-line="115" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12177">
-              <caret line="548" column="40" selection-start-line="548" selection-start-column="31" selection-end-line="548" selection-end-column="40" />
+            <state relative-caret-position="1080">
+              <caret line="594" column="32" lean-forward="true" selection-start-line="594" selection-start-column="32" selection-end-line="594" selection-end-column="32" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
                 <element signature="e#1068#3170#0" />
                 <element signature="e#3206#4753#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/settings_dev.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9504">
-              <caret line="357" column="6" selection-start-line="357" selection-start-column="6" selection-end-line="357" selection-end-column="6" />
-              <folding>
-                <element signature="e#314#323#0" expanded="true" />
+                <element signature="e#17512#20399#0" />
               </folding>
             </state>
           </provider>
@@ -89,17 +79,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3942">
-              <caret line="152" column="11" selection-start-line="152" selection-start-column="11" selection-end-line="155" selection-end-column="37" />
+            <state relative-caret-position="-54">
+              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/big_screen/utils/tools.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="778" column="34" selection-start-line="778" selection-start-column="34" selection-end-line="778" selection-end-column="34" />
+            <state>
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#40#78#0" expanded="true" />
+                <element signature="e#611#1335#0" />
+                <element signature="e#1373#1636#0" />
+                <element signature="e#2211#3141#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/big_screen/utils/turn_format.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -142,15 +147,17 @@
         <option value="$PROJECT_DIR$/conf/nginx.conf" />
         <option value="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" />
         <option value="$PROJECT_DIR$/big_screen/apps/con_bigData/views.py" />
-        <option value="$PROJECT_DIR$/big_screen/apps/mobile/views.py" />
-        <option value="$PROJECT_DIR$/big_screen/serialization/baseSerialization.py" />
         <option value="$PROJECT_DIR$/big_screen/serialization/allSerialization.py" />
         <option value="$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py" />
-        <option value="$PROJECT_DIR$/big_screen/settings_dev.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console.sql" />
         <option value="$PROJECT_DIR$/big_screen/utils/time.ini" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_1.sql" />
+        <option value="$PROJECT_DIR$/big_screen/serialization/baseSerialization.py" />
+        <option value="$PROJECT_DIR$/big_screen/apps/mobile/views.py" />
         <option value="$PROJECT_DIR$/big_screen/apps/mobile/tasks.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_2.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_3.sql" />
+        <option value="$PROJECT_DIR$/big_screen/settings_dev.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console.sql" />
       </list>
     </option>
   </component>
@@ -165,7 +172,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,13 +195,7 @@
               <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
               <item name="big_screen" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="mobile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="big_screen" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="bigScreen" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
@@ -206,6 +206,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -361,6 +362,9 @@
       <workItem from="1624961308879" duration="1021000" />
       <workItem from="1625015455747" duration="3000" />
       <workItem from="1625016933658" duration="1098000" />
+      <workItem from="1625044909652" duration="365000" />
+      <workItem from="1625101463630" duration="599000" />
+      <workItem from="1625102308473" duration="3047000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1622624217899</created>
@@ -597,7 +601,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117963000" />
+    <option name="totallyTimeSpent" value="122305000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -612,12 +616,12 @@
     <frame x="-1" y="-1" width="1368" height="713" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.23560606" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24318182" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.506993" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -658,16 +662,6 @@
     <SUITE FILE_PATH="coverage/black_broadcast_back_end$sys_setting.coverage" NAME="sys_setting Coverage Results" MODIFIED="1623136583344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/big_screen/utils" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/login/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -686,13 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/bigScreen/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -862,34 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/bigScreen/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/serialization/baseSerialization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#582#714#0" />
-            <element signature="e#755#924#0" />
-            <element signature="e#965#1149#0" />
-            <element signature="e#1188#1417#0" />
-            <element signature="e#1467#2723#0" />
-            <element signature="e#2819#3145#0" />
-            <element signature="e#3195#3523#0" />
-            <element signature="e#3573#4140#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/serialization/allSerialization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
@@ -927,56 +886,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12177">
-          <caret line="548" column="40" selection-start-line="548" selection-start-column="31" selection-end-line="548" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1068#3170#0" />
-            <element signature="e#3206#4753#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/settings_dev.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9504">
-          <caret line="357" column="6" selection-start-line="357" selection-start-column="6" selection-end-line="357" selection-end-column="6" />
-          <folding>
-            <element signature="e#314#323#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3942">
-          <caret line="152" column="11" selection-start-line="152" selection-start-column="11" selection-end-line="155" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
-          <folding>
-            <element signature="e#40#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_1.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="11" selection-start-column="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -989,8 +902,185 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/utils/tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="778" column="34" selection-start-line="778" selection-start-column="34" selection-end-line="778" selection-end-column="34" />
+        <state relative-caret-position="142">
+          <caret line="786" column="24" lean-forward="true" selection-start-line="786" selection-start-column="24" selection-end-line="786" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/serialization/baseSerialization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="8" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/celerybeat-schedule.db">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81" />
+      </provider>
+    </entry>
+    <entry file="das://b8d7d159-41a7-42ee-ab1e-f8a81f20c228/schema/big_screen/table/celery_taskmeta">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="132c6eb4-e6f3-4396-a306-b87d97628de5">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8d7d159-41a7-42ee-ab1e-f8a81f20c228/schema/big_screen/table/celery_tasksetmeta">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="132c6eb4-e6f3-4396-a306-b87d97628de5">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8d7d159-41a7-42ee-ab1e-f8a81f20c228/schema/big_screen/table/djcelery_crontabschedule">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="132c6eb4-e6f3-4396-a306-b87d97628de5">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8d7d159-41a7-42ee-ab1e-f8a81f20c228/schema/big_screen/table/djcelery_intervalschedule">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="132c6eb4-e6f3-4396-a306-b87d97628de5">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_3.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="45" selection-start-column="45" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8d7d159-41a7-42ee-ab1e-f8a81f20c228/schema/big_screen/table/djcelery_periodictasks">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="132c6eb4-e6f3-4396-a306-b87d97628de5">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8d7d159-41a7-42ee-ab1e-f8a81f20c228/schema/big_screen/table/djcelery_taskstate">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="132c6eb4-e6f3-4396-a306-b87d97628de5">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/settings_dev.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <caret line="336" column="32" selection-start-line="336" selection-start-column="32" selection-end-line="336" selection-end-column="32" />
+          <folding>
+            <element signature="e#314#323#0" expanded="true" />
+            <element signature="e#3122#3365#0" />
+            <element signature="e#3497#3893#0" />
+            <element signature="e#4341#6404#0" />
+            <element signature="e#6511#9811#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8d7d159-41a7-42ee-ab1e-f8a81f20c228/schema/big_screen/table/djcelery_workerstate">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="132c6eb4-e6f3-4396-a306-b87d97628de5">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8d7d159-41a7-42ee-ab1e-f8a81f20c228/schema/big_screen/table/djcelery_periodictask">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="132c6eb4-e6f3-4396-a306-b87d97628de5">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/apps/bigScreen/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/apps/bigScreen/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-129">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#619#1146#0" />
+            <element signature="e#1222#2527#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/utils/turn_format.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#40#78#0" expanded="true" />
+            <element signature="e#611#1335#0" />
+            <element signature="e#1373#1636#0" />
+            <element signature="e#2211#3141#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="594" column="32" lean-forward="true" selection-start-line="594" selection-start-column="32" selection-end-line="594" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#1068#3170#0" />
+            <element signature="e#3206#4753#0" />
+            <element signature="e#17512#20399#0" />
+          </folding>
         </state>
       </provider>
     </entry>

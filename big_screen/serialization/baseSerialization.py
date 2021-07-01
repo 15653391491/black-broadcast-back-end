@@ -19,6 +19,8 @@ class SerTable:
         self.dis = District.objects
         self.mon = MonitorInfo.objects
 
+    # ---------------- 新方法 ---------------------
+    # *************** 基本功能 *******************
     def select(self, *args, **kwargs):
         """
         查询数据库
@@ -28,11 +30,9 @@ class SerTable:
         """
         select_dict = kwargs.get("select_dict")
         return self.table.filter(**select_dict)
+    # *************** 分页 **************
 
-    def values(self, *args, **kwargs):
-        query = kwargs.get("query")
-        return query.values(*args)
-
+    # ------------------ 旧方法 --------------------
     def get_id_list(self):
         """
         返回id列表

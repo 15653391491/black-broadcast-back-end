@@ -59,29 +59,6 @@ def pop_heartbeat():
 
 
 @app.task
-def expire_broadcast():
-    """
-    清空过期内容
-    １．海量点
-    ２．热力图
-    ３．轮播表
-    :return:
-    """
-    pass
-    # --------------- 创建redis操作对象 -----------
-    # mass = massmarkOp()
-    # # --------------- 获取数据 --------------------
-    # # ************* 海量点 **************
-    # mass_keys = mass.get_keys()
-    # for key in mass_keys:
-    #     pop_massmark_tool(key)
-    # # ************* 热力图 **************
-    # pop_heatmap_tool("heatmap_n")
-    # # ************* 轮播表 **************
-    # pop_scroll_tool("scroll_n")
-
-
-@app.task
 def selectIndexBlackBroadInfo():
     """
     定时查询大屏中的黑广播信息
@@ -111,7 +88,6 @@ def selectIndexBlackBroadInfo():
     bro.resetScrollData(scrollData)
     bro.resetHeatMapData(heatmapData)
     mass.resetMassMarkData(massmarkData)
-    return scrollData
 
 
 def pop_list(con, key):
@@ -185,96 +161,3 @@ def pop_heartbeat_tool(key):
             timediff2 = info_time - mysql_time  # 时间差
             if timediff2.total_seconds() > code.RECORD_EXPIRATION_TIME:
                 ml.insert_info(**insert_dict)
-
-
-def pop_massmark_tool(key):
-    """
-    定时清理黑广播列表
-    1.针对一条队列
-    2.从右向左遍历，
-    3.取当前时间与信息中的时间做差，若当期时间小于信息时间则pop
-    4.差值与配置文件中的时间范围做比较，大于时间范围则pop，小于时间范围则停止遍历
-    :param key:
-    :return:
-    """
-    # --------- 准备 ---------------
-    mass = massmarkOp()  # redis操作类
-    now = datetime.datetime.now()  # 当前时间
-    s = t.setting()  # 配置文件
-    timerange = s.get_timeRange()
-    # --------- 处理 ---------------
-    list_len = mass.list_len(key)
-    for i in range(list_len):  # 从右往左遍历
-        massmarkInfo = mass.list_get_head(key)
-        info_time = massmarkInfo.get("time")
-        info_time = list(map(lambda this_time: datetime.datetime.strptime(this_time, code.DATA_FORMATTER),
-                             [info_time]))[0]  # 心跳包中的时间
-        if info_time > now:  # 心跳包中的时间晚于当前时间为错误情况
-            mass.list_pop(key)
-        timediff = now - info_time  # 时间差
-        if timediff.total_seconds() > timerange:
-            mass.list_pop(key)  # pop队列
-        else:
-            continue
-
-
-def pop_heatmap_tool(key):
-    """
-
-    :param key:
-    :return:
-    """
-    # --------- 准备 ---------------
-    bro = broadcastOp()
-    now = datetime.datetime.now()  # 当前时间
-    s = t.setting()  # 配置文件
-    timerange = s.get_timeRange()
-    # --------- 处理 ---------------
-    list_len = bro.list_len(key)
-    for i in range(list_len):  # 从右往左遍历
-        massmarkInfo = bro.list_get_head(key)
-        info_time = massmarkInfo.get("time")
-        info_time = list(map(lambda this_time: datetime.datetime.strptime(this_time, code.DATA_FORMATTER),
-                             [info_time]))[0]  # 心跳包中的时间
-        if info_time > now:  # 心跳包中的时间晚于当前时间为错误情况
-            bro.list_pop(key)
-        timediff = now - info_time  # 时间差
-        if timediff.total_seconds() > timerange:
-            bro.list_pop(key)  # pop队列
-        else:
-            continue
-
-
-def pop_scroll_tool(key):
-    """
-
-    :return:
-    """
-    # --------- 准备 ---------------
-    bro = broadcastOp()
-    now = datetime.datetime.now()  # 当前时间
-    s = t.setting()  # 配置文件
-    timerange = s.get_timeRange()
-    # --------- 处理 ---------------
-    list_len = bro.list_len(key)
-    for i in range(list_len):  # 从右往左遍历
-        massmarkInfo = bro.list_get_head(key)
-        info_time = massmarkInfo[0]
-        info_time = list(map(lambda this_time: datetime.datetime.strptime(this_time, code.DATA_FORMATTER),
-                             [info_time]))[0]  # 心跳包中的时间
-        if info_time > now:  # 心跳包中的时间晚于当前时间为错误情况
-            bro.list_pop(key)
-        timediff = now - info_time  # 时间差
-        if timediff.total_seconds() > timerange:
-            bro.list_pop(key)  # pop队列
-        else:
-            continue
-
-
-def makeScrollData(info):
-    time = info.get("time")
-    time = time.strftime(code.DATA_FORMATTER)
-    freq = info.get("freq")
-    category = info.get("category__name")
-    address = info.get("address")
-    return [time, freq, category, address]

@@ -567,15 +567,7 @@ class heartbeatView(View):
         try:
             # ------------------- 接收 ---------------
             ret = request.body.decode()
-            if ret is "":
-                ret = {
-                    "phoneid": "",
-                    "time": "",
-                    "location": ""
-                }
-            else:
-                ret = eval(ret)
-            relog.info("post-heartbeat " + str(ret))
+            ret = eval(ret)
             # *********** 取数据 ***********
             mobile = ret.get("phoneid")
             time = ret.get("time")
@@ -588,42 +580,26 @@ class heartbeatView(View):
                 con = code.con_false
                 con["msg"] = "该手机不存在"
                 return JsonResponse(con)
-            mobile_result = re.fullmatch(f.PHONEID_FORMATTER_RE, mobile)
-            time_result = re.fullmatch(f.DATE_FORMATTER_RE_PHONE, time)
-            lnglat_result = re.fullmatch(f.LNGLAT_FORMATTER_RE_PHONE, lnglat)
             # ------------------- 处理 ----------------
             # ********** reids操作类 ***********
             iw = isworkingOp()
             # ********** 格式转换器 **********
-            tf = time_formatter()
             lf = lnglat_formatter()
             # ********** 格式处理 ***********
-            if mobile_result is None:
-                mobile = f.UNKNOW_MOBILE
-            if time_result is None:
-                time = tf.now_time_str
-            else:
-                time = tf.get_time_str(time)
-            if lnglat_result is None:
-                lnglat = f.UNKNOW_LNGLAT
-            else:
-                lnglat = lf.get_lnglat(lnglat)
+            lnglat = lf.get_lnglat(lnglat)
             # *********** 组织数据 **************
             info = dict()
             info["time"] = time
             info["mobile"] = mobile
             info["lnglat"] = lnglat
             k, v = iw.formatter_info(info)
-            if k == "None":
-                pass
-            else:
-                # ********* 插入redis ***************
-                iw.list_push(k, v)
+            # ********* 插入redis ***************
+            iw.list_push(k, v)
             # ------------------- 返回 -----------------
             return JsonResponse(code.con)
         except Exception:
-            err = traceback.format_exc()
-            moblog.warning(err)
+            e = traceback.format_exc()
+            errlog.warning(e)
 
 
 # 录音文件

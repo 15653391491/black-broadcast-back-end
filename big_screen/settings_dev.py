@@ -335,7 +335,6 @@ CELERY_IMPORTS = ('bigScreen.tasks', 'con_bigData.tasks', "mobile.tasks")
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 
 CELERYBEAT_SCHEDULE = {  # 定时器策略
-    # 定时任务一：　每隔一小时运行一次
     u'首页图表': {
         "task": "bigScreen.tasks.set_bigscreen_chart",
         "schedule": schedules.timedelta(hours=2),
