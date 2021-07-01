@@ -568,6 +568,7 @@ class heartbeatView(View):
             # ------------------- 接收 ---------------
             ret = request.body.decode()
             ret = eval(ret)
+            errlog.info(ret)
             # *********** 取数据 ***********
             mobile = ret.get("phoneid")
             time = ret.get("time")
