@@ -152,8 +152,6 @@ def pop_heartbeat_tool(key):
                 lnglat = insert_dict.get("lnglat")
                 if lnglat == "x,x":
                     continue
-                if lnglat == "x-x":
-                    continue
             # -----------------------------------------------------------
             mysql_time = ml.get_recent_time(key)  # 数据库中该手机存储的最新时间
             if mysql_time == 0:

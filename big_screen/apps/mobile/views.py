@@ -136,7 +136,16 @@ class userecordView(View):
         try:
             # --------------- 接收 -------------------
             ret = request.body.decode()
-            ret = eval(ret)
+            if ret is "":
+                ret = {
+                    "time": "",
+                    "location": "",
+                    "phoneid": "",
+                    "idcard": "",
+                    "version": "1.0.0"
+                }
+            else:
+                ret = eval(ret)
             relog.info("userecord " + str(ret))
             time = ret.get("time")
             mobile = ret.get("phoneid")
@@ -559,7 +568,6 @@ class heartbeatView(View):
             # ------------------- 接收 ---------------
             ret = request.body.decode()
             ret = eval(ret)
-            errlog.info(ret)
             # *********** 取数据 ***********
             mobile = ret.get("phoneid")
             time = ret.get("time")
@@ -577,15 +585,17 @@ class heartbeatView(View):
             iw = isworkingOp()
             # ********** 格式转换器 **********
             lf = lnglat_formatter()
+            tf = time_formatter()
             # ********** 格式处理 ***********
             lnglat = lf.get_lnglat(lnglat)
             # *********** 组织数据 **************
             info = dict()
-            info["time"] = time
+            info["time"] = tf.get_time_str(time)
             info["mobile"] = mobile
             info["lnglat"] = lnglat
             k, v = iw.formatter_info(info)
             # ********* 插入redis ***************
+            errlog.info(v)
             iw.list_push(k, v)
             # ------------------- 返回 -----------------
             return JsonResponse(code.con)
