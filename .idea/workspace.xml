@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen.pid" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/apps/mobile/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/mobile/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/apps/mobile/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/mobile/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,72 +55,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/views.py">
+        <entry file="file://$PROJECT_DIR$/big_screen/apps/bigScreen/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="594" column="35" lean-forward="true" selection-start-line="594" selection-start-column="35" selection-end-line="594" selection-end-column="35" />
+            <state relative-caret-position="1816">
+              <caret line="74" column="13" lean-forward="true" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
-                <element signature="e#1068#3170#0" />
-                <element signature="e#3206#4753#0" />
-                <element signature="e#7226#13333#0" />
-                <element signature="e#13371#16357#0" />
-                <element signature="e#16393#17474#0" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-70">
-              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="147" column="48" selection-start-line="147" selection-start-column="48" selection-end-line="147" selection-end-column="48" />
-              <folding>
-                <element signature="e#40#78#0" expanded="true" />
-                <element signature="e#611#1335#0" />
-                <element signature="e#1373#1636#0" />
-                <element signature="e#2211#3141#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/serialization/allSerialization.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-467">
-              <caret line="886" column="8" selection-start-line="886" selection-start-column="8" selection-end-line="886" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/utils/turn_format.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/big_screen/redisOpration/BaseOpration.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -172,10 +111,10 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_2.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_3.sql" />
         <option value="$PROJECT_DIR$/big_screen/settings_dev.py" />
-        <option value="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" />
         <option value="$PROJECT_DIR$/big_screen/apps/mobile/tasks.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console.sql" />
         <option value="$PROJECT_DIR$/big_screen/apps/mobile/views.py" />
+        <option value="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" />
       </list>
     </option>
   </component>
@@ -312,6 +251,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="big_screen.settings_dev" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -389,7 +329,9 @@
       <workItem from="1625016933658" duration="1098000" />
       <workItem from="1625044909652" duration="365000" />
       <workItem from="1625101463630" duration="599000" />
-      <workItem from="1625102308473" duration="6190000" />
+      <workItem from="1625102308473" duration="6644000" />
+      <workItem from="1625108990481" duration="27000" />
+      <workItem from="1625109408462" duration="234000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1622624217899</created>
@@ -643,11 +585,18 @@
       <option name="project" value="LOCAL" />
       <updated>1625106789906</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="x,x">
+      <created>1625108502635</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1625108502635</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125448000" />
+    <option name="totallyTimeSpent" value="126163000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -922,11 +871,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/celerybeat-schedule.db">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/celerybeat-schedule.db" />
     <entry file="das://b8d7d159-41a7-42ee-ab1e-f8a81f20c228/schema/big_screen/table/celery_taskmeta">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="132c6eb4-e6f3-4396-a306-b87d97628de5">
@@ -1032,18 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/bigScreen/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="155" column="29" lean-forward="true" selection-start-line="155" selection-start-column="29" selection-end-line="155" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#619#1146#0" />
-            <element signature="e#1222#2527#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/apps/bigScreen/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -1077,54 +1010,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="147" column="48" selection-start-line="147" selection-start-column="48" selection-end-line="147" selection-end-column="48" />
-          <folding>
-            <element signature="e#40#78#0" expanded="true" />
-            <element signature="e#611#1335#0" />
-            <element signature="e#1373#1636#0" />
-            <element signature="e#2211#3141#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-70">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/utils/turn_format.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/serialization/allSerialization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-467">
-          <caret line="886" column="8" selection-start-line="886" selection-start-column="8" selection-end-line="886" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/redisOpration/BaseOpration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="35">
-          <caret line="594" column="35" lean-forward="true" selection-start-line="594" selection-start-column="35" selection-end-line="594" selection-end-column="35" />
+          <caret line="594" column="35" selection-start-line="594" selection-start-column="35" selection-end-line="594" selection-end-column="35" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
             <element signature="e#1068#3170#0" />
@@ -1132,6 +1021,59 @@
             <element signature="e#7226#13333#0" />
             <element signature="e#13371#16357#0" />
             <element signature="e#16393#17474#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3051">
+          <caret line="147" column="48" selection-start-line="147" selection-start-column="48" selection-end-line="147" selection-end-column="48" />
+          <folding>
+            <element signature="e#40#78#0" expanded="true" />
+            <element signature="e#611#1335#0" />
+            <element signature="e#1373#1636#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/serialization/allSerialization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23517">
+          <caret line="886" column="8" selection-start-line="886" selection-start-column="8" selection-end-line="886" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/utils/turn_format.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/redisOpration/BaseOpration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1296">
+          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/apps/bigScreen/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1816">
+          <caret line="74" column="13" lean-forward="true" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

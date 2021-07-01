@@ -26,13 +26,14 @@ def websocketmassmark(request):
     :return:
     """
     try:
-        content = select_broadcast_data()
         # --------------- 返回 -----------------------
         if request.is_websocket():
             while True:
+                content = select_broadcast_data()
                 request.websocket.send(json.dumps(content))
                 request.websocket.wait()
         else:
+            content = select_broadcast_data()
             con = code.con
             con["data"] = content
             return JsonResponse(con)
@@ -51,28 +52,42 @@ def websocketchart(request):
     :return:
     """
     try:
-        # ------------------------------------ 组织数据 ---------------------------------
-        chart_con = get_redis_connection('chart')
-        counter = chart_con.get('counter').decode()
-        chart_year_month = chart_con.get('chart_year_month').decode()
-        category = chart_con.get('category').decode()
-        time_count = chart_con.get('time_count').decode()
-        mobileSummary = chart_con.get("mobileSummary").decode()
-        regionSummary = chart_con.get("regionSummary").decode()
-        data = {
-            'counter': json.loads(counter),
-            'chart_year_month': json.loads(chart_year_month),
-            'category': json.loads(category),
-            'time_count': json.loads(time_count),
-            "mobileSummary": json.loads(mobileSummary),
-            "regionSummary": json.loads(regionSummary)
-        }
         if request.is_websocket():
             while True:
+                chart_con = get_redis_connection('chart')
+                counter = chart_con.get('counter').decode()
+                chart_year_month = chart_con.get('chart_year_month').decode()
+                category = chart_con.get('category').decode()
+                time_count = chart_con.get('time_count').decode()
+                mobileSummary = chart_con.get("mobileSummary").decode()
+                regionSummary = chart_con.get("regionSummary").decode()
+                data = {
+                    'counter': json.loads(counter),
+                    'chart_year_month': json.loads(chart_year_month),
+                    'category': json.loads(category),
+                    'time_count': json.loads(time_count),
+                    "mobileSummary": json.loads(mobileSummary),
+                    "regionSummary": json.loads(regionSummary)
+                }
                 # ---------------------------------------- 发送数据 ---------------------------------------
                 request.websocket.send(json.dumps(data))
                 request.websocket.wait()
         else:
+            chart_con = get_redis_connection('chart')
+            counter = chart_con.get('counter').decode()
+            chart_year_month = chart_con.get('chart_year_month').decode()
+            category = chart_con.get('category').decode()
+            time_count = chart_con.get('time_count').decode()
+            mobileSummary = chart_con.get("mobileSummary").decode()
+            regionSummary = chart_con.get("regionSummary").decode()
+            data = {
+                'counter': json.loads(counter),
+                'chart_year_month': json.loads(chart_year_month),
+                'category': json.loads(category),
+                'time_count': json.loads(time_count),
+                "mobileSummary": json.loads(mobileSummary),
+                "regionSummary": json.loads(regionSummary)
+            }
             return JsonResponse(data)
     except Exception:
         e = traceback.format_exc()
@@ -88,12 +103,13 @@ def websocketisworkon(request):
     :return:
     """
     try:
-        con = select_isworkon_data()
         if request.is_websocket():
             while True:
+                con = select_isworkon_data()
                 request.websocket.send(json.dumps(con))
                 request.websocket.wait()
         else:
+            con = select_isworkon_data()
             return JsonResponse(con)
     except Exception:
         e = traceback.format_exc()
