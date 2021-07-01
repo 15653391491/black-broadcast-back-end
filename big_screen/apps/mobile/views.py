@@ -136,16 +136,7 @@ class userecordView(View):
         try:
             # --------------- 接收 -------------------
             ret = request.body.decode()
-            if ret is "":
-                ret = {
-                    "time": "",
-                    "location": "",
-                    "phoneid": "",
-                    "idcard": "",
-                    "version": "1.0.0"
-                }
-            else:
-                ret = eval(ret)
+            ret = eval(ret)
             relog.info("userecord " + str(ret))
             time = ret.get("time")
             mobile = ret.get("phoneid")

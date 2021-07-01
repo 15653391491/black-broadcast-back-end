@@ -154,10 +154,10 @@ def select_isworkon_data():
     for key in keys:
         info = dict()
         content = iw.list_get_tail(key)
-        mobile = list(map(lambda data_dict: s.table.get(mobile=data_dict["mobile"]), content))[0]
+        mobileObjList = map(lambda data_dict: s.table.get(mobile=data_dict["mobile"]), content)
+        mobileList = [info for info in mobileObjList]
+        mobile = mobileList[0]
         info["lnglat"] = content[0]["lnglat"]
-        if info["lnglat"] == "x,x":
-            info["lnglat"] = "0,0"
         info["phonenumber"] = mobile.phonenumber
         info["monitor"] = mobile.name
         try:
