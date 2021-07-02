@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb8c1881-3d82-40fa-9823-1e4a1d58ac65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/big_screen/utils/time.ini" beforeDir="false" afterPath="$PROJECT_DIR$/big_screen/utils/time.ini" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,14 +54,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/big_screen/apps/bigScreen/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1816">
-              <caret line="74" column="13" lean-forward="true" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+            <state relative-caret-position="50">
+              <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/big_screen/utils/time.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="141" column="50" lean-forward="true" selection-start-line="141" selection-start-column="50" selection-end-line="141" selection-end-column="50" />
+              <folding>
+                <element signature="e#40#78#0" expanded="true" />
+                <element signature="e#611#1335#0" />
+                <element signature="e#1373#1636#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/big_screen/utils/sys_setting.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -105,7 +137,6 @@
         <option value="$PROJECT_DIR$/big_screen/apps/con_bigData/views.py" />
         <option value="$PROJECT_DIR$/big_screen/serialization/allSerialization.py" />
         <option value="$PROJECT_DIR$/big_screen/redisOpration/AllOpration.py" />
-        <option value="$PROJECT_DIR$/big_screen/utils/time.ini" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_1.sql" />
         <option value="$PROJECT_DIR$/big_screen/serialization/baseSerialization.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_2.sql" />
@@ -115,6 +146,7 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console.sql" />
         <option value="$PROJECT_DIR$/big_screen/apps/mobile/views.py" />
         <option value="$PROJECT_DIR$/big_screen/apps/bigScreen/views.py" />
+        <option value="$PROJECT_DIR$/big_screen/utils/time.ini" />
       </list>
     </option>
   </component>
@@ -129,6 +161,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -152,14 +185,13 @@
               <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
               <item name="big_screen" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="bigScreen" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="black-broadcast-back-end" type="462c0819:PsiDirectoryNode" />
               <item name="big_screen" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="black-broadcast-back-end" type="b2602c69:ProjectViewProjectNode" />
@@ -170,7 +202,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -331,7 +362,8 @@
       <workItem from="1625101463630" duration="599000" />
       <workItem from="1625102308473" duration="6644000" />
       <workItem from="1625108990481" duration="27000" />
-      <workItem from="1625109408462" duration="234000" />
+      <workItem from="1625109408462" duration="923000" />
+      <workItem from="1625132535873" duration="966000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1622624217899</created>
@@ -592,11 +624,18 @@
       <option name="project" value="LOCAL" />
       <updated>1625108502635</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="x,x">
+      <created>1625109655306</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1625109655306</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126163000" />
+    <option name="totallyTimeSpent" value="127818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -609,9 +648,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-1" width="1368" height="713" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24318182" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24318182" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -625,7 +663,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007576" side_tool="true" weight="0.7265501" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" weight="0.7255245" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" weight="0.72473866" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.94755244" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.6136364" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -843,24 +881,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/utils/sys_setting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b8d7d159-41a7-42ee-ab1e-f8a81f20c228/console_1.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/utils/time.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -1032,18 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3051">
-          <caret line="147" column="48" selection-start-line="147" selection-start-column="48" selection-end-line="147" selection-end-column="48" />
-          <folding>
-            <element signature="e#40#78#0" expanded="true" />
-            <element signature="e#611#1335#0" />
-            <element signature="e#1373#1636#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/serialization/allSerialization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23517">
@@ -1070,10 +1082,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/big_screen/apps/bigScreen/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1816">
-          <caret line="74" column="13" lean-forward="true" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+        <state relative-caret-position="50">
+          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/utils/time.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/utils/sys_setting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/big_screen/apps/mobile/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="141" column="50" lean-forward="true" selection-start-line="141" selection-start-column="50" selection-end-line="141" selection-end-column="50" />
+          <folding>
+            <element signature="e#40#78#0" expanded="true" />
+            <element signature="e#611#1335#0" />
+            <element signature="e#1373#1636#0" />
           </folding>
         </state>
       </provider>
