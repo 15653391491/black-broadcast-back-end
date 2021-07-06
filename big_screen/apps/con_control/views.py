@@ -8,7 +8,7 @@ import logging
 
 from big_screen.utils import sys_setting as code
 from big_screen.serialization.allSerialization import serMobile, serMonitor, serUserRecord, serMobileNewLocation, \
-    serDistrict, serWhiteCategory, serWhiteList, serRedioTest
+    serDistrict, serWhiteCategory, serWhiteList, serRedioTest, serMobileToPlatform
 from big_screen.utils import re_format as f
 from big_screen.utils.turn_format import time_formatter
 from big_screen.redisOpration.AllOpration import MobListOp
@@ -165,16 +165,7 @@ class ControlTextView(View):
         """
         # -------------- 接收 ----------------
         ret = request.body.decode()
-        if ret is "":
-            ret = {
-                "district": "0",
-                "name": "未知",
-                "mobile": "0",
-                "phonenumber": "0",
-                "time": ""
-            }
-        else:
-            ret = eval(ret)
+        ret = eval(ret)
         district = ret.get("district")
         name = ret.get("name")
         mobile = ret.get("mobile")
@@ -189,6 +180,7 @@ class ControlTextView(View):
             time = tf.now_time_str
         # ******* 序列化器 **********
         mob = serMobile()
+        mp = serMobileToPlatform()
         # ******** 插入设备 ************
         insert_dict = dict()
         insert_dict["district"] = district
@@ -197,6 +189,13 @@ class ControlTextView(View):
         insert_dict["phonenumber"] = phonenumber
         insert_dict["time"] = time
         result = mob.insert_info(**insert_dict)
+        #  *********** 注册版本管理 ************
+        mp_info = {
+            "mobile": mobile,
+            "platform": 1,
+            "name": "贵州"
+        }
+        mp.insert_info(**mp_info)
         # ******* 更新redis中mobile 列表 ***********
         moblist_op = MobListOp()
         moblist_op.update_mob_list()
@@ -243,15 +242,7 @@ class ControlTextView(View):
         """
         # -------------- 接收 ----------------
         ret = request.body.decode()
-        if ret is "":
-            ret = {
-                "district": "0",
-                "name": "未知",
-                "phonenumber": "0",
-                "time": ""
-            }
-        else:
-            ret = eval(ret)
+        ret = eval(ret)
         district = ret.get("district")
         name = ret.get("name")
         phonenumber = ret.get("phonenumber")
@@ -268,6 +259,7 @@ class ControlTextView(View):
         update_dict["name"] = name
         update_dict["phonenumber"] = phonenumber
         update_dict["time"] = time
+        errlog.info(update_dict)
         # ************* 更新数据 ************
         result = mob.update_info(update_dict)
         # -------------- 返回 ----------------

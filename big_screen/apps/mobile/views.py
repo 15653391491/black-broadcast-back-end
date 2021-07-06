@@ -138,16 +138,7 @@ class userecordView(View):
         try:
             # --------------- 接收 -------------------
             ret = request.body.decode()
-            if ret is "":
-                ret = {
-                    "time": "",
-                    "location": "",
-                    "phoneid": "",
-                    "idcard": "",
-                    "version": "1.0.0"
-                }
-            else:
-                ret = eval(ret)
+            ret = eval(ret)
             relog.info("userecord " + str(ret))
             time = ret.get("time")
             mobile = ret.get("phoneid")
@@ -252,17 +243,7 @@ class whitelistView(View):
         try:
             # -------------- 接收 ----------------------
             ret = request.body.decode()
-            if ret is "":
-                ret = {
-                    "time": "",
-                    "freq": "",
-                    "name": "",
-                    "phoneid": "",
-                    "type": "",
-                    "district": ""
-                }
-            else:
-                ret = eval(ret)
+            ret = eval(ret)
             relog.info("postwhitelist " + str(ret))
             # ----------------- 取数据 -------------------------
             time = ret.get("time")
@@ -353,6 +334,7 @@ class whitelistView(View):
                     else:
                         # 未找到则插入
                         wh.insert_info(insert_dict)
+            con = None
             con = code.con
             return JsonResponse(con)
         except Exception:
@@ -407,14 +389,7 @@ class districtView(View):
         try:
             # ------------------ 接收 -----------------
             ret = request.body.decode()
-
-            if ret is "":
-                ret = {
-                    "phoneid": "",
-                    "district": ""
-                }
-            else:
-                ret = eval(ret)
+            ret = eval(ret)
             relog.info("getdiswhitelist " + str(ret))
             mobile = ret.get("phoneid")
             district = ret.get("district")
