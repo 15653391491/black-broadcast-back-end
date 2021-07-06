@@ -148,8 +148,7 @@ class ControlTextView(View):
         else:
             result = mob.get_info()
         # ********* 分页 **********
-        paginator = Paginator(result, limit)
-        content = paginator.page(page).object_list
+        content = mob.page(query=result, page=page, limit=limit)
         # ------------ 返回 -------------
         con = code.con
         con["data"] = content
@@ -349,8 +348,7 @@ class FreqCategoryView(View):
         else:
             result = wh.get_info()
         # ******* 分页 *********
-        paginator = Paginator(result, limit)
-        content = paginator.page(page).object_list
+        content = wh.page(query=result, page=page, limit=limit)
         # --------------- 返回 --------------------
         con = code.con
         con["data"] = content
@@ -485,8 +483,7 @@ class MonitorView(View):
         else:
             result = mon.get_info()
         # ****** 分页 *******
-        paginator = Paginator(result, limit)
-        content = paginator.page(page).object_list
+        content = mon.page(query=result, page=page, limit=limit)
         # --------------- 返回 --------------------
         con = code.con
         con["data"] = content
@@ -615,8 +612,7 @@ class UseRecord(View):
         else:
             result = ur.get_info()
         # ********* 分页************
-        paginator = Paginator(result, limit)
-        content = paginator.page(page).object_list
+        content = ur.page(query=result, page=page, limit=limit)
         # -------------- 返回 ------------------
         con = code.con
         con["data"] = content
@@ -627,7 +623,6 @@ class UseRecord(View):
 class RedioTestView(View):
     def get(self, request):
         """
-
         :param request:
         :return:
         """

@@ -84,6 +84,7 @@ class versionView(View):
             err = traceback.format_exc()
             moblog.warning(err)
 
+
 # 人员
 class monitorView(View):
     @classmethod
@@ -127,6 +128,7 @@ class monitorView(View):
         except Exception:
             e = traceback.format_exc()
             errlog.warning(e)
+
 
 # 打卡
 class userecordView(View):
@@ -191,6 +193,7 @@ class userecordView(View):
         except Exception:
             e = traceback.format_exc()
             errlog.warning(e)
+
 
 # 白名单
 class whitelistView(View):
@@ -356,6 +359,7 @@ class whitelistView(View):
             err = traceback.format_exc()
             moblog.warning(err)
 
+
 # 地区#
 class districtView(View):
     @classmethod
@@ -443,6 +447,7 @@ class districtView(View):
             e = traceback.format_exc()
             errlog.warning(e)
 
+
 class districtInfoView(View):
     @classmethod
     def get(cls, request):
@@ -479,6 +484,7 @@ class districtInfoView(View):
             e = traceback.format_exc()
             errlog.warning(e)
 
+
 # 上传黑广播
 class broadView(View):
 
@@ -504,8 +510,10 @@ class broadView(View):
             except br.mob.model.DoesNotExist:
                 return JsonResponse(code.con_false)
             # ------------------- 处理 ----------------
+            ur = serUserRecord()
             # *************** 数据处理 *****************
-            result = list(map(broadInfoTurn, info_list))
+            result = map(broadInfoTurn, info_list)
+            result = [info for info in result]
             # *************** 保存数据库 **************
             # save_to_mysql.delay(result)
             bro = serBlackRecord()
@@ -518,6 +526,10 @@ class broadView(View):
                     con["district"] = dis.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
                 except Exception:
                     con["district"] = dis.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
+                # 上报人
+                time = con.get("time")
+                record_obj = ur.getReportMonitor(mobile, time)
+                con["monitor"] = record_obj.get("monitor")
                 bro.insert_info(**con)
             # *************** push到redis队列 *********
             # ********* 白名单过滤 ************
@@ -532,19 +544,19 @@ class broadView(View):
             bro = broadcastOp()
             mass = massmarkOp()
             # ********* 海量点 ***********
-            mass_content = list(map(mass.formmater_data, content))  # 3号仓库
-            errlog.info(mass_content)
+            mass_content = map(mass.formmater_data, content)  # 3号仓库
+            mass_content = [info for info in mass_content]
             for con in mass_content:
                 k, v = con
                 mass.list_push(k, v)
             # ********* 轮播表 ***********
-            scroll_content = list(map(bro.formatter_scroll_info, content))
-            errlog.info(scroll_content)
+            scroll_content = map(bro.formatter_scroll_info, content)
+            scroll_content = [info for info in scroll_content]
             for con in scroll_content:
                 bro.list_push("scroll_n", con)
             # ********* 热力图 ***********
-            heatmap_content = list(map(bro.formatter_heatmap_info, content))
-            errlog.info(heatmap_content)
+            heatmap_content = map(bro.formatter_heatmap_info, content)
+            heatmap_content = [info for info in heatmap_content]
             for con in heatmap_content:
                 bro.list_push("heatmap_n", con)
             # ------------------- 返回 -----------------
@@ -708,6 +720,7 @@ class RedioTestView(View):
             e = traceback.format_exc()
             errlog.warning(e)
 
+
 class ApkVersionView(View):
     @classmethod
     def get(cls, request):
@@ -811,6 +824,7 @@ def broadInfoTurn(info):
     except Exception:
         e = traceback.format_exc()
         errlog.warning(e)
+
 
 class ViewTool:
     def __init__(self):

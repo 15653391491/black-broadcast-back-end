@@ -54,7 +54,8 @@ class serBlackRecord(SerTable):
         _query = self.table.filter(islegal=0).values("id", "time", "freq", "lnglat", "category__name", "mobile__name",
                                                      "record",
                                                      "address",
-                                                     "contact", "common", "category__num", "mobile__id").order_by(
+                                                     "contact", "monitor", "common", "category__num",
+                                                     "mobile__id").order_by(
             "-time")
         # ------------------------ 格式化结果 ------------------------------
         contant = self.formatter_content(list(_query))
@@ -252,6 +253,16 @@ class serBlackRecord(SerTable):
         self.make_bc(2, 4)
         self.make_bc(4, 6)
         self.make_bc(5, 4)
+
+    def makeReportMonitor(self):
+        query = self.table.all()
+        ur = serUserRecord()
+        for info in query:
+            mob_id = info.mobile.id
+            time = info.time
+            record_obj = ur.getReportMonitor(mob_id, time)
+            info.monitor = record_obj.get("monitor")
+            info.save()
 
     # ------------------- 统计 ---------------------
     def count_by_category(self, select_dict):
@@ -546,7 +557,7 @@ class serUserRecord(SerTable):
             content = [{"monitor": "none"}]
         return content[0]
 
-    def get_recent_record2(self, mob_id, time):
+    def getReportMonitor(self, mob_id, time):
         """
         通过手机id获取打卡人
         :param mob_id:
@@ -554,9 +565,11 @@ class serUserRecord(SerTable):
         :return:
         """
         query = self.table.filter(mobile=mob_id, time__lte=time).values().order_by("-time")
-        content = list(map(self.formatter_foreign_content, list(query)))
+        query = [info for info in query]
+        content = map(self.formatter_foreign_content, query)
+        content = [info for info in content]
         if len(content) == 0:
-            content = [{"monitor": "none"}]
+            content = [{"monitor": ""}]
         return content[0]
 
     def select_info(self, select_dict):

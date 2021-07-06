@@ -1,11 +1,12 @@
 from django.db import models
-from con_control.models import MobileInfo
+from con_control.models import MobileInfo, MonitorInfo
 import datetime
 
 default_time = datetime.datetime.now()
 
+
 class BlackCategory(models.Model):
-    time = models.DateTimeField(default=default_time,verbose_name='加入时间')
+    time = models.DateTimeField(default=default_time, verbose_name='加入时间')
     name = models.CharField(max_length=50, verbose_name='种类名称')
     num = models.CharField(default='0', max_length=50, verbose_name='编码')
 
@@ -31,6 +32,7 @@ class BlackRecord(models.Model):
     islegal = models.CharField(default='0', blank=False, max_length=50, verbose_name='是否合法')
     contact = models.CharField(default='无', blank=False, max_length=50, verbose_name='联系方式')
     common = models.CharField(default='无', blank=False, max_length=300, verbose_name='备注')
+    monitor = models.CharField(default="", max_length=200, verbose_name="上报人姓名")
 
     class Meta:
         db_table = 'tb_Broadcasting'

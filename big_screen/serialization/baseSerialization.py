@@ -21,6 +21,13 @@ class SerTable:
 
     # ---------------- 新方法 ---------------------
     # *************** 基本功能 *******************
+    def traversal(self):
+        """
+        遍历
+        :return:
+        """
+        return self.table.all()
+
     def select(self, *args, **kwargs):
         """
         查询数据库
@@ -30,7 +37,23 @@ class SerTable:
         """
         select_dict = kwargs.get("select_dict")
         return self.table.filter(**select_dict)
+
     # *************** 分页 **************
+    def page(self, *args, **kwargs):
+        """
+        分页器
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        query = kwargs.get("query")
+        page = int(kwargs.get("page"))
+        limit = int(kwargs.get("limit"))
+        content = [info for info in query]
+        start = (page - 1) * limit
+        end = page * limit
+        print(start, end)
+        return content[start:end]
 
     # ------------------ 旧方法 --------------------
     def get_id_list(self):

@@ -36,7 +36,6 @@ class BroadcastTextView(View):
         :param request:
         :return:
         """
-        start = clock()
         # ------------- 接收 ------------------
         ret = request.GET.dict()
         limit = ret.get("limit")
@@ -44,26 +43,15 @@ class BroadcastTextView(View):
         # ------------- 验证 ------------------
         # ******** 序列化器 **********
         br = serBlackRecord()
-        ur = serUserRecord()
         # ********** 是否需要检索 ************
         # -------------- 处理 -----------------
         result = br.get_info()
         # ********* 分页 *************
-        paginator = Paginator(result, limit)
-        # 缓存
-        content = paginator.page(page).object_list
-        for info in content:
-            mob_id = info.get("mobile__id")
-            time = info.get("time")
-            record_obj = ur.get_recent_record2(mob_id, time)
-            info["monitor"] = record_obj.get("monitor")
-            info["freq__num"] = 4
+        content = br.page(query=result, page=page, limit=limit)
         # -------------- 返回 -----------------
         con = code.con
         con["data"] = content
-        con["count"] = paginator.count
-        end = clock()
-        errlog.info('未经过缓存: %s Seconds' % (end - start))
+        con["count"] = len(result)
         return JsonResponse(con)
 
     @classmethod
@@ -77,21 +65,12 @@ class BroadcastTextView(View):
         # -------------- 处理 -----------------
         # ******** 序列化器 **********
         br = serBlackRecord()
-        ur = serUserRecord()
         result = br.select_info(select_info)
-        paginator = Paginator(result, limit)
-        content = list()
-        for info in paginator.page(page):
-            mob_id = info.get("mobile__id")
-            time = info.get("time")
-            record_obj = ur.get_recent_record2(mob_id, time)
-            info["monitor"] = record_obj.get("monitor")
-            info["freq__num"] = 4
-            content.append(info)
+        content = br.page(query=result, page=page, limit=limit)
         # -------------- 返回 -----------------
         con = code.con
         con["data"] = content
-        con["count"] = paginator.count
+        con["count"] = len(result)
         return JsonResponse(con)
 
     @classmethod
@@ -224,11 +203,7 @@ class RegionRetrievalView(View):
                 sub_result.extend(sub_sub_result)
         city_result.extend(sub_result)
         # ************ 分页 **************
-        paginator = Paginator(city_result, limit)
-        content = list()
-        for con in paginator.page(page):
-            con["freq__num"] = 4
-            content.append(con)
+        content = br.page(query=city_result, page=page, limit=limit)
         # ---------------- 返回 -----------------
         con = code.con
         con["data"] = content
