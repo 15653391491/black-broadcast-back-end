@@ -2,7 +2,7 @@ import os
 
 ISWORKING_RECORD = 2 * 60  # 心跳包记录时间间隔
 
-EXPIRATION_TIME = 2 * 60  # 心跳包过期时间
+EXPIRATION_TIME = 1 * 60  # 心跳包过期时间
 RECORD_EXPIRATION_TIME = 5 * 60  # 心跳包记录时间过期
 BROADCASTING_EXPRIATION_TIME = 1 * 60  # 黑广播记录过期时间
 CHART_EXPRIATION_TIME = 24 * 60 * 60  # 图表数据过期时间
