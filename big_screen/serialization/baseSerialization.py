@@ -52,7 +52,6 @@ class SerTable:
         content = [info for info in query]
         start = (page - 1) * limit
         end = page * limit
-        print(start, end)
         return content[start:end]
 
     # ------------------ 旧方法 --------------------
