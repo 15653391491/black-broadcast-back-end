@@ -490,7 +490,7 @@ class broadView(View):
             result = map(broadInfoTurn, info_list)
             result = [info for info in result]
             # *************** 保存数据库 **************
-            # save_to_mysql.delay(result)
+            save_to_mysql.delay(result)
             bro = serBlackRecord()
             dis = serDistrict()
             for con in result:
