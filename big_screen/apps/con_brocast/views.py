@@ -81,36 +81,41 @@ class BroadcastTextView(View):
         :param request:
         :return:
         """
-        # ----------- 接收 --------------
-        ret = request.body.decode()
-        ret = eval(ret)
-        category = ret.get("category")
-        address = ret.get("address")
-        contact = ret.get("contact")
-        common = ret.get("common")
-        br_type = ret.get("type")
-        br_id = ret.get("id")
-        # ----------- 验证 --------------
-        # ********* 序列化器 **********
-        br = serBlackRecord()
-        wc = serWhiteCategory()
-        # ------------ 处理 -------------
-        # ******* 判断修改后类型是否合法 *************
-        islegal = wc.is_type_legal(br_type)
-        # ****** 组织数据 *******
-        update_dict = dict()
-        update_dict["category"] = category
-        update_dict["address"] = address
-        update_dict["contact"] = contact
-        update_dict["common"] = common
-        update_dict["islegal"] = islegal
-        update_dict["id"] = br_id
-        # ******** 更新数据库 ************
-        result = br.update_info(update_dict)
-        # ------------ 返回 -------------
-        con = code.con
-        con["data"] = result
-        return JsonResponse(con)
+        try:
+            # ----------- 接收 --------------
+            ret = request.body.decode()
+            errlog.info(ret)
+            ret = eval(ret)
+            category = ret.get("category")
+            address = ret.get("address")
+            contact = ret.get("contact")
+            common = ret.get("common")
+            br_type = ret.get("type")
+            br_id = ret.get("id")
+            # ----------- 验证 --------------
+            # ********* 序列化器 **********
+            br = serBlackRecord()
+            wc = serWhiteCategory()
+            # ------------ 处理 -------------
+            # ******* 判断修改后类型是否合法 *************
+            islegal = wc.is_type_legal(br_type)
+            # ****** 组织数据 *******
+            update_dict = dict()
+            update_dict["category"] = category
+            update_dict["address"] = address
+            update_dict["contact"] = contact
+            update_dict["common"] = common
+            update_dict["islegal"] = islegal
+            update_dict["id"] = br_id
+            # ******** 更新数据库 ************
+            result = br.update_info(update_dict)
+            # ------------ 返回 -------------
+            con = code.con
+            con["data"] = result
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            errlog.info(e)
 
 
 class GetInfoView(View):

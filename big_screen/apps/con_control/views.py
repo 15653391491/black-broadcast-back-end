@@ -625,11 +625,15 @@ class RedioTestView(View):
         # ----------- 接收 ---------------
         ret = request.GET.dict()
         mobile = ret.get("mobile")
+        page = ret.get("page")
+        limit = ret.get("limit")
         # ----------- 验证 ---------------
         # ----------- 处理 ---------------
         rt = serRedioTest()
         result = rt.get_by_mobile(mobile)
+        content = rt.page(query=result, limit=limit, page=page)
         # ----------- 返回 ---------------
         con = code.con
-        con["data"] = result
+        con["data"] = content
+        con["count"] = len(result)
         return JsonResponse(con)
