@@ -7,7 +7,7 @@ import logging
 from big_screen.utils import sys_setting as code
 from big_screen.utils import tools as t
 from big_screen.redisOpration.AllOpration import broadcastOp
-from .tasks import get_chart_data, get_category_data, get_heatmap_data
+from .tasks import getChartData, get_category_data, get_heatmap_data
 from big_screen.serialization.allSerialization import serBlackRecord, serBlackCategory
 
 errlog = logging.getLogger("Process")
@@ -107,7 +107,6 @@ class HeatMapView(View):
         """
         # ----------- 接收 -------------------
         ret = request.body.decode()
-        print(ret)
         ret = eval(ret)
         s_time = ret.get("s_time")
         e_time = ret.get("e_time")
@@ -147,7 +146,7 @@ class FlushDataView(View):
         # --------------- 处理 -------------
         con = code.con
         if flush_type == "chart":
-            info = get_chart_data()
+            info = getChartData()
             con["data"] = info
             return JsonResponse(con)
         if flush_type == "heatmap":

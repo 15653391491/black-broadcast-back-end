@@ -168,7 +168,7 @@ class serBlackRecord(SerTable):
         """
         query = self.table.all().values("id", "time", "freq", "lnglat", "category__name", "mobile__name", "record",
                                         "address",
-                                        "contact", "common").order_by("-time").exclude(islegal=1)
+                                        "contact", "common","islegal").order_by("-time").exclude(islegal=1)
         return query
 
     # ----------------- 数据修正 ----------------------
