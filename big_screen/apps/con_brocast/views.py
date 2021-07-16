@@ -36,23 +36,27 @@ class BroadcastTextView(View):
         :param request:
         :return:
         """
-        # ------------- 接收 ------------------
-        ret = request.GET.dict()
-        limit = ret.get("limit")
-        page = ret.get("page")
-        # ------------- 验证 ------------------
-        # ******** 序列化器 **********
-        br = serBlackRecord()
-        # ********** 是否需要检索 ************
-        # -------------- 处理 -----------------
-        result = br.get_info()
-        # ********* 分页 *************
-        content = br.page(query=result, page=page, limit=limit)
-        # -------------- 返回 -----------------
-        con = code.con
-        con["data"] = content
-        con["count"] = len(result)
-        return JsonResponse(con)
+        try:
+            # ------------- 接收 ------------------
+            ret = request.GET.dict()
+            limit = ret.get("limit")
+            page = ret.get("page")
+            # ------------- 验证 ------------------
+            # ******** 序列化器 **********
+            br = serBlackRecord()
+            # ********** 是否需要检索 ************
+            # -------------- 处理 -----------------
+            result = br.get_info()
+            # ********* 分页 *************
+            content = br.page(query=result, page=page, limit=limit)
+            # -------------- 返回 -----------------
+            con = code.con
+            con["data"] = content
+            con["count"] = len(result)
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            errlog.info(e)
 
     @classmethod
     def post(cls, request):
@@ -175,12 +179,6 @@ class RegionRetrievalView(View):
         # ---------------- 验证 -----------------
         # ********* 序列化器 **********
         br = serBlackRecord()
-        # ********* 验证 ***********
-        try:
-            dis_id = br.dis.get(adcode=adcode, is_district=1).id
-        except br.dis.model.DoesNotExist:
-            dis_id = br.dis.get(adcode=re_format.UNKNOW_ADCODE, is_district=1).id
-        # ---------------- 处理 -----------------
         # ******** 检索字典 **********
         select_dict = dict()
         # ********** 时间范围 **********
@@ -192,21 +190,27 @@ class RegionRetrievalView(View):
             s_time = s_time.strftime(re_format.DATA_FORMATTER)
             select_dict["s_time"] = s_time
             select_dict["e_time"] = e_time
-        # ************ 区域 *************
-        select_dict["district"] = dis_id
-        # ******* 一级 ************
-        city_result = br.select_info(select_dict)
-        # ****** 二级 ************
-        sub_dis = br.dis.filter(superior=dis_id, is_district=1)
-        sub_result = list()
-        if len(sub_dis) is 0:
-            pass
+        if adcode is None:
+            city_result = br.select_info(select_dict)
         else:
-            for sub in sub_dis:
-                select_dict["district"] = sub.id
-                sub_sub_result = br.select_info(select_dict)
-                sub_result.extend(sub_sub_result)
-        city_result.extend(sub_result)
+            # ------------- 地区 ----------------------
+            dis_id = br.dis.get(adcode=adcode, is_district=1).id
+            # ---------------- 处理 -----------------
+            # ************ 区域 *************
+            select_dict["district"] = dis_id
+            # ******* 一级 ************
+            city_result = br.select_info(select_dict)
+            # ****** 二级 ************
+            sub_dis = br.dis.filter(superior=dis_id, is_district=1)
+            sub_result = list()
+            if len(sub_dis) is 0:
+                pass
+            else:
+                for sub in sub_dis:
+                    select_dict["district"] = sub.id
+                    sub_sub_result = br.select_info(select_dict)
+                    sub_result.extend(sub_sub_result)
+            city_result.extend(sub_result)
         # ************ 分页 **************
         content = br.page(query=city_result, page=page, limit=limit)
         # ---------------- 返回 -----------------
