@@ -38,7 +38,7 @@ NEIMENGGU=150000
 YULINSHI = 610800
 wuhai=150300
 # 当前所在以及行政区
-SYS_DISTRICT = wuhai
+SYS_DISTRICT = SHANXII
 
 # 正则验证格式
 DATE_FORMATTER_RE = "[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}"  # 时间

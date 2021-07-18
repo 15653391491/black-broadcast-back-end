@@ -95,7 +95,7 @@ class start_sys:
         :return:
         """
         # ------------ 加入一级行政区 ------------
-        self.md.province_district()
+        # self.md.province_district()
         # ------------ 加入二级行政区 ------------
         self.md.city_district(code.SYS_DISTRICT)
         try:
