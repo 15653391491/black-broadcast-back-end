@@ -557,14 +557,15 @@ class serUserRecord(SerTable):
             content = [{"monitor": "none"}]
         return content[0]
 
-    def getReportMonitor(self, mob_id, time):
+    def getReportMonitor(self, mobile):
         """
         通过手机id获取打卡人
         :param mob_id:
         :param time:
         :return:
         """
-        query = self.table.filter(mobile=mob_id, time__lte=time).values().order_by("-time")
+        mobileId= self.mob.get(mobile=mobile).id
+        query = self.table.filter(mobile=mobileId).values().order_by("-time")
         query = [info for info in query]
         content = map(self.formatter_foreign_content, query)
         content = [info for info in content]

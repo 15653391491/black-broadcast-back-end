@@ -502,9 +502,9 @@ class broadView(View):
                 except Exception:
                     con["district"] = dis.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
                 # 上报人
-                time = con.get("time")
-                record_obj = ur.getReportMonitor(mobile, time)
+                record_obj = ur.getReportMonitor(mobile)
                 con["monitor"] = record_obj.get("monitor")
+                errlog.info(record_obj)
                 bro.insert_info(**con)
             # *************** push到redis队列 *********
             # ********* 白名单过滤 ************

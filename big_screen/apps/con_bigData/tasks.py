@@ -43,6 +43,7 @@ def heat_map_data():
     }
     # ----------------- 保存redis ---------------
     bro_con.kv_set("heatmap_c", con)
+    return con
 
 
 def getChartData():

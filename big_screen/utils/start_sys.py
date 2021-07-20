@@ -94,17 +94,23 @@ class start_sys:
         """
         :return:
         """
-        # ------------ 加入一级行政区 ------------
-        # self.md.province_district()
-        # ------------ 加入二级行政区 ------------
-        self.md.city_district(code.SYS_DISTRICT)
+        # ------------ 删除台站 --------------
+        self.dis.table.filter(is_district=0).delete()
+        # ------------ 加入下级行政区 ------------
+        # 判断是否已经初始化
+        sysId = self.dis.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
         try:
-            # ------------ 加入三级行政区 ------------
-            self.md.dis_district(code.SYS_DISTRICT)
-        except Exception:
-            pass
-        # ---------------- 加入台站 ---------------------
-        self.md.tg_district(code.SYS_DISTRICT)
+            self.dis.table.filter(superior=sysId, is_district=1)  # 是否已经初始化
+        except self.dis.table.model.DoesNotExist:
+            self.md.city_district(code.SYS_DISTRICT)  # 未初始化 填充市级行政区
+            try:
+                self.md.dis_district(code.SYS_DISTRICT)  # 填充县级行政区
+            except Exception:
+                pass
+            self.md.tg_district(code.SYS_DISTRICT)  # 填充台站
+        else:
+            # 已经初始化 只填充台站
+            self.md.tg_district(code.SYS_DISTRICT)  # 填充台站
 
     def addTaizhan(self):
         """

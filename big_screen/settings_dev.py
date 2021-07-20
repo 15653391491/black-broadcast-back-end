@@ -103,8 +103,8 @@ DATABASES = {
         'NAME': 'big_screen',
         'USER': 'root',
         'PASSWORD': 'mysql',
-        'HOST': '124.70.44.128',
-        # 'HOST': 'localhost',
+        # 'HOST': '124.70.44.128',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
