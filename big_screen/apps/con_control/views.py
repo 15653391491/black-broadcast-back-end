@@ -167,46 +167,50 @@ class ControlTextView(View):
         :param request:
         :return:
         """
-        # -------------- 接收 ----------------
-        ret = request.body.decode()
-        ret = eval(ret)
-        district = ret.get("district")
-        name = ret.get("name")
-        mobile = ret.get("mobile")
-        phonenumber = ret.get("phonenumber")
-        time = ret.get("time")
-        # -------------- 验证 ----------------
-        time_result = re.fullmatch(f.DATE_FORMATTER_RE, time)
-        # -------------- 处理 ----------------
-        # ******** 格式转化器 ***********
-        tf = time_formatter()
-        if time_result is None:
-            time = tf.now_time_str
-        # ******* 序列化器 **********
-        mob = serMobile()
-        mp = serMobileToPlatform()
-        # ******** 插入设备 ************
-        insert_dict = dict()
-        insert_dict["district"] = district
-        insert_dict["name"] = name
-        insert_dict["mobile"] = mobile
-        insert_dict["phonenumber"] = phonenumber
-        insert_dict["time"] = time
-        result = mob.insert_info(**insert_dict)
-        #  *********** 注册版本管理 ************
-        mp_info = {
-            "mobile": mobile,
-            "platform": 1,
-            "name": "贵州"
-        }
-        mp.insert_info(**mp_info)
-        # ******* 更新redis中mobile 列表 ***********
-        moblist_op = MobListOp()
-        moblist_op.update_mob_list()
-        # -------------- 返回 ----------------
-        con = code.con
-        con["data"] = result
-        return JsonResponse(con)
+        try:
+            # -------------- 接收 ----------------
+            ret = request.body.decode()
+            ret = eval(ret)
+            district = ret.get("district")
+            name = ret.get("name")
+            mobile = ret.get("mobile")
+            phonenumber = ret.get("phonenumber")
+            time = ret.get("time")
+            # -------------- 验证 ----------------
+            time_result = re.fullmatch(f.DATE_FORMATTER_RE, time)
+            # -------------- 处理 ----------------
+            # ******** 格式转化器 ***********
+            tf = time_formatter()
+            if time_result is None:
+                time = tf.now_time_str
+            # ******* 序列化器 **********
+            mob = serMobile()
+            mp = serMobileToPlatform()
+            # ******** 插入设备 ************
+            insert_dict = dict()
+            insert_dict["district"] = district
+            insert_dict["name"] = name
+            insert_dict["mobile"] = mobile
+            insert_dict["phonenumber"] = phonenumber
+            insert_dict["time"] = time
+            result = mob.insert_info(**insert_dict)
+            #  *********** 注册版本管理 ************
+            mp_info = {
+                "mobile": mobile,
+                "platform": 1,
+                "name": "贵州"
+            }
+            mp.insert_info(**mp_info)
+            # ******* 更新redis中mobile 列表 ***********
+            moblist_op = MobListOp()
+            moblist_op.update_mob_list()
+            # -------------- 返回 ----------------
+            con = code.con
+            con["data"] = result
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            errlog.warning(e)
 
     # √
     @classmethod
