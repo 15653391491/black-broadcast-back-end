@@ -60,22 +60,26 @@ class BroadcastTextView(View):
 
     @classmethod
     def post(cls, request):
-        # ------------- 接收 ------------------
-        ret = eval(request.body.decode())
-        limit = ret.get("limit")
-        page = ret.get("page")
-        select_info = ret.get("msg")
-        # ------------- 验证 ------------------
-        # -------------- 处理 -----------------
-        # ******** 序列化器 **********
-        br = serBlackRecord()
-        result = br.select_info(select_info)
-        content = br.page(query=result, page=page, limit=limit)
-        # -------------- 返回 -----------------
-        con = code.con
-        con["data"] = content
-        con["count"] = len(result)
-        return JsonResponse(con)
+        try:
+            # ------------- 接收 ------------------
+            ret = eval(request.body.decode())
+            limit = ret.get("limit")
+            page = ret.get("page")
+            select_info = ret.get("msg")
+            # ------------- 验证 ------------------
+            # -------------- 处理 -----------------
+            # ******** 序列化器 **********
+            br = serBlackRecord()
+            result = br.select_info(select_info)
+            content = br.page(query=result, page=page, limit=limit)
+            # -------------- 返回 -----------------
+            con = code.con
+            con["data"] = content
+            con["count"] = len(result)
+            return JsonResponse(con)
+        except Exception:
+            e = traceback.format_exc()
+            print(e)
 
     @classmethod
     def patch(cls, request):

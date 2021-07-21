@@ -89,7 +89,7 @@ class serBlackRecord(SerTable):
                                                         "record",
                                                         "address",
                                                         "contact", "common", "category__num", "mobile__id",
-                                                        "islegal").order_by(
+                                                        "islegal", "monitor").order_by(
             "-time")
         contant = self.formatter_content(list(query))
         return contant
@@ -168,7 +168,7 @@ class serBlackRecord(SerTable):
         """
         query = self.table.all().values("id", "time", "freq", "lnglat", "category__name", "mobile__name", "record",
                                         "address",
-                                        "contact", "common","islegal").order_by("-time").exclude(islegal=1)
+                                        "contact", "common", "islegal").order_by("-time").exclude(islegal=1)
         return query
 
     # ----------------- 数据修正 ----------------------
@@ -564,7 +564,7 @@ class serUserRecord(SerTable):
         :param time:
         :return:
         """
-        mobileId= self.mob.get(mobile=mobile).id
+        mobileId = self.mob.get(mobile=mobile).id
         query = self.table.filter(mobile=mobileId).values().order_by("-time")
         query = [info for info in query]
         content = map(self.formatter_foreign_content, query)
