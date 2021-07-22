@@ -291,7 +291,10 @@ class serBlackRecord(SerTable):
         summaryResurt = self.table.filter(islegal=0).values("district").annotate(count=Count("district")).order_by(
             "-count")
         for info in summaryResurt:
-            info["district"] = self.dis.get(id=info.get("district")).name
+            try:
+                info["district"] = self.dis.get(id=info.get("district")).name
+            except Exception:
+                pass
         return self.queryToList(summaryResurt)
 
     #  -------------- 组织数据 -------------------
