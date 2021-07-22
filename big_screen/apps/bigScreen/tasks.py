@@ -4,6 +4,7 @@ from __future__ import absolute_import
 from big_screen.utils import tools as t
 import calendar
 import datetime
+import logging
 
 from con_brocast.models import BlackCategory
 from big_screen.celery import app
@@ -12,6 +13,7 @@ from big_screen.redisOpration.AllOpration import chartOp, broadcastOp, massmarkO
 from con_control.Serialization import serMobile
 from big_screen.serialization.allSerialization import serUserRecord,serBlackRecord
 
+errlog = logging.getLogger("Process")
 
 @app.task
 def set_bigscreen_chart():
@@ -92,9 +94,11 @@ def set_bigscreen_chart():
     ur = serUserRecord()
     urqueryset = ur.summaryByColumn("mobile__name")
     chartUserRecord = ur.queryToList(urqueryset.order_by("-count"))
+    print(chartUserRecord)
     # ------------------------ 六、黑广播发现排名 ------------------------------
     br = serBlackRecord()
     brSummary = br.summaryByRegion()
+    print(brSummary)
     # ------------------------- 设置redis ----------------------------
     # ************* 计数器 ***************
     chart_con.kv_set("counter", con_counter)
