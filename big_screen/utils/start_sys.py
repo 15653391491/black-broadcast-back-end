@@ -80,15 +80,11 @@ class start_sys:
         self.md.unknow_district()
         # ------------ 加入一级行政区 ------------
         self.md.province_district()
-        # ------------ 加入二级行政区 ------------
-        self.md.city_district(code.SYS_DISTRICT)
-        try:
-            # ------------ 加入三级行政区 ------------
-            self.md.dis_district(code.SYS_DISTRICT)
-        except Exception:
-            pass
-        # ---------------- 加入台站 ---------------------
-        self.md.tg_district(code.SYS_DISTRICT)
+        # ------------ 加入三级行政区 ------------
+        provinceAdcode = str(code.SYS_DISTRICT)[0:2] + "0000"
+        self.md.city_district(int(provinceAdcode))
+        self.md.dis_district(int(provinceAdcode))
+        self.md.addTG(code.SYS_DISTRICT)
 
     def addDistrict(self):
         """
@@ -98,7 +94,10 @@ class start_sys:
         self.dis.table.filter(is_district=0).delete()
         # ------------ 加入下级行政区 ------------
         # 判断是否已经初始化
-        sysId = self.dis.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
+        try:
+            sysId = self.dis.table.get(adcode=code.SYS_DISTRICT, is_district=1).id
+        except self.dis.table.model.DoesNotExist:
+            return
         try:
             self.dis.table.filter(superior=sysId, is_district=1)  # 是否已经初始化
         except self.dis.table.model.DoesNotExist:
@@ -110,7 +109,7 @@ class start_sys:
             self.md.tg_district(code.SYS_DISTRICT)  # 填充台站
         else:
             # 已经初始化 只填充台站
-            self.md.tg_district(code.SYS_DISTRICT)  # 填充台站
+            self.md.addTG(code.SYS_DISTRICT)  # 填充台站
 
     def addTaizhan(self):
         """
@@ -168,7 +167,7 @@ class start_sys:
             self.bc.insert_info(**insert_dict)
 
     def start(self):
-        # self.init_district()
+        self.init_district()
         self.init_whcategory()
         self.init_blackcategory()
 

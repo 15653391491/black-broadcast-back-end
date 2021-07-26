@@ -173,7 +173,6 @@ class RegionRetrievalView(View):
         :param request:
         :return:
         """
-
         # ---------------- 接收 -----------------
         ret = request.GET.dict()
         page = ret.get("page")

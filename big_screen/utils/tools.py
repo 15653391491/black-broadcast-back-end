@@ -646,6 +646,25 @@ class MakeDistrict:
                 sub_obj = self.s.table.get(adcode=sub_adcode)
             self.insert_tg_to_sql(sub, sub_obj.id)
 
+    def addTG(self, adcode):
+        """
+        添加台站
+        :param adcode:
+        :return:
+        """
+        dis = serDistrict()
+        disId = dis.table.get(is_district=1, adcode=adcode).id
+        subDis = dis.table.filter(is_district=1, superior=disId)
+        for sub in subDis:
+            tgInfo = {
+                "is_district": 0,
+                "name": sub.name,
+                "adcode": sub.adcode,
+                "superior": sub.superior
+            }
+            tg = dis.table.create(**tgInfo)
+            tg.save()
+
     def dis_district(self, adcode):
         """
         填充区县级行政区
