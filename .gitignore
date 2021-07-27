@@ -8,4 +8,3 @@ shell/
 # Ada Library Information
 *.ali
 .idea/
-migrations/
