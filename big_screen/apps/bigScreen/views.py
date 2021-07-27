@@ -59,6 +59,7 @@ def websocketchart(request):
     """
     try:
         if request.is_websocket():
+            set_bigscreen_chart.delay()
             while True:
                 try:
                     chart_con = get_redis_connection('chart')
@@ -72,7 +73,6 @@ def websocketchart(request):
                     category = []
                     time_count = []
                     chart_year_month = []
-                    set_bigscreen_chart.delay()
                 else:
                     counter = json.loads(counter)
                     category = json.loads(category)
@@ -84,7 +84,6 @@ def websocketchart(request):
                 except Exception:
                     mobileSummary = []
                     regionSummary = []
-                    set_bigscreen_chart.delay()
                 else:
                     mobileSummary = json.loads(mobileSummary)
                     regionSummary = json.loads(regionSummary)
