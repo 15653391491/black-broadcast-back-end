@@ -29,8 +29,13 @@ def websocketmassmark(request):
         # --------------- 返回 -----------------------
         if request.is_websocket():
             while True:
-                content = select_broadcast_data()
-                request.websocket.send(json.dumps(content))
+                try:
+                    content = select_broadcast_data()
+                except Exception:
+                    content = []
+                else:
+                    content = json.dumps(content)
+                request.websocket.send(content)
                 request.websocket.wait()
         else:
             content = select_broadcast_data()
@@ -54,11 +59,23 @@ def websocketchart(request):
     try:
         if request.is_websocket():
             while True:
-                chart_con = get_redis_connection('chart')
-                counter = chart_con.get('counter').decode()
-                chart_year_month = chart_con.get('chart_year_month').decode()
-                category = chart_con.get('category').decode()
-                time_count = chart_con.get('time_count').decode()
+                try:
+                    chart_con = get_redis_connection('chart')
+                    counter = chart_con.get('counter').decode()
+                    chart_year_month = chart_con.get('chart_year_month').decode()
+                    category = chart_con.get('category').decode()
+                    time_count = chart_con.get('time_count').decode()
+                except Exception:
+                    errlog.info("无数据")
+                    counter = []
+                    category = []
+                    time_count = []
+                    chart_year_month = []
+                else:
+                    counter = json.loads(counter)
+                    category = json.loads(category)
+                    time_count = json.loads(time_count)
+                    chart_year_month = json.loads(chart_year_month)
                 try:
                     mobileSummary = chart_con.get("mobileSummary").decode()
                     regionSummary = chart_con.get("regionSummary").decode()
@@ -69,10 +86,10 @@ def websocketchart(request):
                     mobileSummary = json.loads(mobileSummary)
                     regionSummary = json.loads(regionSummary)
                 data = {
-                    'counter': json.loads(counter),
-                    'chart_year_month': json.loads(chart_year_month),
-                    'category': json.loads(category),
-                    'time_count': json.loads(time_count),
+                    'counter': counter,
+                    'chart_year_month': chart_year_month,
+                    'category': category,
+                    'time_count': time_count,
                     "mobileSummary": mobileSummary,
                     "regionSummary": regionSummary
                 }
@@ -112,8 +129,13 @@ def websocketisworkon(request):
     try:
         if request.is_websocket():
             while True:
-                con = select_isworkon_data()
-                request.websocket.send(json.dumps(con))
+                try:
+                    con = select_isworkon_data()
+                except Exception:
+                    con = []
+                else:
+                    con = json.dumps(con)
+                request.websocket.send(con)
                 request.websocket.wait()
         else:
             con = select_isworkon_data()
