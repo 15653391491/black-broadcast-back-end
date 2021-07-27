@@ -9,6 +9,7 @@ import traceback
 from big_screen.utils import sys_setting as code
 from big_screen.redisOpration.AllOpration import isworkingOp, massmarkOp, broadcastOp
 from big_screen.serialization.allSerialization import serMobile
+from .tasks import set_bigscreen_chart
 
 socket_obj = list()
 errlog = logging.getLogger("Process")
@@ -71,6 +72,7 @@ def websocketchart(request):
                     category = []
                     time_count = []
                     chart_year_month = []
+                    set_bigscreen_chart.delay()
                 else:
                     counter = json.loads(counter)
                     category = json.loads(category)
@@ -82,6 +84,7 @@ def websocketchart(request):
                 except Exception:
                     mobileSummary = []
                     regionSummary = []
+                    set_bigscreen_chart.delay()
                 else:
                     mobileSummary = json.loads(mobileSummary)
                     regionSummary = json.loads(regionSummary)
