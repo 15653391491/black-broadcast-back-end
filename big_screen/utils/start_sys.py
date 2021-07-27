@@ -170,8 +170,9 @@ class start_sys:
         self.init_district()
         self.init_whcategory()
         self.init_blackcategory()
-
-    def start2(self):
         self.init_mobile()
         self.init_monitor()
         self.init_whitelist()
+
+
+
